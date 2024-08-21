@@ -45,12 +45,12 @@ async def predict(req: News):
     
     prediction = ann.predict(news_vector)[0]
     probability_real = prediction[0]  
-    probability_fake = 1 - probability_real  
+    probability_fake = 1 - probability_real
 
-    return {
-        "Probability that this news is real is: ": round(probability_real * 100, 2),
-        "Probability that this news is fake is: ": round(probability_fake * 100, 2)
-    }
+    return [
+        {"Real ": ("Percent: "+str(round(probability_real * 100, 2)), "Message:"+ " this news is real")},
+        {"Fake ": ("Percent: "+str(round(probability_fake * 100, 2)), "Message:"+ " this news is fake")}
+    ]
 
 if __name__ == '__main__':
     uvicorn.run(app)
