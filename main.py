@@ -10,6 +10,8 @@ import nltk
 import pickle
 import numpy as np
 
+nltk.download('stopwords')
+
 ann = load_model('my_model.h5', compile=False)
 with open("countvectorizer.pkl", 'rb') as f:
     cv = pickle.load(f)
