@@ -1,0 +1,1260 @@
+{
+  "note": "Phase 3E probe families run across all candidate models; model A uses production label semantics (0.10 uncertainty band); B/C/D/E use standard 0.5 threshold (SVM decision>0).",
+  "models": {
+    "A_production": {
+      "label_semantics": "production (UNCERTAINTY_THRESHOLD=0.10)",
+      "mean_delta_strip_dateline": -0.1767898365855217,
+      "strip_dateline_label_flips": 2,
+      "mean_delta_add_dateline": 0.3534306410168024,
+      "dateline_add_label_flips": 7,
+      "plain_mean_p_real": 0.40491842245357973,
+      "styled_mean_p_real": 0.7583490634703821,
+      "items": [
+        {
+          "family": "reuters",
+          "title": "U.S. spy agencies fight Congress over plan for probe of covert Russian influence campaign",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Factbox: Germans have two ballots in complex election system",
+          "p_original": 0.9999969005584717,
+          "p_stripped": 0.18313594162464142,
+          "label_original": "REAL",
+          "label_stripped": "FAKE"
+        },
+        {
+          "family": "reuters",
+          "title": "Brazil studying extradition of Italian ex-leftist guerilla Battisti",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "South Korea's Moon says North Korea missile capability seems improved",
+          "p_original": 0.9999653697013855,
+          "p_stripped": 0.9913057684898376,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Trump would tax Carrier air conditioning units for moving to Mexico",
+          "p_original": 1.0,
+          "p_stripped": 0.9999999403953552,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "German political rivals agree: No lottery for me",
+          "p_original": 0.9999967813491821,
+          "p_stripped": 0.9996572136878967,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Britons who join Islamic State should be hunted and killed: defence minister",
+          "p_original": 0.9999985098838806,
+          "p_stripped": 0.05798983573913574,
+          "label_original": "REAL",
+          "label_stripped": "FAKE"
+        },
+        {
+          "family": "reuters",
+          "title": "Two injured in shooting at South Africa's Cape Town airport",
+          "p_original": 0.9999995827674866,
+          "p_stripped": 0.9999700784683228,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Australian PM to force lawmakers to declare citizenship to end political crisis",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "U.N. chief, Security Council call on Myanmar to end violence",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "UN votes to adopt new world map that shows Africa\u2019s true scale",
+          "p_plain": 0.9999985098838806,
+          "p_reutersstyled": 1.0,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Spain\u2019s PM says no evidence \u2018whatsoever\u2019 Morocco behind Ceuta border breach",
+          "p_plain": 1.0,
+          "p_reutersstyled": 1.0,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "\u2018We continue to suffer\u2019: victims of apartheid-era Sharpeville massacre demand compensation",
+          "p_plain": 1.0,
+          "p_reutersstyled": 1.0,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+          "p_plain": 0.9143684506416321,
+          "p_reutersstyled": 0.9999995827674866,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US military hits 3 Iranian oil tankers after saying Navy warships were targeted",
+          "p_plain": 0.7056806683540344,
+          "p_reutersstyled": 0.9999996423721313,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Opinion: A sculpture in perpetual motion, removed",
+          "p_plain": 0.00029704769258387387,
+          "p_reutersstyled": 0.8656817674636841,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Trump administration to dig at triumphal arch site despite no final federal approvals",
+          "p_plain": 0.0002842080721165985,
+          "p_reutersstyled": 0.9974390864372253,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Whatever happened to the floating schools of Bangladesh?",
+          "p_plain": 0.9999983906745911,
+          "p_reutersstyled": 1.0,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Masked anti-migrant protesters block UK's Dover terminal",
+          "p_plain": 0.21311268210411072,
+          "p_reutersstyled": 0.9999985694885254,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Fact check: Germany's postal voting system isn't rigged",
+          "p_plain": 2.2298845763107553e-20,
+          "p_reutersstyled": 2.5260423348170883e-17,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Russia to pause strikes against Kyiv amid Ukraine talks",
+          "p_plain": 0.9997207522392273,
+          "p_reutersstyled": 0.9999999403953552,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Iran war: Explosions reported near Kharg Island",
+          "p_plain": 0.2331671416759491,
+          "p_reutersstyled": 0.999966025352478,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Israeli campaign of West Bank destruction moves on to region\u2019s food basket | Israel-Palestine conflict | Al Jazeera",
+          "p_plain": 0.027377143502235413,
+          "p_reutersstyled": 0.9997702836990356,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive | Floods News | Al Jazeera",
+          "p_plain": 1.0,
+          "p_reutersstyled": 1.0,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Multipolarity gives middle powers more choices, but fewer guarantees | Opinions | Al Jazeera",
+          "p_plain": 1.7347925762578598e-08,
+          "p_reutersstyled": 0.000113936337584164,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US says it hit Iran oil tankers helping finance \u2018regional proxies\u2019 | US-Israel war on Iran News | Al Jazeera",
+          "p_plain": 0.0005447150906547904,
+          "p_reutersstyled": 0.3033579885959625,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "'Jhooth ki goonj': PM Modi takes swipe at Rahul, attacks 'mai-baap' culture",
+          "p_plain": 4.144351972712457e-09,
+          "p_reutersstyled": 6.66549112793291e-07,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Congress replaces  Bhupesh Baghel with Sachin Pilot as Punjab general secretary",
+          "p_plain": 0.0036073580849915743,
+          "p_reutersstyled": 0.9998401403427124,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Watch: US strikes 3 Iranian oil tankers after Iran targets 2 navy warships",
+          "p_plain": 6.864947408757871e-06,
+          "p_reutersstyled": 0.0013349418295547366,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Harmanpreet Kaur creates history, becomes first cricketer ever to captain in 150 T20Is",
+          "p_plain": 0.00020449461590033025,
+          "p_reutersstyled": 0.9994786977767944,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        }
+      ]
+    },
+    "B_isot_tfidf_lr": {
+      "label_semantics": "proba",
+      "mean_delta_strip_dateline": -0.016374930078472804,
+      "strip_dateline_label_flips": 0,
+      "mean_delta_add_dateline": 0.0715797235963695,
+      "dateline_add_label_flips": 2,
+      "plain_mean_p_real": 0.635260108406034,
+      "styled_mean_p_real": 0.7068398320024035,
+      "items": [
+        {
+          "family": "reuters",
+          "title": "U.S. spy agencies fight Congress over plan for probe of covert Russian influence campaign",
+          "p_original": 0.9998580591433468,
+          "p_stripped": 0.9997937513757214,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Factbox: Germans have two ballots in complex election system",
+          "p_original": 0.9859312455080883,
+          "p_stripped": 0.9687852555600546,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Brazil studying extradition of Italian ex-leftist guerilla Battisti",
+          "p_original": 0.9966749026180105,
+          "p_stripped": 0.9929633479393961,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "South Korea's Moon says North Korea missile capability seems improved",
+          "p_original": 0.9998288199784179,
+          "p_stripped": 0.9987849533997493,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Trump would tax Carrier air conditioning units for moving to Mexico",
+          "p_original": 0.9975558610002574,
+          "p_stripped": 0.9957782247550158,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "German political rivals agree: No lottery for me",
+          "p_original": 0.9732067903555549,
+          "p_stripped": 0.9160503379076989,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Britons who join Islamic State should be hunted and killed: defence minister",
+          "p_original": 0.9715191640780858,
+          "p_stripped": 0.8920053719614722,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Two injured in shooting at South Africa's Cape Town airport",
+          "p_original": 0.9990419811437369,
+          "p_stripped": 0.9971603607635245,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Australian PM to force lawmakers to declare citizenship to end political crisis",
+          "p_original": 0.9991605510991025,
+          "p_stripped": 0.9978446889889787,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "U.N. chief, Security Council call on Myanmar to end violence",
+          "p_original": 0.9999006950432928,
+          "p_stripped": 0.9997624765315544,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "UN votes to adopt new world map that shows Africa\u2019s true scale",
+          "p_plain": 0.9514496811396976,
+          "p_reutersstyled": 0.9684020543293573,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Spain\u2019s PM says no evidence \u2018whatsoever\u2019 Morocco behind Ceuta border breach",
+          "p_plain": 0.9899503509705252,
+          "p_reutersstyled": 0.9938299663548457,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "\u2018We continue to suffer\u2019: victims of apartheid-era Sharpeville massacre demand compensation",
+          "p_plain": 0.767039468605975,
+          "p_reutersstyled": 0.8417201501826516,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+          "p_plain": 0.9821715198796672,
+          "p_reutersstyled": 0.9910837229543448,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US military hits 3 Iranian oil tankers after saying Navy warships were targeted",
+          "p_plain": 0.9769967401264292,
+          "p_reutersstyled": 0.9869293602105155,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Opinion: A sculpture in perpetual motion, removed",
+          "p_plain": 0.05938129273927277,
+          "p_reutersstyled": 0.1087866509872033,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Trump administration to dig at triumphal arch site despite no final federal approvals",
+          "p_plain": 0.06940221742178578,
+          "p_reutersstyled": 0.34404693400607855,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Whatever happened to the floating schools of Bangladesh?",
+          "p_plain": 0.2557601060122943,
+          "p_reutersstyled": 0.3297924878018484,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Masked anti-migrant protesters block UK's Dover terminal",
+          "p_plain": 0.902680602400947,
+          "p_reutersstyled": 0.9557758037842311,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Fact check: Germany's postal voting system isn't rigged",
+          "p_plain": 0.3236606547298307,
+          "p_reutersstyled": 0.40911361766349497,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Russia to pause strikes against Kyiv amid Ukraine talks",
+          "p_plain": 0.9258471645535189,
+          "p_reutersstyled": 0.9586150492352146,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Iran war: Explosions reported near Kharg Island",
+          "p_plain": 0.9303896693904996,
+          "p_reutersstyled": 0.9544492847087955,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Israeli campaign of West Bank destruction moves on to region\u2019s food basket | Israel-Palestine conflict | Al Jazeera",
+          "p_plain": 0.2138212106516928,
+          "p_reutersstyled": 0.26583702958685673,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive | Floods News | Al Jazeera",
+          "p_plain": 0.9599666191157421,
+          "p_reutersstyled": 0.9751284569312959,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Multipolarity gives middle powers more choices, but fewer guarantees | Opinions | Al Jazeera",
+          "p_plain": 0.849231618351451,
+          "p_reutersstyled": 0.8972824951343212,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US says it hit Iran oil tankers helping finance \u2018regional proxies\u2019 | US-Israel war on Iran News | Al Jazeera",
+          "p_plain": 0.7245989377228723,
+          "p_reutersstyled": 0.845927282257232,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "'Jhooth ki goonj': PM Modi takes swipe at Rahul, attacks 'mai-baap' culture",
+          "p_plain": 0.14244573911284758,
+          "p_reutersstyled": 0.18524918382496822,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Congress replaces  Bhupesh Baghel with Sachin Pilot as Punjab general secretary",
+          "p_plain": 0.7824376972033084,
+          "p_reutersstyled": 0.9127071868620301,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Watch: US strikes 3 Iranian oil tankers after Iran targets 2 navy warships",
+          "p_plain": 0.47923019133152517,
+          "p_reutersstyled": 0.6543144709873449,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Harmanpreet Kaur creates history, becomes first cricketer ever to captain in 150 T20Is",
+          "p_plain": 0.4187406866607967,
+          "p_reutersstyled": 0.5578054522454392,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        }
+      ]
+    },
+    "C_isot_tfidf_svm": {
+      "label_semantics": "svm",
+      "mean_delta_strip_dateline": -0.2938840616089451,
+      "strip_dateline_label_flips": 0,
+      "mean_delta_add_dateline": 0.18004292309243333,
+      "dateline_add_label_flips": 2,
+      "plain_mean_p_real": 0.23819501104478186,
+      "styled_mean_p_real": 0.4182379341372151,
+      "items": [
+        {
+          "family": "reuters",
+          "title": "U.S. spy agencies fight Congress over plan for probe of covert Russian influence campaign",
+          "p_original": 2.3680056214018874,
+          "p_stripped": 2.2625188049327125,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Factbox: Germans have two ballots in complex election system",
+          "p_original": 1.0856294200978653,
+          "p_stripped": 0.8458997401503029,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Brazil studying extradition of Italian ex-leftist guerilla Battisti",
+          "p_original": 1.7017052969711721,
+          "p_stripped": 1.4805668716270546,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "South Korea's Moon says North Korea missile capability seems improved",
+          "p_original": 2.4915421438514254,
+          "p_stripped": 1.9114034466657128,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Trump would tax Carrier air conditioning units for moving to Mexico",
+          "p_original": 1.5822185604200247,
+          "p_stripped": 1.4273368656245182,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "German political rivals agree: No lottery for me",
+          "p_original": 0.9537716348990749,
+          "p_stripped": 0.59977729819461,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Britons who join Islamic State should be hunted and killed: defence minister",
+          "p_original": 0.9570941213362357,
+          "p_stripped": 0.5364378272968385,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Two injured in shooting at South Africa's Cape Town airport",
+          "p_original": 1.8919861992898523,
+          "p_stripped": 1.5734591842736192,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Australian PM to force lawmakers to declare citizenship to end political crisis",
+          "p_original": 1.8491766055739478,
+          "p_stripped": 1.5599925142647004,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "U.N. chief, Security Council call on Myanmar to end violence",
+          "p_original": 2.429343196913133,
+          "p_stripped": 2.174239631635099,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "UN votes to adopt new world map that shows Africa\u2019s true scale",
+          "p_plain": 0.7247534758784041,
+          "p_reutersstyled": 0.8525356247940222,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Spain\u2019s PM says no evidence \u2018whatsoever\u2019 Morocco behind Ceuta border breach",
+          "p_plain": 1.3334577177674647,
+          "p_reutersstyled": 1.4738743695442067,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "\u2018We continue to suffer\u2019: victims of apartheid-era Sharpeville massacre demand compensation",
+          "p_plain": 0.34999717587731805,
+          "p_reutersstyled": 0.4869021789994813,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+          "p_plain": 0.9573951375131752,
+          "p_reutersstyled": 1.158171433252058,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US military hits 3 Iranian oil tankers after saying Navy warships were targeted",
+          "p_plain": 0.949208882830951,
+          "p_reutersstyled": 1.1136616077367432,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Opinion: A sculpture in perpetual motion, removed",
+          "p_plain": -0.7334632050075798,
+          "p_reutersstyled": -0.5423370993185795,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Trump administration to dig at triumphal arch site despite no final federal approvals",
+          "p_plain": -0.7969485689306648,
+          "p_reutersstyled": -0.23410727398374773,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Whatever happened to the floating schools of Bangladesh?",
+          "p_plain": -0.19075354696387353,
+          "p_reutersstyled": -0.08827950701579856,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Masked anti-migrant protesters block UK's Dover terminal",
+          "p_plain": 0.4353951966632611,
+          "p_reutersstyled": 0.6774509012493778,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Fact check: Germany's postal voting system isn't rigged",
+          "p_plain": -0.21874560115171673,
+          "p_reutersstyled": -0.11326024907512033,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Russia to pause strikes against Kyiv amid Ukraine talks",
+          "p_plain": 0.6314661566514047,
+          "p_reutersstyled": 0.8080699791438687,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Iran war: Explosions reported near Kharg Island",
+          "p_plain": 0.5533676308446304,
+          "p_reutersstyled": 0.6818898717346277,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Israeli campaign of West Bank destruction moves on to region\u2019s food basket | Israel-Palestine conflict | Al Jazeera",
+          "p_plain": -0.3619076395784545,
+          "p_reutersstyled": -0.28018203728543334,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive | Floods News | Al Jazeera",
+          "p_plain": 0.8156585532260535,
+          "p_reutersstyled": 0.9561393089314404,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Multipolarity gives middle powers more choices, but fewer guarantees | Opinions | Al Jazeera",
+          "p_plain": 0.45286476765461126,
+          "p_reutersstyled": 0.5808353334012643,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US says it hit Iran oil tankers helping finance \u2018regional proxies\u2019 | US-Israel war on Iran News | Al Jazeera",
+          "p_plain": 0.18445323380317036,
+          "p_reutersstyled": 0.39470655592236126,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "'Jhooth ki goonj': PM Modi takes swipe at Rahul, attacks 'mai-baap' culture",
+          "p_plain": -0.44191377870323595,
+          "p_reutersstyled": -0.3522834096372226,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Congress replaces  Bhupesh Baghel with Sachin Pilot as Punjab general secretary",
+          "p_plain": 0.21152870097426502,
+          "p_reutersstyled": 0.5169220960063325,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Watch: US strikes 3 Iranian oil tankers after Iran targets 2 navy warships",
+          "p_plain": -0.066586328462651,
+          "p_reutersstyled": 0.1394561897367913,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Harmanpreet Kaur creates history, becomes first cricketer ever to captain in 150 T20Is",
+          "p_plain": -0.02532773999089627,
+          "p_reutersstyled": 0.1345928086076298,
+          "label_plain": "FAKE",
+          "label_styled": "REAL"
+        }
+      ]
+    },
+    "D_isot_buzzfeed_tfidf_lr": {
+      "label_semantics": "proba",
+      "mean_delta_strip_dateline": -0.01810222194640736,
+      "strip_dateline_label_flips": 0,
+      "mean_delta_add_dateline": 0.0686971631517326,
+      "dateline_add_label_flips": 0,
+      "plain_mean_p_real": 0.6821799812683738,
+      "styled_mean_p_real": 0.7508771444201064,
+      "items": [
+        {
+          "family": "reuters",
+          "title": "U.S. spy agencies fight Congress over plan for probe of covert Russian influence campaign",
+          "p_original": 0.9998290537904221,
+          "p_stripped": 0.9997554547827531,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Factbox: Germans have two ballots in complex election system",
+          "p_original": 0.9860152904697705,
+          "p_stripped": 0.9695665445018853,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Brazil studying extradition of Italian ex-leftist guerilla Battisti",
+          "p_original": 0.9966541832494543,
+          "p_stripped": 0.9930585436326328,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "South Korea's Moon says North Korea missile capability seems improved",
+          "p_original": 0.9997688231611109,
+          "p_stripped": 0.9984593651074511,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Trump would tax Carrier air conditioning units for moving to Mexico",
+          "p_original": 0.9976997551857041,
+          "p_stripped": 0.9961183373666112,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "German political rivals agree: No lottery for me",
+          "p_original": 0.9823196279274831,
+          "p_stripped": 0.9451762419093843,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Britons who join Islamic State should be hunted and killed: defence minister",
+          "p_original": 0.9493823178804086,
+          "p_stripped": 0.831488754566556,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Two injured in shooting at South Africa's Cape Town airport",
+          "p_original": 0.9990613468374451,
+          "p_stripped": 0.9973323683854333,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Australian PM to force lawmakers to declare citizenship to end political crisis",
+          "p_original": 0.9992757927508322,
+          "p_stripped": 0.9981962257468115,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "U.N. chief, Security Council call on Myanmar to end violence",
+          "p_original": 0.9998748362647665,
+          "p_stripped": 0.9997069720538052,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "UN votes to adopt new world map that shows Africa\u2019s true scale",
+          "p_plain": 0.9531811991491527,
+          "p_reutersstyled": 0.969072472537939,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Spain\u2019s PM says no evidence \u2018whatsoever\u2019 Morocco behind Ceuta border breach",
+          "p_plain": 0.9934257174055314,
+          "p_reutersstyled": 0.9958952498241752,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "\u2018We continue to suffer\u2019: victims of apartheid-era Sharpeville massacre demand compensation",
+          "p_plain": 0.8304318465430369,
+          "p_reutersstyled": 0.8860366678153743,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+          "p_plain": 0.9786453109179202,
+          "p_reutersstyled": 0.9890325175245159,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US military hits 3 Iranian oil tankers after saying Navy warships were targeted",
+          "p_plain": 0.9831127113818762,
+          "p_reutersstyled": 0.9902315202001535,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Opinion: A sculpture in perpetual motion, removed",
+          "p_plain": 0.20108838519319566,
+          "p_reutersstyled": 0.3228121560000925,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Trump administration to dig at triumphal arch site despite no final federal approvals",
+          "p_plain": 0.06580827623702855,
+          "p_reutersstyled": 0.3191142642109221,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Whatever happened to the floating schools of Bangladesh?",
+          "p_plain": 0.35116983401840246,
+          "p_reutersstyled": 0.4328450811398821,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Masked anti-migrant protesters block UK's Dover terminal",
+          "p_plain": 0.8881388852061388,
+          "p_reutersstyled": 0.9472372604719222,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Fact check: Germany's postal voting system isn't rigged",
+          "p_plain": 0.401950840717055,
+          "p_reutersstyled": 0.4897828075387567,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Russia to pause strikes against Kyiv amid Ukraine talks",
+          "p_plain": 0.9395855156622755,
+          "p_reutersstyled": 0.9657655804267721,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Iran war: Explosions reported near Kharg Island",
+          "p_plain": 0.9386295725070289,
+          "p_reutersstyled": 0.9593369199697481,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Israeli campaign of West Bank destruction moves on to region\u2019s food basket | Israel-Palestine conflict | Al Jazeera",
+          "p_plain": 0.24356874845452617,
+          "p_reutersstyled": 0.2978157056155159,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive | Floods News | Al Jazeera",
+          "p_plain": 0.9629124675317144,
+          "p_reutersstyled": 0.9765818579612682,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Multipolarity gives middle powers more choices, but fewer guarantees | Opinions | Al Jazeera",
+          "p_plain": 0.9172136145386631,
+          "p_reutersstyled": 0.9443404062309957,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US says it hit Iran oil tankers helping finance \u2018regional proxies\u2019 | US-Israel war on Iran News | Al Jazeera",
+          "p_plain": 0.7378329121687637,
+          "p_reutersstyled": 0.8511587820381024,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "'Jhooth ki goonj': PM Modi takes swipe at Rahul, attacks 'mai-baap' culture",
+          "p_plain": 0.2860640483527922,
+          "p_reutersstyled": 0.35165196531938936,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Congress replaces  Bhupesh Baghel with Sachin Pilot as Punjab general secretary",
+          "p_plain": 0.8797112037454828,
+          "p_reutersstyled": 0.9533273749076702,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Watch: US strikes 3 Iranian oil tankers after Iran targets 2 navy warships",
+          "p_plain": 0.5885355830711003,
+          "p_reutersstyled": 0.7412562663870776,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Harmanpreet Kaur creates history, becomes first cricketer ever to captain in 150 T20Is",
+          "p_plain": 0.5025929525657906,
+          "p_reutersstyled": 0.6342480322818547,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        }
+      ]
+    },
+    "E_isot_buzzfeed_nn": {
+      "label_semantics": "proba",
+      "mean_delta_strip_dateline": -0.0017298579216003418,
+      "strip_dateline_label_flips": 0,
+      "mean_delta_add_dateline": 0.025422725807584357,
+      "dateline_add_label_flips": 0,
+      "plain_mean_p_real": 0.6023881222339696,
+      "styled_mean_p_real": 0.627810848041554,
+      "items": [
+        {
+          "family": "reuters",
+          "title": "U.S. spy agencies fight Congress over plan for probe of covert Russian influence campaign",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Factbox: Germans have two ballots in complex election system",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Brazil studying extradition of Italian ex-leftist guerilla Battisti",
+          "p_original": 0.9999998211860657,
+          "p_stripped": 0.9999995231628418,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "South Korea's Moon says North Korea missile capability seems improved",
+          "p_original": 0.9978868365287781,
+          "p_stripped": 0.9930870532989502,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Trump would tax Carrier air conditioning units for moving to Mexico",
+          "p_original": 0.9996417760848999,
+          "p_stripped": 0.9993190765380859,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "German political rivals agree: No lottery for me",
+          "p_original": 0.9954819083213806,
+          "p_stripped": 0.9858591556549072,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Britons who join Islamic State should be hunted and killed: defence minister",
+          "p_original": 0.9996173977851868,
+          "p_stripped": 0.9971469044685364,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Two injured in shooting at South Africa's Cape Town airport",
+          "p_original": 0.9999593496322632,
+          "p_stripped": 0.9998769760131836,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "Australian PM to force lawmakers to declare citizenship to end political crisis",
+          "p_original": 1.0,
+          "p_stripped": 0.9999998211860657,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "reuters",
+          "title": "U.N. chief, Security Council call on Myanmar to end violence",
+          "p_original": 1.0,
+          "p_stripped": 1.0,
+          "label_original": "REAL",
+          "label_stripped": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "UN votes to adopt new world map that shows Africa\u2019s true scale",
+          "p_plain": 0.9999983906745911,
+          "p_reutersstyled": 0.9999992251396179,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Spain\u2019s PM says no evidence \u2018whatsoever\u2019 Morocco behind Ceuta border breach",
+          "p_plain": 1.0,
+          "p_reutersstyled": 1.0,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "\u2018We continue to suffer\u2019: victims of apartheid-era Sharpeville massacre demand compensation",
+          "p_plain": 0.9998170733451843,
+          "p_reutersstyled": 0.9998959302902222,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+          "p_plain": 0.9999024271965027,
+          "p_reutersstyled": 0.9999509453773499,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US military hits 3 Iranian oil tankers after saying Navy warships were targeted",
+          "p_plain": 0.9999969601631165,
+          "p_reutersstyled": 0.9999983906745911,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Opinion: A sculpture in perpetual motion, removed",
+          "p_plain": 0.9042963981628418,
+          "p_reutersstyled": 0.9558808207511902,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Trump administration to dig at triumphal arch site despite no final federal approvals",
+          "p_plain": 0.06488338857889175,
+          "p_reutersstyled": 0.2094731479883194,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Whatever happened to the floating schools of Bangladesh?",
+          "p_plain": 0.0007036119350232184,
+          "p_reutersstyled": 0.00212118704803288,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Masked anti-migrant protesters block UK's Dover terminal",
+          "p_plain": 0.9946237802505493,
+          "p_reutersstyled": 0.9979842901229858,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Fact check: Germany's postal voting system isn't rigged",
+          "p_plain": 0.0003798789402935654,
+          "p_reutersstyled": 0.0012027021730318666,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Russia to pause strikes against Kyiv amid Ukraine talks",
+          "p_plain": 0.9991755485534668,
+          "p_reutersstyled": 0.9996779561042786,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Iran war: Explosions reported near Kharg Island",
+          "p_plain": 0.936237633228302,
+          "p_reutersstyled": 0.9788709878921509,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Israeli campaign of West Bank destruction moves on to region\u2019s food basket | Israel-Palestine conflict | Al Jazeera",
+          "p_plain": 0.0019110268913209438,
+          "p_reutersstyled": 0.003935814835131168,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive | Floods News | Al Jazeera",
+          "p_plain": 0.9998984336853027,
+          "p_reutersstyled": 0.9999520182609558,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Multipolarity gives middle powers more choices, but fewer guarantees | Opinions | Al Jazeera",
+          "p_plain": 0.9464998841285706,
+          "p_reutersstyled": 0.9704059362411499,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "US says it hit Iran oil tankers helping finance \u2018regional proxies\u2019 | US-Israel war on Iran News | Al Jazeera",
+          "p_plain": 0.05460156500339508,
+          "p_reutersstyled": 0.09473003447055817,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "'Jhooth ki goonj': PM Modi takes swipe at Rahul, attacks 'mai-baap' culture",
+          "p_plain": 0.0006018686108291149,
+          "p_reutersstyled": 0.0009642673539929092,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Congress replaces  Bhupesh Baghel with Sachin Pilot as Punjab general secretary",
+          "p_plain": 0.9822836518287659,
+          "p_reutersstyled": 0.9933537244796753,
+          "label_plain": "REAL",
+          "label_styled": "REAL"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Watch: US strikes 3 Iranian oil tankers after Iran targets 2 navy warships",
+          "p_plain": 0.11982067674398422,
+          "p_reutersstyled": 0.20814397931098938,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        },
+        {
+          "family": "nonreuters",
+          "title": "Harmanpreet Kaur creates history, becomes first cricketer ever to captain in 150 T20Is",
+          "p_plain": 0.042130246758461,
+          "p_reutersstyled": 0.13967560231685638,
+          "label_plain": "FAKE",
+          "label_styled": "FAKE"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "commit_note": "default branch @ retrieval; commit SHA unavailable during acquisition (GitHub API/network)",
+  "content_key_groups": 1077,
+  "dataset": "MisInfoText / SFU Discourse Lab \u2014 BuzzFeed-2016 checked full-text (buzzfeed-v02-originalLabels)",
+  "excluded_counts": {
+    "mixture of true and false": 165,
+    "no factual content": 56
+  },
+  "excluded_labels": [
+    "mixture of true and false",
+    "no factual content"
+  ],
+  "expected": 1380,
+  "hashes": {
+    "txt": "067d5549fbd30f735ed197915712d89b7e99fba4690d9192b9f008c0e26b8e44",
+    "zip": "86b432f5d80ca67ed124263440cc74e811054f7534dbdd41b39ea8bd831ce13a"
+  },
+  "kept_before_mapping": 1373,
+  "label_mapping": {
+    "false": 0,
+    "mostly false": 0,
+    "mostly true": 1,
+    "true": 1
+  },
+  "license_notes": {
+    "article_text_copyright": "Underlying article text originally published by 2016-era outlets/authors; copyright belongs to respective owners.",
+    "dataset": "Checked full-text news collection with original BuzzFeed fact-check labels, distributed by the SFU Discourse Processing Lab for research.",
+    "redistribution_policy": "Raw corpus kept outside git (gitignored data/). Only scripts, manifests, hashes, and documentation are committed.",
+    "repo_license": "GPL-3.0 (sfu-discourse-lab/Misinformation_detection)",
+    "repro": "Re-download buzzfeed-v02-originalLabels.txt.zip from the SFU repo (see source_url)."
+  },
+  "mapped": 1106,
+  "mapped_label_counts": {
+    "0": 60,
+    "1": 1046
+  },
+  "output": "/Users/best/Desktop/fakenews/data/processed/buzzfeed_cleaned.csv",
+  "overlap_with_cleaned_ISOT": {
+    "exact_text_matches": 0,
+    "near_duplicate_dropped": 46,
+    "near_duplicates_with_conflicting_labels": 43,
+    "normalized_content_key_matches": 46
+  },
+  "quality": {
+    "conflicting_labels_per_url": 7,
+    "duplicate_url_text_dropped": 7,
+    "malformed": 0,
+    "missing_text": 0,
+    "rows_with_duplicate_url": 7,
+    "very_short_dropped": 0
+  },
+  "rating_counts": {
+    "mixture of true and false": 170,
+    "mostly false": 64,
+    "mostly true": 1090,
+    "no factual content": 56
+  },
+  "raw_records": 1380,
+  "real_fraction": 0.94575,
+  "retrieved_at": "2026-09-05T19:00Z",
+  "source_url": "https://github.com/sfu-discourse-lab/Misinformation_detection/(buzzfeed-v02-originalLabels.txt.zip, default branch)",
+  "unknown_ratings": []
+}

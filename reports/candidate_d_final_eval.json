@@ -1,0 +1,176 @@
+{
+  "frozen_candidate": "artifacts/candidates/expD_lr.pkl",
+  "decision_rule": "P(real)>0.5 -> REAL; <0.5 -> FAKE; verdict band 0.10",
+  "no_tuning_note": "all thresholds/probs fixed; no fitting on these sets",
+  "isot_test": {
+    "n": 3906,
+    "accuracy": 0.9897593445980543,
+    "macro_f1": 0.9896857235203529,
+    "roc_auc": 0.9989233578568488,
+    "precision_FAKE": 0.9932584269662922,
+    "recall_FAKE": 0.9844097995545658,
+    "f1_FAKE": 0.9888143176733781,
+    "precision_REAL": 0.9868297271872061,
+    "recall_REAL": 0.9943127962085309,
+    "f1_REAL": 0.9905571293673276,
+    "confusion_matrix": [
+      [
+        1768,
+        28
+      ],
+      [
+        12,
+        2098
+      ]
+    ],
+    "actual_REAL_pct": 54.0194572452637,
+    "actual_FAKE_pct": 45.9805427547363,
+    "predicted_REAL_pct": 54.42908346134152,
+    "predicted_FAKE_pct": 45.57091653865848,
+    "threshold": 0.5,
+    "n_real": 2110,
+    "n_fake": 1796,
+    "log_loss": 0.043369466721479115,
+    "brier": 0.009766663561696679,
+    "ece": 0.01691495251633747,
+    "mean_p_real_REAL": 0.9744295098886102,
+    "mean_p_real_FAKE": 0.03893482381407881
+  },
+  "buzzfeed_all": {
+    "n": 1106,
+    "accuracy": 0.8092224231464737,
+    "macro_f1": 0.600971214103123,
+    "roc_auc": 0.8616316124920331,
+    "precision_FAKE": 0.19433198380566802,
+    "recall_FAKE": 0.8,
+    "f1_FAKE": 0.3127035830618892,
+    "precision_REAL": 0.9860302677532014,
+    "recall_REAL": 0.8097514340344169,
+    "f1_REAL": 0.8892388451443569,
+    "confusion_matrix": [
+      [
+        48,
+        12
+      ],
+      [
+        199,
+        847
+      ]
+    ],
+    "actual_REAL_pct": 94.57504520795659,
+    "actual_FAKE_pct": 5.424954792043401,
+    "predicted_REAL_pct": 77.66726943942133,
+    "predicted_FAKE_pct": 22.33273056057866,
+    "threshold": 0.5,
+    "n_real": 1046,
+    "n_fake": 60,
+    "log_loss": 0.4736499544188285,
+    "brier": 0.13994951782440568,
+    "ece": 0.21718533720160274,
+    "mean_p_real_REAL": 0.7536643872712937,
+    "mean_p_real_FAKE": 0.2910011328209033
+  },
+  "buzzfeed_test": {
+    "n": 367,
+    "accuracy": 0.7356948228882834,
+    "macro_f1": 0.5438657184957396,
+    "roc_auc": 0.814409578860446,
+    "precision_FAKE": 0.14814814814814814,
+    "recall_FAKE": 0.7619047619047619,
+    "f1_FAKE": 0.24806201550387597,
+    "precision_REAL": 0.9806949806949807,
+    "recall_REAL": 0.7341040462427746,
+    "f1_REAL": 0.8396694214876033,
+    "confusion_matrix": [
+      [
+        16,
+        5
+      ],
+      [
+        92,
+        254
+      ]
+    ],
+    "actual_REAL_pct": 94.27792915531336,
+    "actual_FAKE_pct": 5.722070844686645,
+    "predicted_REAL_pct": 70.57220708446866,
+    "predicted_FAKE_pct": 29.427792915531338,
+    "threshold": 0.5,
+    "n_real": 346,
+    "n_fake": 21,
+    "log_loss": 0.6633695291654746,
+    "brier": 0.1963782335935194,
+    "ece": 0.27086550203038307,
+    "mean_p_real_REAL": 0.6943611504870781,
+    "mean_p_real_FAKE": 0.30206679458668517
+  },
+  "mixed_test": {
+    "n": 4273,
+    "accuracy": 0.9679382167095717,
+    "macro_f1": 0.9673615019704889,
+    "roc_auc": 0.994310766574821,
+    "precision_FAKE": 0.9449152542372882,
+    "recall_FAKE": 0.9818381948266374,
+    "f1_FAKE": 0.9630229419703104,
+    "precision_REAL": 0.9861635220125786,
+    "recall_REAL": 0.9576547231270358,
+    "f1_REAL": 0.9717000619706673,
+    "confusion_matrix": [
+      [
+        1784,
+        33
+      ],
+      [
+        104,
+        2352
+      ]
+    ],
+    "actual_REAL_pct": 57.47718230751229,
+    "actual_FAKE_pct": 42.52281769248771,
+    "predicted_REAL_pct": 55.81558623917622,
+    "predicted_FAKE_pct": 44.18441376082378,
+    "threshold": 0.5,
+    "n_real": 2456,
+    "n_fake": 1817,
+    "log_loss": 0.09662011566061937,
+    "brier": 0.025794383243812037,
+    "ece": 0.019525960638918233,
+    "mean_p_real_REAL": 0.9349736253800881,
+    "mean_p_real_FAKE": 0.04197597482465929
+  },
+  "ood_generalization": {
+    "n": 20,
+    "REAL_recall": 0.7,
+    "REAL_precision": 0.7,
+    "REAL_f1": 0.7,
+    "predicted_REAL_pct": 70.0,
+    "predicted_FAKE_pct": 30.0,
+    "label_counts": {
+      "REAL": 14,
+      "FAKE": 6
+    },
+    "mean_p_real": 0.6821799812683738,
+    "median_p_real": 0.8550715251442599,
+    "min_p_real": 0.06580827623702855,
+    "max_p_real": 0.9934257174055314,
+    "outlets": [
+      "aljazeera",
+      "dw",
+      "guardian",
+      "npr",
+      "timesofindia"
+    ]
+  },
+  "reuters_robustness": {
+    "reuters_family_n": 10,
+    "mean_delta_strip_dateline": -0.01810222194640736,
+    "strip_verdict_flips": 0,
+    "strip_label_flips_binary": 0,
+    "nonreuters_family_n": 20,
+    "mean_delta_add_dateline": 0.0686971631517326,
+    "add_verdict_flips": 3,
+    "add_label_flips_binary": 0,
+    "plain_mean_p_real": 0.6821799812683738,
+    "styled_mean_p_real": 0.7508771444201064
+  }
+}

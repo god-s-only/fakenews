@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Analyse news articles for credibility with explainability." />
+    <meta name="theme-color" content="#20232a" />
+    <meta property="og:title" content="Fake News Detector" />
+    <meta property="og:description" content="Detect fake news with AI explainability. Paste text or a URL and get a verdict." />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%B0%3C/text%3E%3C/svg%3E"
+    />
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>Fake News Detector</h1>
+        <p class="tagline">Analyse news articles for credibility</p>
+      </header>
+
+      <main>
+        <section class="card analyzer-card">
+          <div class="tabs">
+            <button class="tab active" data-tab="text" type="button">Paste text</button>
+            <button class="tab" data-tab="url" type="button">Analyse a URL</button>
+          </div>
+
+          <div class="tab-panel" data-panel="text">
+            <label class="field-label" for="news">Article text</label>
+            <textarea
+              id="news"
+              class="news-input"
+              rows="10"
+              placeholder="Paste the article text here…"
+            ></textarea>
+          </div>
+
+          <div class="tab-panel hidden" data-panel="url">
+            <label class="field-label" for="news-url">Article URL</label>
+            <input
+              id="news-url"
+              class="url-input"
+              type="url"
+              placeholder="https://example.com/news/article"
+              autocomplete="off"
+            />
+            <p class="field-hint">
+              Paste the direct link to a single news article — not a homepage,
+              category, or list page.
+            </p>
+          </div>
+
+          <div class="actions">
+            <button id="analyze-btn" class="btn btn-primary" type="button">
+              <span class="btn-label">Analyse</span>
+              <span class="spinner hidden" aria-hidden="true"></span>
+            </button>
+            <button id="clear-btn" class="btn btn-ghost" type="button">Clear</button>
+          </div>
+
+          <p id="error-message" class="error-message hidden" role="alert"></p>
+        </section>
+
+        <div id="live-region" class="sr-only" aria-live="polite"></div>
+
+        <section id="result-section" class="card result-card hidden">
+          <div id="result-skeleton" class="skeleton hidden" aria-hidden="true">
+            <div class="skeleton-line w60"></div>
+            <div class="skeleton-grid">
+              <div class="skeleton-block"></div>
+              <div class="skeleton-block"></div>
+              <div class="skeleton-block"></div>
+              <div class="skeleton-block"></div>
+            </div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line w80"></div>
+          </div>
+          <div id="result-content">
+          <div class="result-header">
+            <h2 class="result-title">Result</h2>
+            <div class="result-actions">
+              <button id="copy-result-btn" class="btn btn-ghost btn-small" type="button">Copy result</button>
+              <span class="source-badge" id="source-badge"></span>
+            </div>
+          </div>
+          <p id="source-url" class="source-url hidden"></p>
+          <p id="article-title" class="article-title hidden"></p>
+          <div class="result-grid">
+            <div class="verdict">
+              <span class="verdict-label">Verdict</span>
+              <span id="verdict" class="verdict-value"></span>
+              <span id="verdict-hint" class="verdict-hint hidden">
+                The model is not confident enough for a definitive answer.
+              </span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Confidence</span>
+              <span id="confidence" class="metric-value"></span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Probability real</span>
+              <span id="prob-real" class="metric-value"></span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Probability fake</span>
+              <span id="prob-fake" class="metric-value"></span>
+            </div>
+            <div class="metric metric-wide">
+              <span class="metric-label">Processing time</span>
+              <span id="process-time" class="metric-value"></span>
+            </div>
+          </div>
+
+          <div class="explanation">
+            <h3>Influential words</h3>
+            <p class="explanation-note">
+              These are model features that most influenced this prediction. They
+              are not proof the article is real or fake.
+            </p>
+            <div id="explanation-list" class="explanation-grid"></div>
+          </div>
+          </div>
+        </section>
+
+        <section id="history-section" class="card history-card hidden">
+          <div class="history-header">
+            <h2>History</h2>
+            <button id="clear-history-btn" class="btn btn-ghost btn-small" type="button">
+              Clear history
+            </button>
+          </div>
+          <ul id="history-list" class="history-list"></ul>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>Fake News Detector v2.0.0 &middot; ML model with explainability</p>
+      </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

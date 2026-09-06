@@ -1,0 +1,40 @@
+{
+  "baseline_manifest_text": "98b9f6991650f068778350e97873372f4e73a4c4c199101f045a9723f7623344  my_model.h5\n039b18b09f7e2c2643df7f4df321aaac16094174f3ea04642c44a62efa1abb9b  countvectorizer.pkl\n98b9f6991650f068778350e97873372f4e73a4c4c199101f045a9723f7623344  artifacts/baseline/my_model.h5\n039b18b09f7e2c2643df7f4df321aaac16094174f3ea04642c44a62efa1abb9b  artifacts/baseline/countvectorizer.pkl\n",
+  "inference_preprocessing": {
+    "implementation": "app/preprocessing.py",
+    "model_artifacts_unchanged": true,
+    "module_sha256": "8c8618e1db2e69e6ad491f5496dcf3d11bc6c4956ddbc9922e21e8a427492066",
+    "normalize_news_markers": "enabled (unconditional in app.model.ModelService.predict)",
+    "note": "Locked so the frozen model artifact and its inference preprocessing cannot drift apart: both the promoted artifacts (above) and this module hash are pinned.",
+    "retrained": false,
+    "scope": "unambiguous datelines, wire prefixes, bylines, publication/date lines, inline outlet tags \u2014 prose untouched",
+    "version": "phase9-adopt"
+  },
+  "new_artifacts": {
+    "candidate_sha256": "8e3067a337374e0cc3ec34b45e4f78d11cbfeebfcba8deaa17f7ed0cc0ca9c82",
+    "my_model_lr.pkl": {
+      "path": "/Users/best/Desktop/fakenews/my_model_lr.pkl",
+      "sha256": "7f555ef4793ca4464f49cfe4195dc81223ac97e435ed30cc2f63b272c791e4ec"
+    },
+    "my_tfidf_vectorizer.pkl": {
+      "path": "/Users/best/Desktop/fakenews/my_tfidf_vectorizer.pkl",
+      "sha256": "6d50472067072913932d461114bd67644732f04078d58b1f8a3720d2c1a4f05a"
+    },
+    "source": "/Users/best/Desktop/fakenews/artifacts/candidates/expD_lr.pkl"
+  },
+  "note": "my_model.h5 / countvectorizer.pkl are the legacy production model, kept untouched as rollback backups (also in artifacts/baseline). The active detector is now my_model_lr.pkl + my_tfidf_vectorizer.pkl.",
+  "old_artifacts_preserved": {
+    "countvectorizer.pkl": {
+      "baseline_copy_matches": true,
+      "deleted_or_overwritten": false,
+      "path": "/Users/best/Desktop/fakenews/countvectorizer.pkl",
+      "sha256": "039b18b09f7e2c2643df7f4df321aaac16094174f3ea04642c44a62efa1abb9b"
+    },
+    "my_model.h5": {
+      "baseline_copy_matches": true,
+      "deleted_or_overwritten": false,
+      "path": "/Users/best/Desktop/fakenews/my_model.h5",
+      "sha256": "98b9f6991650f068778350e97873372f4e73a4c4c199101f045a9723f7623344"
+    }
+  }
+}

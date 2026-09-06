@@ -1,0 +1,1577 @@
+{
+  "phase": "9",
+  "title": "Robustness: source-format leakage in frozen Candidate D",
+  "candidate": "D (ISOT + BuzzFeed-v02, TF-IDF + LogisticRegression) \u2014 FROZEN",
+  "method": "read-only evaluation; no retraining, no threshold/label/probability manipulation, no artifact writes",
+  "frozen_start_hashes": {
+    "my_model_lr.pkl": "7f555ef4793ca4464f49cfe4195dc81223ac97e435ed30cc2f63b272c791e4ec",
+    "my_tfidf_vectorizer.pkl": "6d50472067072913932d461114bd67644732f04078d58b1f8a3720d2c1a4f05a",
+    "candidate_expD_lr.pkl": "8e3067a337374e0cc3ec34b45e4f78d11cbfeebfcba8deaa17f7ed0cc0ca9c82"
+  },
+  "release_manifest_hashes": {
+    "my_model_lr.pkl": "7f555ef4793ca4464f49cfe4195dc81223ac97e435ed30cc2f63b272c791e4ec",
+    "my_tfidf_vectorizer.pkl": "6d50472067072913932d461114bd67644732f04078d58b1f8a3720d2c1a4f05a",
+    "baseline": {
+      "my_model.h5": null,
+      "countvectorizer.pkl": null
+    }
+  },
+  "uncertainty_threshold": 0.1,
+  "decision_rule": "P(real)>0.5 -> REAL; <0.5 -> FAKE; verdict band 0.10",
+  "root_cause": {
+    "marker_tokens": {
+      "reuter": {
+        "in_vocab": true,
+        "coef": 21.054047377946087,
+        "doc_frequency_train": 5858,
+        "doc_freq_real_train": 5685,
+        "doc_freq_fake_train": 173,
+        "vocab_index": 27088
+      },
+      "ap": {
+        "in_vocab": true,
+        "coef": -4.53279968375639,
+        "doc_frequency_train": 217,
+        "doc_freq_real_train": 23,
+        "doc_freq_fake_train": 158,
+        "vocab_index": 1454
+      },
+      "afp": {
+        "in_vocab": true,
+        "coef": -2.4230911365143726,
+        "doc_frequency_train": 42,
+        "doc_freq_real_train": 4,
+        "doc_freq_fake_train": 33,
+        "vocab_index": 484
+      },
+      "cnn": {
+        "in_vocab": true,
+        "coef": 0.02610396363761476,
+        "doc_frequency_train": 1862,
+        "doc_freq_real_train": 490,
+        "doc_freq_fake_train": 1269,
+        "vocab_index": 6116
+      },
+      "bbc": {
+        "in_vocab": true,
+        "coef": -0.0475571379656082,
+        "doc_frequency_train": 203,
+        "doc_freq_real_train": 111,
+        "doc_freq_fake_train": 91,
+        "vocab_index": 2787
+      },
+      "bloomberg": {
+        "in_vocab": true,
+        "coef": -2.455812033461929,
+        "doc_frequency_train": 228,
+        "doc_freq_real_train": 94,
+        "doc_freq_fake_train": 128,
+        "vocab_index": 3582
+      },
+      "dpa": {
+        "in_vocab": true,
+        "coef": -0.47195840964200253,
+        "doc_frequency_train": 3,
+        "doc_freq_real_train": 1,
+        "doc_freq_fake_train": 2,
+        "vocab_index": 9027
+      },
+      "efe": {
+        "in_vocab": true,
+        "coef": 0.03294467716330686,
+        "doc_frequency_train": 4,
+        "doc_freq_real_train": 4,
+        "doc_freq_fake_train": 0,
+        "vocab_index": 9525
+      },
+      "upi": {
+        "in_vocab": true,
+        "coef": -0.3624601144100352,
+        "doc_frequency_train": 7,
+        "doc_freq_real_train": 0,
+        "doc_freq_fake_train": 7,
+        "vocab_index": 34274
+      },
+      "xinhua": {
+        "in_vocab": true,
+        "coef": 2.0121779131337014,
+        "doc_frequency_train": 109,
+        "doc_freq_real_train": 109,
+        "doc_freq_fake_train": 0,
+        "vocab_index": 36203
+      },
+      "ani": {
+        "in_vocab": true,
+        "coef": 0.22286226605655868,
+        "doc_frequency_train": 20,
+        "doc_freq_real_train": 13,
+        "doc_freq_fake_train": 7,
+        "vocab_index": 1291
+      },
+      "pti": {
+        "in_vocab": true,
+        "coef": 0.1067941441842484,
+        "doc_frequency_train": 9,
+        "doc_freq_real_train": 8,
+        "doc_freq_fake_train": 1,
+        "vocab_index": 25670
+      },
+      "by": {
+        "in_vocab": true,
+        "coef": -0.01769297975811201,
+        "doc_frequency_train": 2,
+        "doc_freq_real_train": 0,
+        "doc_freq_fake_train": 2,
+        "vocab_index": 4627
+      },
+      "staff": {
+        "in_vocab": true,
+        "coef": 1.554075885487335,
+        "doc_frequency_train": 2257,
+        "doc_freq_real_train": 1422,
+        "doc_freq_fake_train": 796,
+        "vocab_index": 30617
+      },
+      "syndicat": {
+        "in_vocab": false,
+        "coef": null,
+        "doc_frequency_train": 0,
+        "doc_freq_real_train": 0,
+        "doc_freq_fake_train": 0,
+        "vocab_index": null
+      },
+      "wire": {
+        "in_vocab": true,
+        "coef": -8.414153555180471,
+        "doc_frequency_train": 726,
+        "doc_freq_real_train": 66,
+        "doc_freq_fake_train": 656,
+        "vocab_index": 35811
+      },
+      "cit": {
+        "in_vocab": true,
+        "coef": 0.0035400468016549454,
+        "doc_frequency_train": 9,
+        "doc_freq_real_train": 7,
+        "doc_freq_fake_train": 2,
+        "vocab_index": 5856
+      },
+      "washingto": {
+        "in_vocab": false,
+        "coef": null,
+        "doc_frequency_train": 0,
+        "doc_freq_real_train": 0,
+        "doc_freq_fake_train": 0,
+        "vocab_index": null
+      },
+      "london": {
+        "in_vocab": true,
+        "coef": 2.652826510156998,
+        "doc_frequency_train": 727,
+        "doc_freq_real_train": 545,
+        "doc_freq_fake_train": 176,
+        "vocab_index": 18903
+      },
+      "newyork": {
+        "in_vocab": true,
+        "coef": 0.6968245814222324,
+        "doc_frequency_train": 7,
+        "doc_freq_real_train": 0,
+        "doc_freq_fake_train": 4,
+        "vocab_index": 22276
+      },
+      "paris": {
+        "in_vocab": false,
+        "coef": null,
+        "doc_frequency_train": 0,
+        "doc_freq_real_train": 0,
+        "doc_freq_fake_train": 0,
+        "vocab_index": null
+      },
+      "berlin": {
+        "in_vocab": true,
+        "coef": 1.7310962123524491,
+        "doc_frequency_train": 319,
+        "doc_freq_real_train": 275,
+        "doc_freq_fake_train": 44,
+        "vocab_index": 3115
+      }
+    },
+    "base_rate": {
+      "intercept": -1.3624526352589441,
+      "all_oov_p_real": 0.20384197393584982,
+      "n_train_docs": 31152,
+      "n_vocab": 36862,
+      "train_reuters_dateline_pct_real": 0.0,
+      "clean_reuters_token_pct_real": 33.49,
+      "n_train_reuters_token_docs": 5858,
+      "n_train_real_docs": 16977
+    }
+  },
+  "adversarial_matrix": [
+    {
+      "claim": "miracle_supplement",
+      "format": "reuters_dateline",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.295437,
+      "probability_shift": 0.236558,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "reuters_london_dateline",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.495629,
+      "probability_shift": 0.43675,
+      "verdict_plain": "fake",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "ap_dateline",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.032459,
+      "probability_shift": -0.02642,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "cnn_banner",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.116419,
+      "probability_shift": 0.05754,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "bbc_byline",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.044186,
+      "probability_shift": -0.014693,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "generic_newsroom",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.117935,
+      "probability_shift": 0.059056,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "journalist_byline",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.055345,
+      "probability_shift": -0.003534,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "publication_meta",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.166031,
+      "probability_shift": 0.107152,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "officials_lang",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.046474,
+      "probability_shift": -0.012405,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "ministry_said",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.300636,
+      "probability_shift": 0.241757,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "miracle_supplement",
+      "format": "reuters_inline_cite",
+      "p_real_plain": 0.058879,
+      "p_real_formatted": 0.654707,
+      "probability_shift": 0.595828,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "election_decree",
+      "format": "reuters_dateline",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.967099,
+      "probability_shift": 0.202031,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "reuters_london_dateline",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.986869,
+      "probability_shift": 0.221802,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "ap_dateline",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.561313,
+      "probability_shift": -0.203754,
+      "verdict_plain": "real",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "election_decree",
+      "format": "cnn_banner",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.810225,
+      "probability_shift": 0.045158,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "bbc_byline",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.599037,
+      "probability_shift": -0.16603,
+      "verdict_plain": "real",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "election_decree",
+      "format": "generic_newsroom",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.871434,
+      "probability_shift": 0.106366,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "journalist_byline",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.732056,
+      "probability_shift": -0.033012,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "publication_meta",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.890078,
+      "probability_shift": 0.12501,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "officials_lang",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.637611,
+      "probability_shift": -0.127457,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "ministry_said",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.956545,
+      "probability_shift": 0.191477,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "election_decree",
+      "format": "reuters_inline_cite",
+      "p_real_plain": 0.765068,
+      "p_real_formatted": 0.98867,
+      "probability_shift": 0.223602,
+      "verdict_plain": "real",
+      "verdict_formatted": "real",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "reuters_dateline",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.431873,
+      "probability_shift": 0.355147,
+      "verdict_plain": "fake",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "mega_storm",
+      "format": "reuters_london_dateline",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.668843,
+      "probability_shift": 0.592117,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "mega_storm",
+      "format": "ap_dateline",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.038752,
+      "probability_shift": -0.037974,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "cnn_banner",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.159032,
+      "probability_shift": 0.082306,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "bbc_byline",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.055082,
+      "probability_shift": -0.021643,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "generic_newsroom",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.16615,
+      "probability_shift": 0.089425,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "journalist_byline",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.071357,
+      "probability_shift": -0.005369,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "publication_meta",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.234458,
+      "probability_shift": 0.157732,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "officials_lang",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.058352,
+      "probability_shift": -0.018374,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "mega_storm",
+      "format": "ministry_said",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.427388,
+      "probability_shift": 0.350662,
+      "verdict_plain": "fake",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "mega_storm",
+      "format": "reuters_inline_cite",
+      "p_real_plain": 0.076726,
+      "p_real_formatted": 0.790445,
+      "probability_shift": 0.713719,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "phone_charger",
+      "format": "reuters_dateline",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.659222,
+      "probability_shift": 0.455784,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "phone_charger",
+      "format": "reuters_london_dateline",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.825222,
+      "probability_shift": 0.621784,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "phone_charger",
+      "format": "ap_dateline",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.110134,
+      "probability_shift": -0.093303,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "phone_charger",
+      "format": "cnn_banner",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.3209,
+      "probability_shift": 0.117463,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "phone_charger",
+      "format": "bbc_byline",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.140337,
+      "probability_shift": -0.0631,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "phone_charger",
+      "format": "generic_newsroom",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.354604,
+      "probability_shift": 0.151166,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "phone_charger",
+      "format": "journalist_byline",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.187958,
+      "probability_shift": -0.01548,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "phone_charger",
+      "format": "publication_meta",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.435177,
+      "probability_shift": 0.231739,
+      "verdict_plain": "fake",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "phone_charger",
+      "format": "officials_lang",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.151149,
+      "probability_shift": -0.052288,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "phone_charger",
+      "format": "ministry_said",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.643567,
+      "probability_shift": 0.44013,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "phone_charger",
+      "format": "reuters_inline_cite",
+      "p_real_plain": 0.203438,
+      "p_real_formatted": 0.887048,
+      "probability_shift": 0.68361,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "reuters_dateline",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.430055,
+      "probability_shift": 0.331977,
+      "verdict_plain": "fake",
+      "verdict_formatted": "uncertain",
+      "verdict_flip": true
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "reuters_london_dateline",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.64127,
+      "probability_shift": 0.543191,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "ap_dateline",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.053367,
+      "probability_shift": -0.044711,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "cnn_banner",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.178821,
+      "probability_shift": 0.080742,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "bbc_byline",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.0709,
+      "probability_shift": -0.027178,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "generic_newsroom",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.188435,
+      "probability_shift": 0.090357,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "journalist_byline",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.091462,
+      "probability_shift": -0.006617,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "publication_meta",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.252448,
+      "probability_shift": 0.154369,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "officials_lang",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.086401,
+      "probability_shift": -0.011678,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "ministry_said",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.376099,
+      "probability_shift": 0.278021,
+      "verdict_plain": "fake",
+      "verdict_formatted": "fake",
+      "verdict_flip": false
+    },
+    {
+      "claim": "climate_scandal",
+      "format": "reuters_inline_cite",
+      "p_real_plain": 0.098079,
+      "p_real_formatted": 0.76578,
+      "probability_shift": 0.667702,
+      "verdict_plain": "fake",
+      "verdict_formatted": "real",
+      "verdict_flip": true
+    }
+  ],
+  "summary": {
+    "adversarial_count": 55,
+    "verdict_flips": 16,
+    "max_abs_probability_shift": 0.713719,
+    "per_format_mean_shift": {
+      "ap_dateline": -0.081232,
+      "bbc_byline": -0.058529,
+      "cnn_banner": 0.076642,
+      "generic_newsroom": 0.099274,
+      "journalist_byline": -0.012802,
+      "ministry_said": 0.300409,
+      "officials_lang": -0.04444,
+      "publication_meta": 0.155201,
+      "reuters_dateline": 0.3163,
+      "reuters_inline_cite": 0.576892,
+      "reuters_london_dateline": 0.483129
+    }
+  },
+  "isolation": {
+    "miracle_supplement": {
+      "plain": 0.058879,
+      "reuters_full": 0.295437,
+      "reuters_no_outlet": 0.041991,
+      "reuters_no_dateline": 0.058879,
+      "bbc_full": 0.044186,
+      "bbc_no_byline": 0.058879,
+      "dateline_effect": 0.236558,
+      "outlet_token_contribution": 0.253447
+    },
+    "election_decree": {
+      "plain": 0.765068,
+      "reuters_full": 0.967099,
+      "reuters_no_outlet": 0.673013,
+      "reuters_no_dateline": 0.765068,
+      "bbc_full": 0.599037,
+      "bbc_no_byline": 0.765068,
+      "dateline_effect": 0.202031,
+      "outlet_token_contribution": 0.294086
+    },
+    "mega_storm": {
+      "plain": 0.076726,
+      "reuters_full": 0.431873,
+      "reuters_no_outlet": 0.051981,
+      "reuters_no_dateline": 0.076726,
+      "bbc_full": 0.055082,
+      "bbc_no_byline": 0.076726,
+      "dateline_effect": 0.355147,
+      "outlet_token_contribution": 0.379892
+    },
+    "phone_charger": {
+      "plain": 0.203438,
+      "reuters_full": 0.659222,
+      "reuters_no_outlet": 0.147144,
+      "reuters_no_dateline": 0.203438,
+      "bbc_full": 0.140337,
+      "bbc_no_byline": 0.203438,
+      "dateline_effect": 0.455784,
+      "outlet_token_contribution": 0.512078
+    },
+    "climate_scandal": {
+      "plain": 0.098079,
+      "reuters_full": 0.430055,
+      "reuters_no_outlet": 0.07005,
+      "reuters_no_dateline": 0.098079,
+      "bbc_full": 0.0709,
+      "bbc_no_byline": 0.098079,
+      "dateline_effect": 0.331977,
+      "outlet_token_contribution": 0.360005
+    }
+  },
+  "reuters_specific": {
+    "formats": [
+      "reuters_dateline",
+      "reuters_london_dateline"
+    ],
+    "n": 10,
+    "mean_reuters_dateline_delta_p_real": 0.399714,
+    "max_reuters_dateline_delta_p_real": 0.621784,
+    "min_reuters_dateline_delta_p_real": 0.202031,
+    "mean_abs_p_shift": 0.399714,
+    "max_abs_p_shift": 0.621784,
+    "verdict_flips_before": 7,
+    "mean_p_real_formatted": 0.640152,
+    "range_p_real_formatted": [
+      0.295437,
+      0.986869
+    ]
+  },
+  "mitigation": {
+    "adversarial_normalized": {
+      "n": 55,
+      "flips_restored_to_plain_verdict": 10,
+      "rows": [
+        {
+          "claim": "miracle_supplement",
+          "format": "reuters_dateline",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "reuters_london_dateline",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "ap_dateline",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "cnn_banner",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "bbc_byline",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "generic_newsroom",
+          "p_real_normalized": 0.07397,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "journalist_byline",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "publication_meta",
+          "p_real_normalized": 0.058879,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "officials_lang",
+          "p_real_normalized": 0.046474,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "ministry_said",
+          "p_real_normalized": 0.300636,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "miracle_supplement",
+          "format": "reuters_inline_cite",
+          "p_real_normalized": 0.654707,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "reuters_dateline",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "reuters_london_dateline",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "ap_dateline",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "cnn_banner",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "bbc_byline",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "generic_newsroom",
+          "p_real_normalized": 0.801756,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "journalist_byline",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "publication_meta",
+          "p_real_normalized": 0.765068,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "officials_lang",
+          "p_real_normalized": 0.637611,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "ministry_said",
+          "p_real_normalized": 0.956545,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "election_decree",
+          "format": "reuters_inline_cite",
+          "p_real_normalized": 0.98867,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "reuters_dateline",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "reuters_london_dateline",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "ap_dateline",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "cnn_banner",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "bbc_byline",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "generic_newsroom",
+          "p_real_normalized": 0.099304,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "journalist_byline",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "publication_meta",
+          "p_real_normalized": 0.076726,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "officials_lang",
+          "p_real_normalized": 0.058352,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "ministry_said",
+          "p_real_normalized": 0.427388,
+          "verdict_normalized": "uncertain"
+        },
+        {
+          "claim": "mega_storm",
+          "format": "reuters_inline_cite",
+          "p_real_normalized": 0.790445,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "reuters_dateline",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "reuters_london_dateline",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "ap_dateline",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "cnn_banner",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "bbc_byline",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "generic_newsroom",
+          "p_real_normalized": 0.245317,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "journalist_byline",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "publication_meta",
+          "p_real_normalized": 0.203438,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "officials_lang",
+          "p_real_normalized": 0.151149,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "ministry_said",
+          "p_real_normalized": 0.643567,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "phone_charger",
+          "format": "reuters_inline_cite",
+          "p_real_normalized": 0.887048,
+          "verdict_normalized": "real"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "reuters_dateline",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "reuters_london_dateline",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "ap_dateline",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "cnn_banner",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "bbc_byline",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "generic_newsroom",
+          "p_real_normalized": 0.121872,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "journalist_byline",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "publication_meta",
+          "p_real_normalized": 0.098079,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "officials_lang",
+          "p_real_normalized": 0.086401,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "ministry_said",
+          "p_real_normalized": 0.376099,
+          "verdict_normalized": "fake"
+        },
+        {
+          "claim": "climate_scandal",
+          "format": "reuters_inline_cite",
+          "p_real_normalized": 0.76578,
+          "verdict_normalized": "real"
+        }
+      ]
+    },
+    "reuters_family": {
+      "n": 10,
+      "raw_mean_p_real": 0.990988,
+      "normalized_mean_p_real": 0.972886,
+      "raw_verdicts": {
+        "real": 10
+      },
+      "normalized_verdicts": {
+        "real": 10
+      },
+      "raw_real_pct": 100.0,
+      "normalized_real_pct": 100.0
+    },
+    "nonreuters_family": {
+      "n": 20,
+      "raw_mean_p_real": 0.68218,
+      "normalized_mean_p_real": 0.68218,
+      "raw_verdicts": {
+        "real": 12,
+        "fake": 5,
+        "uncertain": 3
+      },
+      "normalized_verdicts": {
+        "real": 12,
+        "fake": 5,
+        "uncertain": 3
+      },
+      "raw_real_pct": 70.0,
+      "normalized_real_pct": 70.0
+    },
+    "gen_ood": {
+      "n": 20,
+      "raw_mean_p_real": 0.68218,
+      "normalized_mean_p_real": 0.68218,
+      "raw_verdicts": {
+        "real": 12,
+        "fake": 5,
+        "uncertain": 3
+      },
+      "normalized_verdicts": {
+        "real": 12,
+        "fake": 5,
+        "uncertain": 3
+      },
+      "raw_real_pct": 70.0,
+      "normalized_real_pct": 70.0
+    },
+    "isot_test": {
+      "raw": {
+        "n": 3906,
+        "accuracy": 0.9897593445980543,
+        "macro_f1": 0.9896857235203529,
+        "roc_auc": 0.9989233578568488,
+        "precision_FAKE": 0.9932584269662922,
+        "recall_FAKE": 0.9844097995545658,
+        "f1_FAKE": 0.9888143176733781,
+        "precision_REAL": 0.9868297271872061,
+        "recall_REAL": 0.9943127962085309,
+        "f1_REAL": 0.9905571293673276,
+        "confusion_matrix": [
+          [
+            1768,
+            28
+          ],
+          [
+            12,
+            2098
+          ]
+        ],
+        "actual_REAL_pct": 54.0194572452637,
+        "actual_FAKE_pct": 45.9805427547363,
+        "predicted_REAL_pct": 54.42908346134152,
+        "predicted_FAKE_pct": 45.57091653865848,
+        "threshold": 0.5,
+        "n_real": 2110,
+        "n_fake": 1796
+      },
+      "normalized": {
+        "n": 3906,
+        "accuracy": 0.9889912954429083,
+        "macro_f1": 0.9889135953111792,
+        "roc_auc": 0.9988022356157443,
+        "precision_FAKE": 0.9915872125630959,
+        "recall_FAKE": 0.9844097995545658,
+        "f1_FAKE": 0.9879854708019,
+        "precision_REAL": 0.9868111163447951,
+        "recall_REAL": 0.9928909952606635,
+        "f1_REAL": 0.9898417198204583,
+        "confusion_matrix": [
+          [
+            1768,
+            28
+          ],
+          [
+            15,
+            2095
+          ]
+        ],
+        "actual_REAL_pct": 54.0194572452637,
+        "actual_FAKE_pct": 45.9805427547363,
+        "predicted_REAL_pct": 54.352278545826934,
+        "predicted_FAKE_pct": 45.647721454173066,
+        "threshold": 0.5,
+        "n_real": 2110,
+        "n_fake": 1796
+      },
+      "changed_preds": 3,
+      "max_abs_prob_change": 0.474652
+    },
+    "buzzfeed_all": {
+      "raw": {
+        "n": 1106,
+        "accuracy": 0.8092224231464737,
+        "macro_f1": 0.600971214103123,
+        "roc_auc": 0.8616316124920331,
+        "precision_FAKE": 0.19433198380566802,
+        "recall_FAKE": 0.8,
+        "f1_FAKE": 0.3127035830618892,
+        "precision_REAL": 0.9860302677532014,
+        "recall_REAL": 0.8097514340344169,
+        "f1_REAL": 0.8892388451443569,
+        "confusion_matrix": [
+          [
+            48,
+            12
+          ],
+          [
+            199,
+            847
+          ]
+        ],
+        "actual_REAL_pct": 94.57504520795659,
+        "actual_FAKE_pct": 5.424954792043401,
+        "predicted_REAL_pct": 77.66726943942133,
+        "predicted_FAKE_pct": 22.33273056057866,
+        "threshold": 0.5,
+        "n_real": 1046,
+        "n_fake": 60
+      },
+      "normalized": {
+        "n": 1106,
+        "accuracy": 0.810126582278481,
+        "macro_f1": 0.6017735530728556,
+        "roc_auc": 0.8616794136392607,
+        "precision_FAKE": 0.1951219512195122,
+        "recall_FAKE": 0.8,
+        "f1_FAKE": 0.3137254901960784,
+        "precision_REAL": 0.986046511627907,
+        "recall_REAL": 0.8107074569789675,
+        "f1_REAL": 0.8898216159496327,
+        "confusion_matrix": [
+          [
+            48,
+            12
+          ],
+          [
+            198,
+            848
+          ]
+        ],
+        "actual_REAL_pct": 94.57504520795659,
+        "actual_FAKE_pct": 5.424954792043401,
+        "predicted_REAL_pct": 77.75768535262206,
+        "predicted_FAKE_pct": 22.24231464737794,
+        "threshold": 0.5,
+        "n_real": 1046,
+        "n_fake": 60
+      },
+      "changed_preds": 1,
+      "max_abs_prob_change": 0.00396
+    },
+    "buzzfeed_test": {
+      "raw": {
+        "n": 367,
+        "accuracy": 0.7356948228882834,
+        "macro_f1": 0.5438657184957396,
+        "roc_auc": 0.814409578860446,
+        "precision_FAKE": 0.14814814814814814,
+        "recall_FAKE": 0.7619047619047619,
+        "f1_FAKE": 0.24806201550387597,
+        "precision_REAL": 0.9806949806949807,
+        "recall_REAL": 0.7341040462427746,
+        "f1_REAL": 0.8396694214876033,
+        "confusion_matrix": [
+          [
+            16,
+            5
+          ],
+          [
+            92,
+            254
+          ]
+        ],
+        "actual_REAL_pct": 94.27792915531336,
+        "actual_FAKE_pct": 5.722070844686645,
+        "predicted_REAL_pct": 70.57220708446866,
+        "predicted_FAKE_pct": 29.427792915531338,
+        "threshold": 0.5,
+        "n_real": 346,
+        "n_fake": 21
+      },
+      "normalized": {
+        "n": 367,
+        "accuracy": 0.7356948228882834,
+        "macro_f1": 0.5438657184957396,
+        "roc_auc": 0.814409578860446,
+        "precision_FAKE": 0.14814814814814814,
+        "recall_FAKE": 0.7619047619047619,
+        "f1_FAKE": 0.24806201550387597,
+        "precision_REAL": 0.9806949806949807,
+        "recall_REAL": 0.7341040462427746,
+        "f1_REAL": 0.8396694214876033,
+        "confusion_matrix": [
+          [
+            16,
+            5
+          ],
+          [
+            92,
+            254
+          ]
+        ],
+        "actual_REAL_pct": 94.27792915531336,
+        "actual_FAKE_pct": 5.722070844686645,
+        "predicted_REAL_pct": 70.57220708446866,
+        "predicted_FAKE_pct": 29.427792915531338,
+        "threshold": 0.5,
+        "n_real": 346,
+        "n_fake": 21
+      },
+      "changed_preds": 0,
+      "max_abs_prob_change": 0.00396
+    },
+    "mixed_test": {
+      "raw": {
+        "n": 4273,
+        "accuracy": 0.9679382167095717,
+        "macro_f1": 0.9673615019704889,
+        "roc_auc": 0.994310766574821,
+        "precision_FAKE": 0.9449152542372882,
+        "recall_FAKE": 0.9818381948266374,
+        "f1_FAKE": 0.9630229419703104,
+        "precision_REAL": 0.9861635220125786,
+        "recall_REAL": 0.9576547231270358,
+        "f1_REAL": 0.9717000619706673,
+        "confusion_matrix": [
+          [
+            1784,
+            33
+          ],
+          [
+            104,
+            2352
+          ]
+        ],
+        "actual_REAL_pct": 57.47718230751229,
+        "actual_FAKE_pct": 42.52281769248771,
+        "predicted_REAL_pct": 55.81558623917622,
+        "predicted_FAKE_pct": 44.18441376082378,
+        "threshold": 0.5,
+        "n_real": 2456,
+        "n_fake": 1817
+      },
+      "normalized": {
+        "n": 4273,
+        "accuracy": 0.9672361338637959,
+        "macro_f1": 0.9666531098419426,
+        "roc_auc": 0.994199171236548,
+        "precision_FAKE": 0.9434161819143311,
+        "recall_FAKE": 0.9818381948266374,
+        "f1_FAKE": 0.9622437971952535,
+        "precision_REAL": 0.9861460957178841,
+        "recall_REAL": 0.9564332247557004,
+        "f1_REAL": 0.9710624224886316,
+        "confusion_matrix": [
+          [
+            1784,
+            33
+          ],
+          [
+            107,
+            2349
+          ]
+        ],
+        "actual_REAL_pct": 57.47718230751229,
+        "actual_FAKE_pct": 42.52281769248771,
+        "predicted_REAL_pct": 55.74537795459864,
+        "predicted_FAKE_pct": 44.25462204540136,
+        "threshold": 0.5,
+        "n_real": 2456,
+        "n_fake": 1817
+      },
+      "changed_preds": 3,
+      "max_abs_prob_change": 0.474652
+    },
+    "production_probes": {
+      "cbn_real": {
+        "raw_mean_p_real": 0.977569,
+        "normalized_mean_p_real": 0.977569
+      },
+      "coral_real": {
+        "raw_mean_p_real": 0.478433,
+        "normalized_mean_p_real": 0.478433
+      },
+      "fabricated_miracle_plain": {
+        "raw_mean_p_real": 0.058879,
+        "normalized_mean_p_real": 0.058879
+      },
+      "fabricated_reuters_style": {
+        "raw_mean_p_real": 0.495629,
+        "normalized_mean_p_real": 0.058879
+      }
+    }
+  },
+  "production_normalizer_status": {
+    "enabled": true,
+    "module": "app.preprocessing.normalize_news_markers",
+    "applied_in": "app.model.ModelService.predict (before cleaning)",
+    "scope": "datelines / wire prefixes / bylines / publication-date / inline outlet tags only; prose mentioning Reuters/officials/ministry is untouched",
+    "retrained": false,
+    "model_artifact_unchanged": true
+  },
+  "conclusion": {
+    "preprocessing_viable": true,
+    "marker_format_examples": 40,
+    "marker_flips_after_normalization": 0,
+    "prose_format_examples": 15,
+    "prose_attacks_remain_content_level": true,
+    "retraining_necessary_for_marker_attacks": false,
+    "retraining_may_still_help_prose_level_leakage": true,
+    "notes": "Stamping news formats (datelines/bylines/metadata) is a preprocessing-level artefact and is neutralised by the adopted normaliser (now unconditional in app/model.py predict). Prose-style evasive language (according to officials, the ministry said) is content-level, not format-level, so it is intentionally NOT stripped; if that becomes a liability, retraining with newspaper-style FAKE contrafactuals is the minimum augmentation strategy \u2014 NOT implemented in this phase."
+  },
+  "exact_metrics": {
+    "adversarial_cases_evaluated": 55,
+    "max_abs_probability_shift_before": 0.713719,
+    "mean_reuters_dateline_delta_p_real": 0.399714,
+    "max_reuters_dateline_delta_p_real": 0.621784,
+    "verdict_flips_before": 16,
+    "verdict_flips_after": 6,
+    "false_positive_flips_before": 18,
+    "false_positive_flips_after": 16,
+    "content_level_evasion_flips_remaining": 6,
+    "content_level_evasion_examples": [
+      {
+        "claim": "miracle_supplement",
+        "format": "reuters_inline_cite",
+        "verdict_before": "fake",
+        "verdict_after": "real"
+      },
+      {
+        "claim": "mega_storm",
+        "format": "ministry_said",
+        "verdict_before": "fake",
+        "verdict_after": "uncertain"
+      },
+      {
+        "claim": "mega_storm",
+        "format": "reuters_inline_cite",
+        "verdict_before": "fake",
+        "verdict_after": "real"
+      },
+      {
+        "claim": "phone_charger",
+        "format": "ministry_said",
+        "verdict_before": "fake",
+        "verdict_after": "real"
+      },
+      {
+        "claim": "phone_charger",
+        "format": "reuters_inline_cite",
+        "verdict_before": "fake",
+        "verdict_after": "real"
+      },
+      {
+        "claim": "climate_scandal",
+        "format": "reuters_inline_cite",
+        "verdict_before": "fake",
+        "verdict_after": "real"
+      }
+    ],
+    "marker_format_flips_fixed": 10
+  },
+  "frozen_end_hashes": {
+    "my_model_lr.pkl": "7f555ef4793ca4464f49cfe4195dc81223ac97e435ed30cc2f63b272c791e4ec",
+    "my_tfidf_vectorizer.pkl": "6d50472067072913932d461114bd67644732f04078d58b1f8a3720d2c1a4f05a",
+    "candidate_expD_lr.pkl": "8e3067a337374e0cc3ec34b45e4f78d11cbfeebfcba8deaa17f7ed0cc0ca9c82"
+  },
+  "artifacts_byte_identical": true,
+  "all_frozen_hashes_match_manifest": true
+}

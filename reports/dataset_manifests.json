@@ -1,0 +1,34 @@
+{
+  "isot_cleaned": {
+    "path": "/Users/best/Desktop/fakenews/data/processed/isot_cleaned.csv",
+    "sha256": "dbc3bf97730e5e032c15db70cd17d2a6b17d68f80ef3fa5900579e4753c49195"
+  },
+  "isot_train": {
+    "path": "/Users/best/Desktop/fakenews/data/splits/isot_train.csv",
+    "sha256": "4e629c5c4d3cb427f814a5f49ffe6d8ef03738561b04e203b59cae7010f04af6"
+  },
+  "isot_val": {
+    "path": "/Users/best/Desktop/fakenews/data/splits/isot_val.csv",
+    "sha256": "19d241034fc5abcc197461eb585fd23c2128ef5a4aa46ebc628d65e97cde8076"
+  },
+  "isot_test": {
+    "path": "/Users/best/Desktop/fakenews/data/splits/isot_test.csv",
+    "sha256": "d534cd409095a598ea3ea6255d812d109e0eef58411574807135ad4b0bbafade"
+  },
+  "buzzfeed_cleaned": {
+    "path": "/Users/best/Desktop/fakenews/data/processed/buzzfeed_cleaned.csv",
+    "sha256": "c8aed475564e983842003a30969907d8c21eaba77c8050a981fcd4e412117436"
+  },
+  "generalization": {
+    "path": "/Users/best/Desktop/fakenews/data/splits/generalization.csv",
+    "sha256": "0b4701846c508ee3d18301032650088924be668928e95cdb478ca05dd3294113"
+  },
+  "buzzfeed_zip": {
+    "path": "/Users/best/Desktop/fakenews/data/buzzfeed_v02/buzzfeed-v02-originalLabels.txt.zip",
+    "sha256": "86b432f5d80ca67ed124263440cc74e811054f7534dbdd41b39ea8bd831ce13a"
+  },
+  "buzzfeed_txt": {
+    "path": "/Users/best/Desktop/fakenews/data/buzzfeed_v02/buzzfeed-v02-originalLabels.txt",
+    "sha256": "067d5549fbd30f735ed197915712d89b7e99fba4690d9192b9f008c0e26b8e44"
+  }
+}

@@ -1,0 +1,4414 @@
+{
+  "meta": {
+    "model_file": "my_model_lr.pkl",
+    "model_sha256": "7f555ef4793ca4464f49cfe4195dc81223ac97e435ed30cc2f63b272c791e4ec",
+    "vectorizer_file": "my_tfidf_vectorizer.pkl",
+    "vectorizer_sha256": "6d50472067072913932d461114bd67644732f04078d58b1f8a3720d2c1a4f05a",
+    "vocab_size": 36862,
+    "backend": "sklearn",
+    "decision_rule": {
+      "threshold": 0.5,
+      "uncertainty_band": 0.1
+    }
+  },
+  "base_rate": {
+    "intercept": -1.3624526352589441,
+    "p_real_across_fully_out_of_vocab_text": 0.20384197393584982,
+    "note": "P(real) the model emits for an input whose cleaned tokens are all out-of-vocabulary (raw logit = intercept). The API guards zero-vector inputs to 0.5, but nearly-empty in-vocab inputs are not guarded."
+  },
+  "parity_check": {
+    "fail1": {
+      "production": 0.9775686506218831,
+      "candidate": 0.9775686506218831,
+      "identical": true
+    },
+    "fail2": {
+      "production": 0.4784332024609251,
+      "candidate": 0.4784332024609251,
+      "identical": true
+    }
+  },
+  "failed_real_texts": {
+    "nigeria_cbn_real": {
+      "text": "The Central Bank of Nigeria said commercial banks will continue to operate under the existing cash withdrawal guidelines while customers are encouraged to use electronic payment channels. The bank said the policy is intended to improve the efficiency of the country's payment system and reduce reliance on physical cash.",
+      "cleaned": "central bank nigeria said commerci bank continu oper exist cash withdraw guidelin custom encourag use electron payment channel bank said polici intend improv effici countri payment system reduc relianc physic cash",
+      "n_tokens": 31,
+      "n_in_vocab": 31,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 19,
+      "logit": 3.77460901396236,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.9775686506218831,
+      "p_fake": 0.02243134937811686,
+      "verdict": "real",
+      "top20_by_tfidf": [
+        {
+          "token": "bank",
+          "tfidf": 0.3211014204020659,
+          "coef": 1.4797407359567847,
+          "contribution": 0.47514685214252195
+        },
+        {
+          "token": "cash",
+          "tfidf": 0.32081310610911346,
+          "coef": -0.17272947142848732,
+          "contribution": -0.055413878245558386
+        },
+        {
+          "token": "payment",
+          "tfidf": 0.31173216283125377,
+          "coef": 1.2918379471915968,
+          "contribution": 0.4027074373055235
+        },
+        {
+          "token": "relianc",
+          "tfidf": 0.2638436586612766,
+          "coef": 0.3791753914004385,
+          "contribution": 0.10004302254141326
+        },
+        {
+          "token": "nigeria",
+          "tfidf": 0.25500033657108484,
+          "coef": 0.7982945971586296,
+          "contribution": 0.20356539095832912
+        },
+        {
+          "token": "guidelin",
+          "tfidf": 0.23674688199153426,
+          "coef": 0.12067194421679922,
+          "contribution": 0.02856870653718357
+        },
+        {
+          "token": "effici",
+          "tfidf": 0.23212063036685202,
+          "coef": 0.0408543126718164,
+          "contribution": 0.009483128810586492
+        },
+        {
+          "token": "electron",
+          "tfidf": 0.2192028780459378,
+          "coef": 1.6337544575244514,
+          "contribution": 0.3581236791097396
+        },
+        {
+          "token": "commerci",
+          "tfidf": 0.19917283321494242,
+          "coef": -0.03232850875636881,
+          "contribution": -0.0064389606826200495
+        },
+        {
+          "token": "physic",
+          "tfidf": 0.19798410139107123,
+          "coef": 0.2221374270792387,
+          "contribution": 0.043979678885607686
+        },
+        {
+          "token": "channel",
+          "tfidf": 0.18572538388713383,
+          "coef": 2.1022494009528376,
+          "contribution": 0.3904410770184629
+        },
+        {
+          "token": "withdraw",
+          "tfidf": 0.18215155467031446,
+          "coef": 1.886622283896616,
+          "contribution": 0.343651182087428
+        },
+        {
+          "token": "custom",
+          "tfidf": 0.17845656479057054,
+          "coef": -2.1972364270348406,
+          "contribution": -0.3921112648013447
+        },
+        {
+          "token": "encourag",
+          "tfidf": 0.16476738207272024,
+          "coef": -0.00886377804219822,
+          "contribution": -0.0014604615032866623
+        },
+        {
+          "token": "intend",
+          "tfidf": 0.16328253134371956,
+          "coef": 0.7802047095891126,
+          "contribution": 0.1273937999480019
+        },
+        {
+          "token": "improv",
+          "tfidf": 0.16053334593753685,
+          "coef": 1.9998899987847683,
+          "contribution": 0.3210490330119353
+        },
+        {
+          "token": "reduc",
+          "tfidf": 0.15794001153457604,
+          "coef": 2.0380443108788593,
+          "contribution": 0.3218887419681841
+        },
+        {
+          "token": "exist",
+          "tfidf": 0.15188371403459638,
+          "coef": -2.027964768584424,
+          "contribution": -0.3080148209839131
+        },
+        {
+          "token": "central",
+          "tfidf": 0.14788445169378536,
+          "coef": 2.447746008776919,
+          "contribution": 0.3619835763936262
+        },
+        {
+          "token": "system",
+          "tfidf": 0.12888241665674124,
+          "coef": 1.1407724748602932,
+          "contribution": 0.1470255134154862
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "said",
+          "contribution": 2.316967140986911,
+          "direction": "real"
+        },
+        {
+          "token": "bank",
+          "contribution": 0.47514685214252195,
+          "direction": "real"
+        },
+        {
+          "token": "payment",
+          "contribution": 0.4027074373055235,
+          "direction": "real"
+        },
+        {
+          "token": "custom",
+          "contribution": -0.3921112648013447,
+          "direction": "fake"
+        },
+        {
+          "token": "channel",
+          "contribution": 0.3904410770184629,
+          "direction": "real"
+        },
+        {
+          "token": "central",
+          "contribution": 0.3619835763936262,
+          "direction": "real"
+        },
+        {
+          "token": "electron",
+          "contribution": 0.3581236791097396,
+          "direction": "real"
+        },
+        {
+          "token": "withdraw",
+          "contribution": 0.343651182087428,
+          "direction": "real"
+        },
+        {
+          "token": "reduc",
+          "contribution": 0.3218887419681841,
+          "direction": "real"
+        },
+        {
+          "token": "improv",
+          "contribution": 0.3210490330119353,
+          "direction": "real"
+        },
+        {
+          "token": "exist",
+          "contribution": -0.3080148209839131,
+          "direction": "fake"
+        },
+        {
+          "token": "countri",
+          "contribution": 0.21391789306482586,
+          "direction": "real"
+        },
+        {
+          "token": "nigeria",
+          "contribution": 0.20356539095832912,
+          "direction": "real"
+        },
+        {
+          "token": "continu",
+          "contribution": -0.16152706788689636,
+          "direction": "fake"
+        },
+        {
+          "token": "system",
+          "contribution": 0.1470255134154862,
+          "direction": "real"
+        },
+        {
+          "token": "intend",
+          "contribution": 0.1273937999480019,
+          "direction": "real"
+        },
+        {
+          "token": "polici",
+          "contribution": -0.11331571394705091,
+          "direction": "fake"
+        },
+        {
+          "token": "relianc",
+          "contribution": 0.10004302254141326,
+          "direction": "real"
+        },
+        {
+          "token": "cash",
+          "contribution": -0.055413878245558386,
+          "direction": "fake"
+        },
+        {
+          "token": "physic",
+          "contribution": 0.043979678885607686,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "custom",
+          "contribution": -0.3921112648013447,
+          "cum_share_neg": 0.3665399110488982
+        },
+        {
+          "term": "exist",
+          "contribution": -0.3080148209839131,
+          "cum_share_neg": 0.6544676887483841
+        },
+        {
+          "term": "continu",
+          "contribution": -0.16152706788689636,
+          "cum_share_neg": 0.8054608440336521
+        },
+        {
+          "term": "polici",
+          "contribution": -0.11331571394705091,
+          "cum_share_neg": 0.9113867264018548
+        },
+        {
+          "term": "cash",
+          "contribution": -0.055413878245558386,
+          "cum_share_neg": 0.9631868143521254
+        }
+      ],
+      "sum_positive_contrib": 6.206825822184819,
+      "sum_negative_contrib": -1.0697641729635143,
+      "n_contributing": 26
+    },
+    "coral_reef_real": {
+      "text": "Researchers studying coral reefs have found that periods of unusually warm ocean temperatures can cause widespread coral bleaching. During bleaching events, corals expel the algae that live within their tissues, leaving them vulnerable to disease and other environmental stresses. Scientists say reducing greenhouse gas emissions remains important for limiting the frequency and severity of these events.",
+      "cleaned": "research studi coral reef found period unusu warm ocean temperatur caus widespread coral bleach bleach event coral expel alga live within tissu leav vulner diseas environment stress scientist say reduc greenhous ga emiss remain import limit frequenc sever event",
+      "n_tokens": 39,
+      "n_in_vocab": 39,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 17,
+      "logit": -0.08632075019607566,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.4784332024609251,
+      "p_fake": 0.521566797539075,
+      "verdict": "uncertain",
+      "top20_by_tfidf": [
+        {
+          "token": "coral",
+          "tfidf": 0.4607061308366227,
+          "coef": 0.1555252662945978,
+          "contribution": 0.07165144368191957
+        },
+        {
+          "token": "bleach",
+          "tfidf": 0.38386953495060966,
+          "coef": -0.1671686377447828,
+          "contribution": -0.0641709472294167
+        },
+        {
+          "token": "alga",
+          "tfidf": 0.2709835548509279,
+          "coef": -0.12329580614154147,
+          "contribution": -0.033411135846445776
+        },
+        {
+          "token": "reef",
+          "tfidf": 0.21599804380540463,
+          "coef": 0.22961845622638472,
+          "contribution": 0.04959713736651603
+        },
+        {
+          "token": "frequenc",
+          "tfidf": 0.1940698730855912,
+          "coef": 0.4867190398986294,
+          "contribution": 0.09445750230146781
+        },
+        {
+          "token": "tissu",
+          "tfidf": 0.1913320047534219,
+          "coef": 0.13971495460161182,
+          "contribution": 0.02673194235795972
+        },
+        {
+          "token": "temperatur",
+          "tfidf": 0.1772245118370724,
+          "coef": -0.34914115800489,
+          "contribution": -0.06187637128964679
+        },
+        {
+          "token": "greenhous",
+          "tfidf": 0.17092034232797457,
+          "coef": 0.3810651121941995,
+          "contribution": 0.06513177942548061
+        },
+        {
+          "token": "ocean",
+          "tfidf": 0.16301453816704556,
+          "coef": 0.1535117212591227,
+          "contribution": 0.02502464234428412
+        },
+        {
+          "token": "expel",
+          "tfidf": 0.1587691856513597,
+          "coef": 0.5606441799614752,
+          "contribution": 0.08901301989265777
+        },
+        {
+          "token": "event",
+          "tfidf": 0.15790844507320465,
+          "coef": 0.8402601370905828,
+          "contribution": 0.1326841717049717
+        },
+        {
+          "token": "emiss",
+          "tfidf": 0.14965603345567702,
+          "coef": -0.35960585627204483,
+          "contribution": -0.053817186057106524
+        },
+        {
+          "token": "diseas",
+          "tfidf": 0.1493884853920126,
+          "coef": 0.3546669854533536,
+          "contribution": 0.052983163775427465
+        },
+        {
+          "token": "scientist",
+          "tfidf": 0.14483500637990146,
+          "coef": 0.18393252221897485,
+          "contribution": 0.02663986802905659
+        },
+        {
+          "token": "widespread",
+          "tfidf": 0.13813988873505986,
+          "coef": 1.8731037899521987,
+          "contribution": 0.25875034913321565
+        },
+        {
+          "token": "warm",
+          "tfidf": 0.1373965927941265,
+          "coef": -2.302667878446419,
+          "contribution": -0.31637872083501783
+        },
+        {
+          "token": "vulner",
+          "tfidf": 0.13706045553840432,
+          "coef": 1.744739435111179,
+          "contribution": 0.2391347817721564
+        },
+        {
+          "token": "unusu",
+          "tfidf": 0.1345149300247923,
+          "coef": -0.14810200429946577,
+          "contribution": -0.01992193074487413
+        },
+        {
+          "token": "stress",
+          "tfidf": 0.132944602022505,
+          "coef": 0.2601257875564307,
+          "contribution": 0.03458231930248036
+        },
+        {
+          "token": "environment",
+          "tfidf": 0.12711092767393414,
+          "coef": -1.0400186368785165,
+          "contribution": -0.13219773373180868
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "warm",
+          "contribution": -0.31637872083501783,
+          "direction": "fake"
+        },
+        {
+          "token": "widespread",
+          "contribution": 0.25875034913321565,
+          "direction": "real"
+        },
+        {
+          "token": "vulner",
+          "contribution": 0.2391347817721564,
+          "direction": "real"
+        },
+        {
+          "token": "reduc",
+          "contribution": 0.22123815255442777,
+          "direction": "real"
+        },
+        {
+          "token": "remain",
+          "contribution": 0.19572406410293308,
+          "direction": "real"
+        },
+        {
+          "token": "ga",
+          "contribution": 0.1868844879507437,
+          "direction": "real"
+        },
+        {
+          "token": "live",
+          "contribution": -0.17083296643446608,
+          "direction": "fake"
+        },
+        {
+          "token": "studi",
+          "contribution": 0.14477396642290447,
+          "direction": "real"
+        },
+        {
+          "token": "event",
+          "contribution": 0.1326841717049717,
+          "direction": "real"
+        },
+        {
+          "token": "within",
+          "contribution": -0.13243917240726805,
+          "direction": "fake"
+        },
+        {
+          "token": "environment",
+          "contribution": -0.13219773373180868,
+          "direction": "fake"
+        },
+        {
+          "token": "period",
+          "contribution": 0.12383516643280565,
+          "direction": "real"
+        },
+        {
+          "token": "frequenc",
+          "contribution": 0.09445750230146781,
+          "direction": "real"
+        },
+        {
+          "token": "import",
+          "contribution": 0.08901771139959824,
+          "direction": "real"
+        },
+        {
+          "token": "expel",
+          "contribution": 0.08901301989265777,
+          "direction": "real"
+        },
+        {
+          "token": "coral",
+          "contribution": 0.07165144368191957,
+          "direction": "real"
+        },
+        {
+          "token": "caus",
+          "contribution": -0.07041554959103288,
+          "direction": "fake"
+        },
+        {
+          "token": "limit",
+          "contribution": 0.06777318312019502,
+          "direction": "real"
+        },
+        {
+          "token": "greenhous",
+          "contribution": 0.06513177942548061,
+          "direction": "real"
+        },
+        {
+          "token": "bleach",
+          "contribution": -0.0641709472294167,
+          "direction": "fake"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "warm",
+          "contribution": -0.31637872083501783,
+          "cum_share_neg": 0.2997538580399269
+        },
+        {
+          "term": "live",
+          "contribution": -0.17083296643446608,
+          "cum_share_neg": 0.46161000510943834
+        },
+        {
+          "term": "within",
+          "contribution": -0.13243917240726805,
+          "cum_share_neg": 0.5870898502137986
+        },
+        {
+          "term": "environment",
+          "contribution": -0.13219773373180868,
+          "cum_share_neg": 0.7123409436048386
+        },
+        {
+          "term": "caus",
+          "contribution": -0.07041554959103288,
+          "cum_share_neg": 0.7790563427954206
+        },
+        {
+          "term": "bleach",
+          "contribution": -0.0641709472294167,
+          "cum_share_neg": 0.8398552769188219
+        }
+      ],
+      "sum_positive_contrib": 2.331593599229952,
+      "sum_negative_contrib": -1.0554617141670835,
+      "n_contributing": 35
+    }
+  },
+  "generic_terms": {
+    "researchers": {
+      "raw_term": "researchers",
+      "resulting_token": "research",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.07946207238100828
+    },
+    "scientists": {
+      "raw_term": "scientists",
+      "resulting_token": "scientist",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.18393252221897485
+    },
+    "study": {
+      "raw_term": "study",
+      "resulting_token": "studi",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 1.2727487357846121
+    },
+    "government": {
+      "raw_term": "government",
+      "resulting_token": "govern",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 3.418868915702865
+    },
+    "bank": {
+      "raw_term": "bank",
+      "resulting_token": "bank",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 1.4797407359567847
+    },
+    "policy": {
+      "raw_term": "policy",
+      "resulting_token": "polici",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -1.0624939840313155
+    },
+    "said": {
+      "raw_term": "said",
+      "resulting_token": "said",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 28.290844656665882
+    },
+    "according": {
+      "raw_term": "according",
+      "resulting_token": "accord",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -4.955302964924632
+    },
+    "environmental": {
+      "raw_term": "environmental",
+      "resulting_token": "environment",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -1.0400186368785165
+    },
+    "researcher": {
+      "raw_term": "researcher",
+      "resulting_token": "research",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.07946207238100828
+    },
+    "scientist": {
+      "raw_term": "scientist",
+      "resulting_token": "scientist",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.18393252221897485
+    },
+    "studies": {
+      "raw_term": "studies",
+      "resulting_token": "studi",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 1.2727487357846121
+    },
+    "official": {
+      "raw_term": "official",
+      "resulting_token": "offici",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.3940238542603308
+    },
+    "ministry": {
+      "raw_term": "ministry",
+      "resulting_token": "ministri",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 4.434975836233532
+    },
+    "commission": {
+      "raw_term": "commission",
+      "resulting_token": "commiss",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 1.706158911633588
+    },
+    "reported": {
+      "raw_term": "reported",
+      "resulting_token": "report",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -0.0017305157828272806
+    },
+    "report": {
+      "raw_term": "report",
+      "resulting_token": "report",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -0.0017305157828272806
+    },
+    "minister": {
+      "raw_term": "minister",
+      "resulting_token": "minist",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 6.212787904620348
+    },
+    "president": {
+      "raw_term": "president",
+      "resulting_token": "presid",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 2.823042746535302
+    },
+    "election": {
+      "raw_term": "election",
+      "resulting_token": "elect",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 2.759840289262986
+    },
+    "climate": {
+      "raw_term": "climate",
+      "resulting_token": "climat",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -1.4001630349270817
+    },
+    "research": {
+      "raw_term": "research",
+      "resulting_token": "research",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.07946207238100828
+    },
+    "published": {
+      "raw_term": "published",
+      "resulting_token": "publish",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -0.10077925153819994
+    },
+    "found": {
+      "raw_term": "found",
+      "resulting_token": "found",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.4200912060366339
+    },
+    "science": {
+      "raw_term": "science",
+      "resulting_token": "scienc",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 1.097004300366862
+    },
+    "data": {
+      "raw_term": "data",
+      "resulting_token": "data",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 3.151258591670388
+    },
+    "system": {
+      "raw_term": "system",
+      "resulting_token": "system",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 1.1407724748602932
+    },
+    "economy": {
+      "raw_term": "economy",
+      "resulting_token": "economi",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": -0.4697589985463154
+    },
+    "economic": {
+      "raw_term": "economic",
+      "resulting_token": "econom",
+      "dropped_as_stopword": false,
+      "in_vocab": true,
+      "coef": 0.35909378677235276
+    }
+  },
+  "provenance_by_corpus": {
+    "isot_train": {
+      "n_rows": 30775,
+      "n_real": 16977,
+      "n_fake": 13798,
+      "vocab_overlap": {
+        "vocab_terms": 36862,
+        "terms_present_from_this_corpus": 36451
+      },
+      "features": {
+        "accord": {
+          "df_real": 3760,
+          "df_fake": 3264,
+          "freq_real": 0.22147611474347648,
+          "freq_fake": 0.23655602261197275,
+          "in_vocab": true,
+          "coef": -4.955302964924632
+        },
+        "according": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "alga": {
+          "df_real": 1,
+          "df_fake": 1,
+          "freq_real": 5.890322200624374e-05,
+          "freq_fake": 7.247427163357009e-05,
+          "in_vocab": true,
+          "coef": -0.12329580614154147
+        },
+        "bank": {
+          "df_real": 1200,
+          "df_fake": 375,
+          "freq_real": 0.0706838664074925,
+          "freq_fake": 0.02717785186258878,
+          "in_vocab": true,
+          "coef": 1.4797407359567847
+        },
+        "bleach": {
+          "df_real": 2,
+          "df_fake": 13,
+          "freq_real": 0.00011780644401248748,
+          "freq_fake": 0.0009421655312364111,
+          "in_vocab": true,
+          "coef": -0.1671686377447828
+        },
+        "cash": {
+          "df_real": 341,
+          "df_fake": 261,
+          "freq_real": 0.020085998704129117,
+          "freq_fake": 0.018915784896361792,
+          "in_vocab": true,
+          "coef": -0.17272947142848732
+        },
+        "central": {
+          "df_real": 1430,
+          "df_fake": 371,
+          "freq_real": 0.08423160746892855,
+          "freq_fake": 0.0268879547760545,
+          "in_vocab": true,
+          "coef": 2.447746008776919
+        },
+        "channel": {
+          "df_real": 397,
+          "df_fake": 267,
+          "freq_real": 0.023384579136478765,
+          "freq_fake": 0.01935063052616321,
+          "in_vocab": true,
+          "coef": 2.1022494009528376
+        },
+        "climate": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "commerci": {
+          "df_real": 322,
+          "df_fake": 147,
+          "freq_real": 0.018966837486010486,
+          "freq_fake": 0.010653717930134803,
+          "in_vocab": true,
+          "coef": -0.03232850875636881
+        },
+        "commission": {
+          "df_real": 328,
+          "df_fake": 106,
+          "freq_real": 0.019320256818047946,
+          "freq_fake": 0.007682272793158429,
+          "in_vocab": true,
+          "coef": 0.26000166035474126
+        },
+        "coral": {
+          "df_real": 14,
+          "df_fake": 6,
+          "freq_real": 0.0008246451080874123,
+          "freq_fake": 0.0004348456298014205,
+          "in_vocab": true,
+          "coef": 0.1555252662945978
+        },
+        "custom": {
+          "df_real": 432,
+          "df_fake": 381,
+          "freq_real": 0.025446191906697297,
+          "freq_fake": 0.0276126974923902,
+          "in_vocab": true,
+          "coef": -2.1972364270348406
+        },
+        "data": {
+          "df_real": 786,
+          "df_fake": 390,
+          "freq_real": 0.04629793249690758,
+          "freq_fake": 0.028264965937092334,
+          "in_vocab": true,
+          "coef": 3.151258591670388
+        },
+        "diseas": {
+          "df_real": 158,
+          "df_fake": 133,
+          "freq_real": 0.00930670907698651,
+          "freq_fake": 0.00963907812726482,
+          "in_vocab": true,
+          "coef": 0.3546669854533536
+        },
+        "economic": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "economy": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "effici": {
+          "df_real": 156,
+          "df_fake": 43,
+          "freq_real": 0.009188902632974024,
+          "freq_fake": 0.0031163936802435137,
+          "in_vocab": true,
+          "coef": 0.0408543126718164
+        },
+        "election": {
+          "df_real": 6,
+          "df_fake": 4,
+          "freq_real": 0.00035341933203746247,
+          "freq_fake": 0.00028989708653428034,
+          "in_vocab": true,
+          "coef": 0.0366112305528112
+        },
+        "emiss": {
+          "df_real": 242,
+          "df_fake": 50,
+          "freq_real": 0.014254579725510986,
+          "freq_fake": 0.003623713581678504,
+          "in_vocab": true,
+          "coef": -0.35960585627204483
+        },
+        "environ": {
+          "df_real": 362,
+          "df_fake": 293,
+          "freq_real": 0.021322966366260233,
+          "freq_fake": 0.021234961588636036,
+          "in_vocab": true,
+          "coef": -0.2967271322229915
+        },
+        "environmental": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "found": {
+          "df_real": 1667,
+          "df_fake": 1698,
+          "freq_real": 0.09819167108440832,
+          "freq_fake": 0.123061313233802,
+          "in_vocab": true,
+          "coef": 0.4200912060366339
+        },
+        "govern": {
+          "df_real": 7108,
+          "df_fake": 2670,
+          "freq_real": 0.41868410202038053,
+          "freq_fake": 0.19350630526163212,
+          "in_vocab": true,
+          "coef": 3.418868915702865
+        },
+        "government": {
+          "df_real": 97,
+          "df_fake": 53,
+          "freq_real": 0.005713612534605643,
+          "freq_fake": 0.0038411363965792145,
+          "in_vocab": true,
+          "coef": 0.35666140875385904
+        },
+        "greenhous": {
+          "df_real": 100,
+          "df_fake": 30,
+          "freq_real": 0.005890322200624374,
+          "freq_fake": 0.0021742281490071025,
+          "in_vocab": true,
+          "coef": 0.3810651121941995
+        },
+        "guidelin": {
+          "df_real": 118,
+          "df_fake": 60,
+          "freq_real": 0.006950580196736762,
+          "freq_fake": 0.004348456298014205,
+          "in_vocab": true,
+          "coef": 0.12067194421679922
+        },
+        "minister": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "ministry": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "ocean": {
+          "df_real": 113,
+          "df_fake": 64,
+          "freq_real": 0.006656064086705543,
+          "freq_fake": 0.0046383533845484855,
+          "in_vocab": true,
+          "coef": 0.1535117212591227
+        },
+        "official": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "payment": {
+          "df_real": 506,
+          "df_fake": 188,
+          "freq_real": 0.029805030335159334,
+          "freq_fake": 0.013625163067111175,
+          "in_vocab": true,
+          "coef": 1.2918379471915968
+        },
+        "physic": {
+          "df_real": 156,
+          "df_fake": 324,
+          "freq_real": 0.009188902632974024,
+          "freq_fake": 0.023481664009276707,
+          "in_vocab": true,
+          "coef": 0.2221374270792387
+        },
+        "polici": {
+          "df_real": 3380,
+          "df_fake": 1831,
+          "freq_real": 0.19909289038110384,
+          "freq_fake": 0.13270039136106682,
+          "in_vocab": true,
+          "coef": -1.0624939840313155
+        },
+        "policy": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "president": {
+          "df_real": 0,
+          "df_fake": 2,
+          "freq_real": 0.0,
+          "freq_fake": 0.00014494854326714017,
+          "in_vocab": true,
+          "coef": -0.001885265607129804
+        },
+        "published": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "reef": {
+          "df_real": 21,
+          "df_fake": 2,
+          "freq_real": 0.0012369676621311187,
+          "freq_fake": 0.00014494854326714017,
+          "in_vocab": true,
+          "coef": 0.22961845622638472
+        },
+        "reli": {
+          "df_real": 374,
+          "df_fake": 269,
+          "freq_real": 0.02202980503033516,
+          "freq_fake": 0.019495579069430353,
+          "in_vocab": true,
+          "coef": 0.004550499044502999
+        },
+        "report": {
+          "df_real": 6114,
+          "df_fake": 4315,
+          "freq_real": 0.36013429934617425,
+          "freq_fake": 0.3127264820988549,
+          "in_vocab": true,
+          "coef": -0.0017305157828272806
+        },
+        "reported": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "research": {
+          "df_real": 691,
+          "df_fake": 524,
+          "freq_real": 0.040702126406314425,
+          "freq_fake": 0.03797651833599072,
+          "in_vocab": true,
+          "coef": 0.07946207238100828
+        },
+        "researcher": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "researchers": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "said": {
+          "df_real": 15897,
+          "df_fake": 7905,
+          "freq_real": 0.9363845202332568,
+          "freq_fake": 0.5729091172633715,
+          "in_vocab": true,
+          "coef": 28.290844656665882
+        },
+        "science": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "scientist": {
+          "df_real": 187,
+          "df_fake": 163,
+          "freq_real": 0.01101490251516758,
+          "freq_fake": 0.011813306276271923,
+          "in_vocab": true,
+          "coef": 0.18393252221897485
+        },
+        "scientists": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "studied": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "studies": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "study": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "system": {
+          "df_real": 1784,
+          "df_fake": 1139,
+          "freq_real": 0.10508334805913884,
+          "freq_fake": 0.08254819539063632,
+          "in_vocab": true,
+          "coef": 1.1407724748602932
+        },
+        "temperature": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "tissu": {
+          "df_real": 23,
+          "df_fake": 37,
+          "freq_real": 0.001354774106143606,
+          "freq_fake": 0.002681548050442093,
+          "in_vocab": true,
+          "coef": 0.13971495460161182
+        },
+        "warm": {
+          "df_real": 252,
+          "df_fake": 209,
+          "freq_real": 0.014843611945573423,
+          "freq_fake": 0.015147122771416147,
+          "in_vocab": true,
+          "coef": -2.302667878446419
+        },
+        "weather": {
+          "df_real": 163,
+          "df_fake": 93,
+          "freq_real": 0.009601225187017729,
+          "freq_fake": 0.0067401072619220175,
+          "in_vocab": true,
+          "coef": 1.3832442886325464
+        }
+      }
+    },
+    "bf_train": {
+      "n_rows": 377,
+      "n_real": 358,
+      "n_fake": 19,
+      "vocab_overlap": {
+        "vocab_terms": 36862,
+        "terms_present_from_this_corpus": 9459
+      },
+      "features": {
+        "accord": {
+          "df_real": 107,
+          "df_fake": 6,
+          "freq_real": 0.2988826815642458,
+          "freq_fake": 0.3157894736842105,
+          "in_vocab": true,
+          "coef": -4.955302964924632
+        },
+        "according": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "alga": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.12329580614154147
+        },
+        "bank": {
+          "df_real": 11,
+          "df_fake": 0,
+          "freq_real": 0.030726256983240222,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 1.4797407359567847
+        },
+        "bleach": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.1671686377447828
+        },
+        "cash": {
+          "df_real": 12,
+          "df_fake": 0,
+          "freq_real": 0.0335195530726257,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.17272947142848732
+        },
+        "central": {
+          "df_real": 11,
+          "df_fake": 0,
+          "freq_real": 0.030726256983240222,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 2.447746008776919
+        },
+        "channel": {
+          "df_real": 13,
+          "df_fake": 0,
+          "freq_real": 0.036312849162011177,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 2.1022494009528376
+        },
+        "climate": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "commerci": {
+          "df_real": 8,
+          "df_fake": 0,
+          "freq_real": 0.0223463687150838,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.03232850875636881
+        },
+        "commission": {
+          "df_real": 4,
+          "df_fake": 0,
+          "freq_real": 0.0111731843575419,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.26000166035474126
+        },
+        "coral": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.1555252662945978
+        },
+        "custom": {
+          "df_real": 5,
+          "df_fake": 0,
+          "freq_real": 0.013966480446927373,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -2.1972364270348406
+        },
+        "data": {
+          "df_real": 19,
+          "df_fake": 0,
+          "freq_real": 0.05307262569832402,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 3.151258591670388
+        },
+        "diseas": {
+          "df_real": 5,
+          "df_fake": 1,
+          "freq_real": 0.013966480446927373,
+          "freq_fake": 0.05263157894736842,
+          "in_vocab": true,
+          "coef": 0.3546669854533536
+        },
+        "economic": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "economy": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "effici": {
+          "df_real": 3,
+          "df_fake": 0,
+          "freq_real": 0.008379888268156424,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.0408543126718164
+        },
+        "election": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.0366112305528112
+        },
+        "emiss": {
+          "df_real": 2,
+          "df_fake": 0,
+          "freq_real": 0.00558659217877095,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.35960585627204483
+        },
+        "environ": {
+          "df_real": 8,
+          "df_fake": 0,
+          "freq_real": 0.0223463687150838,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.2967271322229915
+        },
+        "environmental": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "found": {
+          "df_real": 62,
+          "df_fake": 5,
+          "freq_real": 0.17318435754189945,
+          "freq_fake": 0.2631578947368421,
+          "in_vocab": true,
+          "coef": 0.4200912060366339
+        },
+        "govern": {
+          "df_real": 67,
+          "df_fake": 3,
+          "freq_real": 0.1871508379888268,
+          "freq_fake": 0.15789473684210525,
+          "in_vocab": true,
+          "coef": 3.418868915702865
+        },
+        "government": {
+          "df_real": 1,
+          "df_fake": 0,
+          "freq_real": 0.002793296089385475,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.35666140875385904
+        },
+        "greenhous": {
+          "df_real": 1,
+          "df_fake": 0,
+          "freq_real": 0.002793296089385475,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.3810651121941995
+        },
+        "guidelin": {
+          "df_real": 1,
+          "df_fake": 0,
+          "freq_real": 0.002793296089385475,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.12067194421679922
+        },
+        "minister": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "ministry": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "ocean": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.1535117212591227
+        },
+        "official": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "payment": {
+          "df_real": 12,
+          "df_fake": 0,
+          "freq_real": 0.0335195530726257,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 1.2918379471915968
+        },
+        "physic": {
+          "df_real": 11,
+          "df_fake": 1,
+          "freq_real": 0.030726256983240222,
+          "freq_fake": 0.05263157894736842,
+          "in_vocab": true,
+          "coef": 0.2221374270792387
+        },
+        "polici": {
+          "df_real": 81,
+          "df_fake": 2,
+          "freq_real": 0.22625698324022347,
+          "freq_fake": 0.10526315789473684,
+          "in_vocab": true,
+          "coef": -1.0624939840313155
+        },
+        "policy": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "president": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.001885265607129804
+        },
+        "published": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "reef": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.22961845622638472
+        },
+        "reli": {
+          "df_real": 9,
+          "df_fake": 0,
+          "freq_real": 0.025139664804469275,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.004550499044502999
+        },
+        "report": {
+          "df_real": 147,
+          "df_fake": 13,
+          "freq_real": 0.4106145251396648,
+          "freq_fake": 0.6842105263157895,
+          "in_vocab": true,
+          "coef": -0.0017305157828272806
+        },
+        "reported": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "research": {
+          "df_real": 15,
+          "df_fake": 2,
+          "freq_real": 0.04189944134078212,
+          "freq_fake": 0.10526315789473684,
+          "in_vocab": true,
+          "coef": 0.07946207238100828
+        },
+        "researcher": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "researchers": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "said": {
+          "df_real": 270,
+          "df_fake": 13,
+          "freq_real": 0.7541899441340782,
+          "freq_fake": 0.6842105263157895,
+          "in_vocab": true,
+          "coef": 28.290844656665882
+        },
+        "science": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "scientist": {
+          "df_real": 3,
+          "df_fake": 0,
+          "freq_real": 0.008379888268156424,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.18393252221897485
+        },
+        "scientists": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "studied": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "studies": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "study": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "system": {
+          "df_real": 47,
+          "df_fake": 0,
+          "freq_real": 0.13128491620111732,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 1.1407724748602932
+        },
+        "temperature": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "tissu": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.13971495460161182
+        },
+        "warm": {
+          "df_real": 7,
+          "df_fake": 0,
+          "freq_real": 0.019553072625698324,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -2.302667878446419
+        },
+        "weather": {
+          "df_real": 4,
+          "df_fake": 0,
+          "freq_real": 0.0111731843575419,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 1.3832442886325464
+        }
+      }
+    },
+    "bf_full": {
+      "n_rows": 1106,
+      "n_real": 1046,
+      "n_fake": 60,
+      "vocab_overlap": {
+        "vocab_terms": 36862,
+        "terms_present_from_this_corpus": 13726
+      },
+      "features": {
+        "accord": {
+          "df_real": 309,
+          "df_fake": 15,
+          "freq_real": 0.2954110898661568,
+          "freq_fake": 0.25,
+          "in_vocab": true,
+          "coef": -4.955302964924632
+        },
+        "according": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "alga": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.12329580614154147
+        },
+        "bank": {
+          "df_real": 39,
+          "df_fake": 0,
+          "freq_real": 0.0372848948374761,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 1.4797407359567847
+        },
+        "bleach": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.1671686377447828
+        },
+        "cash": {
+          "df_real": 27,
+          "df_fake": 1,
+          "freq_real": 0.02581261950286807,
+          "freq_fake": 0.016666666666666666,
+          "in_vocab": true,
+          "coef": -0.17272947142848732
+        },
+        "central": {
+          "df_real": 42,
+          "df_fake": 0,
+          "freq_real": 0.040152963671128104,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 2.447746008776919
+        },
+        "channel": {
+          "df_real": 31,
+          "df_fake": 0,
+          "freq_real": 0.029636711281070746,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 2.1022494009528376
+        },
+        "climate": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "commerci": {
+          "df_real": 20,
+          "df_fake": 1,
+          "freq_real": 0.019120458891013385,
+          "freq_fake": 0.016666666666666666,
+          "in_vocab": true,
+          "coef": -0.03232850875636881
+        },
+        "commission": {
+          "df_real": 15,
+          "df_fake": 0,
+          "freq_real": 0.014340344168260038,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.26000166035474126
+        },
+        "coral": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.1555252662945978
+        },
+        "custom": {
+          "df_real": 17,
+          "df_fake": 0,
+          "freq_real": 0.016252390057361378,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -2.1972364270348406
+        },
+        "data": {
+          "df_real": 50,
+          "df_fake": 2,
+          "freq_real": 0.04780114722753346,
+          "freq_fake": 0.03333333333333333,
+          "in_vocab": true,
+          "coef": 3.151258591670388
+        },
+        "diseas": {
+          "df_real": 10,
+          "df_fake": 2,
+          "freq_real": 0.009560229445506692,
+          "freq_fake": 0.03333333333333333,
+          "in_vocab": true,
+          "coef": 0.3546669854533536
+        },
+        "economic": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "economy": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "effici": {
+          "df_real": 8,
+          "df_fake": 0,
+          "freq_real": 0.0076481835564053535,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.0408543126718164
+        },
+        "election": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.0366112305528112
+        },
+        "emiss": {
+          "df_real": 6,
+          "df_fake": 0,
+          "freq_real": 0.0057361376673040155,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.35960585627204483
+        },
+        "environ": {
+          "df_real": 29,
+          "df_fake": 2,
+          "freq_real": 0.027724665391969407,
+          "freq_fake": 0.03333333333333333,
+          "in_vocab": true,
+          "coef": -0.2967271322229915
+        },
+        "environmental": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "found": {
+          "df_real": 167,
+          "df_fake": 11,
+          "freq_real": 0.15965583173996176,
+          "freq_fake": 0.18333333333333332,
+          "in_vocab": true,
+          "coef": 0.4200912060366339
+        },
+        "govern": {
+          "df_real": 193,
+          "df_fake": 11,
+          "freq_real": 0.18451242829827916,
+          "freq_fake": 0.18333333333333332,
+          "in_vocab": true,
+          "coef": 3.418868915702865
+        },
+        "government": {
+          "df_real": 2,
+          "df_fake": 0,
+          "freq_real": 0.0019120458891013384,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.35666140875385904
+        },
+        "greenhous": {
+          "df_real": 5,
+          "df_fake": 0,
+          "freq_real": 0.004780114722753346,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.3810651121941995
+        },
+        "guidelin": {
+          "df_real": 6,
+          "df_fake": 0,
+          "freq_real": 0.0057361376673040155,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.12067194421679922
+        },
+        "minister": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "ministry": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "ocean": {
+          "df_real": 2,
+          "df_fake": 0,
+          "freq_real": 0.0019120458891013384,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.1535117212591227
+        },
+        "official": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "payment": {
+          "df_real": 20,
+          "df_fake": 0,
+          "freq_real": 0.019120458891013385,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 1.2918379471915968
+        },
+        "physic": {
+          "df_real": 30,
+          "df_fake": 5,
+          "freq_real": 0.028680688336520075,
+          "freq_fake": 0.08333333333333333,
+          "in_vocab": true,
+          "coef": 0.2221374270792387
+        },
+        "polici": {
+          "df_real": 229,
+          "df_fake": 7,
+          "freq_real": 0.21892925430210325,
+          "freq_fake": 0.11666666666666667,
+          "in_vocab": true,
+          "coef": -1.0624939840313155
+        },
+        "policy": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "president": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -0.001885265607129804
+        },
+        "published": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "reef": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.22961845622638472
+        },
+        "reli": {
+          "df_real": 26,
+          "df_fake": 1,
+          "freq_real": 0.0248565965583174,
+          "freq_fake": 0.016666666666666666,
+          "in_vocab": true,
+          "coef": 0.004550499044502999
+        },
+        "report": {
+          "df_real": 398,
+          "df_fake": 31,
+          "freq_real": 0.38049713193116635,
+          "freq_fake": 0.5166666666666667,
+          "in_vocab": true,
+          "coef": -0.0017305157828272806
+        },
+        "reported": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "research": {
+          "df_real": 46,
+          "df_fake": 4,
+          "freq_real": 0.04397705544933078,
+          "freq_fake": 0.06666666666666667,
+          "in_vocab": true,
+          "coef": 0.07946207238100828
+        },
+        "researcher": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "researchers": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "said": {
+          "df_real": 797,
+          "df_fake": 35,
+          "freq_real": 0.7619502868068834,
+          "freq_fake": 0.5833333333333334,
+          "in_vocab": true,
+          "coef": 28.290844656665882
+        },
+        "science": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "scientist": {
+          "df_real": 11,
+          "df_fake": 0,
+          "freq_real": 0.010516252390057362,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.18393252221897485
+        },
+        "scientists": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "studied": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "studies": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "study": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "system": {
+          "df_real": 120,
+          "df_fake": 2,
+          "freq_real": 0.1147227533460803,
+          "freq_fake": 0.03333333333333333,
+          "in_vocab": true,
+          "coef": 1.1407724748602932
+        },
+        "temperature": {
+          "df_real": 0,
+          "df_fake": 0,
+          "freq_real": 0.0,
+          "freq_fake": 0.0,
+          "in_vocab": false,
+          "coef": null
+        },
+        "tissu": {
+          "df_real": 2,
+          "df_fake": 0,
+          "freq_real": 0.0019120458891013384,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": 0.13971495460161182
+        },
+        "warm": {
+          "df_real": 20,
+          "df_fake": 0,
+          "freq_real": 0.019120458891013385,
+          "freq_fake": 0.0,
+          "in_vocab": true,
+          "coef": -2.302667878446419
+        },
+        "weather": {
+          "df_real": 6,
+          "df_fake": 1,
+          "freq_real": 0.0057361376673040155,
+          "freq_fake": 0.016666666666666666,
+          "in_vocab": true,
+          "coef": 1.3832442886325464
+        }
+      }
+    }
+  },
+  "synthetic": {
+    "neutral_science": {
+      "text": "Researchers studying plant photosynthesis reported that leaves convert sunlight into chemical energy more efficiently under moderate temperatures. The study measured growth rates over a four month period and compared results across several controlled conditions. Scientists said the findings may help improve crop yields in regions that experience variable weather.",
+      "cleaned": "research studi plant photosynthesi report leav convert sunlight chemic energi effici moder temperatur studi measur growth rate four month period compar result across sever control condit scientist said find may help improv crop yield region experi variabl weather",
+      "n_tokens": 38,
+      "n_in_vocab": 38,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 11,
+      "logit": 2.7651021528343165,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.9407606176594836,
+      "p_fake": 0.0592393823405164,
+      "verdict": "real",
+      "top20_by_tfidf": [
+        {
+          "token": "photosynthesi",
+          "tfidf": 0.3375869902494891,
+          "coef": 0.015269824114386089,
+          "contribution": 0.00515489396441467
+        },
+        {
+          "token": "sunlight",
+          "tfidf": 0.2804465052453784,
+          "coef": 0.18184706758004435,
+          "contribution": 0.050998374591943584
+        },
+        {
+          "token": "variabl",
+          "tfidf": 0.2704888982367627,
+          "coef": -1.3217618755174125,
+          "contribution": -0.357521913440062
+        },
+        {
+          "token": "studi",
+          "tfidf": 0.23993039913554481,
+          "coef": 1.2727487357846121,
+          "contribution": 0.30537111217606205
+        },
+        {
+          "token": "temperatur",
+          "tfidf": 0.2207834699874127,
+          "coef": -0.34914115800489,
+          "contribution": -0.07708459637974314
+        },
+        {
+          "token": "crop",
+          "tfidf": 0.21834223691057283,
+          "coef": 0.8474594981512502,
+          "contribution": 0.18503620251745542
+        },
+        {
+          "token": "convert",
+          "tfidf": 0.20618358634498493,
+          "coef": 0.060598054722579356,
+          "contribution": 0.012494324248231062
+        },
+        {
+          "token": "effici",
+          "tfidf": 0.19875165009149892,
+          "coef": 0.0408543126718164,
+          "contribution": 0.008119862056877543
+        },
+        {
+          "token": "yield",
+          "tfidf": 0.1967068867339585,
+          "coef": 0.428688484033326,
+          "contribution": 0.08432597707289584
+        },
+        {
+          "token": "weather",
+          "tfidf": 0.19047295783779866,
+          "coef": 1.3832442886325464,
+          "contribution": 0.26347063106808283
+        },
+        {
+          "token": "chemic",
+          "tfidf": 0.18375944614403633,
+          "coef": 1.0391866388564344,
+          "contribution": 0.19096036119654108
+        },
+        {
+          "token": "scientist",
+          "tfidf": 0.18043314072491978,
+          "coef": 0.18393252221897485,
+          "contribution": 0.033187522665425725
+        },
+        {
+          "token": "plant",
+          "tfidf": 0.1673255695969861,
+          "coef": -0.06758022235955623,
+          "contribution": -0.011307899199803722
+        },
+        {
+          "token": "moder",
+          "tfidf": 0.1553084437673443,
+          "coef": 1.0932468641986195,
+          "contribution": 0.16979046913221676
+        },
+        {
+          "token": "growth",
+          "tfidf": 0.1519681646289943,
+          "coef": 0.5665072556003586,
+          "contribution": 0.08609106788259505
+        },
+        {
+          "token": "experi",
+          "tfidf": 0.14464885321260182,
+          "coef": 0.022699796992322312,
+          "contribution": 0.0032834996030982905
+        },
+        {
+          "token": "energi",
+          "tfidf": 0.1401091087605209,
+          "coef": 1.83905589138805,
+          "contribution": 0.257668481903165
+        },
+        {
+          "token": "research",
+          "tfidf": 0.13932507045501652,
+          "coef": 0.07946207238100828,
+          "contribution": 0.0110710588329856
+        },
+        {
+          "token": "compar",
+          "tfidf": 0.13890035454201863,
+          "coef": 0.8075318967671318,
+          "contribution": 0.11216646676494339
+        },
+        {
+          "token": "period",
+          "tfidf": 0.1384550143847796,
+          "coef": 1.1142382655259804,
+          "contribution": 0.1542718750814715
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "said",
+          "contribution": 1.1717154719871894,
+          "direction": "real"
+        },
+        {
+          "token": "region",
+          "contribution": 0.44008770008571474,
+          "direction": "real"
+        },
+        {
+          "token": "variabl",
+          "contribution": -0.357521913440062,
+          "direction": "fake"
+        },
+        {
+          "token": "studi",
+          "contribution": 0.30537111217606205,
+          "direction": "real"
+        },
+        {
+          "token": "measur",
+          "contribution": 0.2870771861096027,
+          "direction": "real"
+        },
+        {
+          "token": "improv",
+          "contribution": 0.2748959666814454,
+          "direction": "real"
+        },
+        {
+          "token": "weather",
+          "contribution": 0.26347063106808283,
+          "direction": "real"
+        },
+        {
+          "token": "energi",
+          "contribution": 0.257668481903165,
+          "direction": "real"
+        },
+        {
+          "token": "month",
+          "contribution": 0.23922356079776555,
+          "direction": "real"
+        },
+        {
+          "token": "chemic",
+          "contribution": 0.19096036119654108,
+          "direction": "real"
+        },
+        {
+          "token": "result",
+          "contribution": -0.18698994514623726,
+          "direction": "fake"
+        },
+        {
+          "token": "crop",
+          "contribution": 0.18503620251745542,
+          "direction": "real"
+        },
+        {
+          "token": "moder",
+          "contribution": 0.16979046913221676,
+          "direction": "real"
+        },
+        {
+          "token": "help",
+          "contribution": 0.16329135834273092,
+          "direction": "real"
+        },
+        {
+          "token": "period",
+          "contribution": 0.1542718750814715,
+          "direction": "real"
+        },
+        {
+          "token": "four",
+          "contribution": 0.1286643947671173,
+          "direction": "real"
+        },
+        {
+          "token": "rate",
+          "contribution": 0.12691812179314602,
+          "direction": "real"
+        },
+        {
+          "token": "compar",
+          "contribution": 0.11216646676494339,
+          "direction": "real"
+        },
+        {
+          "token": "growth",
+          "contribution": 0.08609106788259505,
+          "direction": "real"
+        },
+        {
+          "token": "yield",
+          "contribution": 0.08432597707289584,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "variabl",
+          "contribution": -0.357521913440062,
+          "cum_share_neg": 0.46542750866938765
+        },
+        {
+          "term": "result",
+          "contribution": -0.18698994514623726,
+          "cum_share_neg": 0.7088538863093953
+        }
+      ],
+      "sum_positive_contrib": 4.895712893879021,
+      "sum_negative_contrib": -0.7681581057857596,
+      "n_contributing": 37,
+      "kind": "neutral"
+    },
+    "fabricated_science": {
+      "text": "SHOCKING! Scientists just made a miracle discovery: plants can be taught to SPEAK! One simple trick doctors do not want you to know is destroying the fake news mainstream narrative forever. Share before this is deleted!",
+      "cleaned": "shock scientist made miracl discoveri plant taught speak one simpl trick doctor not want know destroy fake news mainstream narr forev share delet",
+      "n_tokens": 23,
+      "n_in_vocab": 23,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 13,
+      "logit": -4.425681328709785,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.011824562333922543,
+      "p_fake": 0.9881754376660774,
+      "verdict": "fake",
+      "top20_by_tfidf": [
+        {
+          "token": "miracl",
+          "tfidf": 0.3296612105882378,
+          "coef": 0.36651872991802914,
+          "contribution": 0.12082700820804085
+        },
+        {
+          "token": "trick",
+          "tfidf": 0.28950739940157805,
+          "coef": -0.43645186450618295,
+          "contribution": -0.12635604425715494
+        },
+        {
+          "token": "discoveri",
+          "tfidf": 0.2833379236599153,
+          "coef": -0.9502845442712443,
+          "contribution": -0.2692516496599232
+        },
+        {
+          "token": "taught",
+          "tfidf": 0.2755658793022394,
+          "coef": 0.33827879385455273,
+          "contribution": 0.0932180932778308
+        },
+        {
+          "token": "forev",
+          "tfidf": 0.2716660045402976,
+          "coef": 0.12286084784659092,
+          "contribution": 0.03337711564891678
+        },
+        {
+          "token": "delet",
+          "tfidf": 0.2488019868966877,
+          "coef": 0.9591914430769537,
+          "contribution": 0.2386487368518472
+        },
+        {
+          "token": "scientist",
+          "tfidf": 0.24416132582795946,
+          "coef": 0.18393252221897485,
+          "contribution": 0.04490920848786551
+        },
+        {
+          "token": "narr",
+          "tfidf": 0.23248545121885816,
+          "coef": -0.37497626349120966,
+          "contribution": -0.08717652581411534
+        },
+        {
+          "token": "plant",
+          "tfidf": 0.22642421870826634,
+          "coef": -0.06758022235955623,
+          "contribution": -0.01530179904789343
+        },
+        {
+          "token": "doctor",
+          "tfidf": 0.22332057950469517,
+          "coef": -0.7606151696655045,
+          "contribution": -0.16986102046976248
+        },
+        {
+          "token": "simpl",
+          "tfidf": 0.2140253357825868,
+          "coef": -1.2316241379783648,
+          "contribution": -0.26359876968875856
+        },
+        {
+          "token": "mainstream",
+          "tfidf": 0.2123287779607024,
+          "coef": -1.9157937534590626,
+          "contribution": -0.40677814649670996
+        },
+        {
+          "token": "shock",
+          "tfidf": 0.1998764221307957,
+          "coef": -2.6059552112677844,
+          "contribution": -0.5208690038613066
+        },
+        {
+          "token": "fake",
+          "tfidf": 0.19341985759414512,
+          "coef": -2.206582002427516,
+          "contribution": -0.42679677667933374
+        },
+        {
+          "token": "destroy",
+          "tfidf": 0.18186446595544595,
+          "coef": -3.4254833360075745,
+          "contribution": -0.6229736975422969
+        },
+        {
+          "token": "share",
+          "tfidf": 0.15640592891906455,
+          "coef": 1.7107949525689123,
+          "contribution": 0.2675784737465877
+        },
+        {
+          "token": "speak",
+          "tfidf": 0.13911822989911743,
+          "coef": -0.20314901944463024,
+          "contribution": -0.028261731990878346
+        },
+        {
+          "token": "know",
+          "tfidf": 0.1132481584974118,
+          "coef": -2.689841520566182,
+          "contribution": -0.30461959885399814
+        },
+        {
+          "token": "news",
+          "tfidf": 0.10697889544544545,
+          "coef": -3.397138319178647,
+          "contribution": -0.36342210506112876
+        },
+        {
+          "token": "made",
+          "tfidf": 0.1058163904981203,
+          "coef": 0.02210210988338876,
+          "contribution": 0.002338765490253029
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "destroy",
+          "contribution": -0.6229736975422969,
+          "direction": "fake"
+        },
+        {
+          "token": "shock",
+          "contribution": -0.5208690038613066,
+          "direction": "fake"
+        },
+        {
+          "token": "fake",
+          "contribution": -0.42679677667933374,
+          "direction": "fake"
+        },
+        {
+          "token": "mainstream",
+          "contribution": -0.40677814649670996,
+          "direction": "fake"
+        },
+        {
+          "token": "news",
+          "contribution": -0.36342210506112876,
+          "direction": "fake"
+        },
+        {
+          "token": "know",
+          "contribution": -0.30461959885399814,
+          "direction": "fake"
+        },
+        {
+          "token": "discoveri",
+          "contribution": -0.2692516496599232,
+          "direction": "fake"
+        },
+        {
+          "token": "share",
+          "contribution": 0.2675784737465877,
+          "direction": "real"
+        },
+        {
+          "token": "simpl",
+          "contribution": -0.26359876968875856,
+          "direction": "fake"
+        },
+        {
+          "token": "delet",
+          "contribution": 0.2386487368518472,
+          "direction": "real"
+        },
+        {
+          "token": "one",
+          "contribution": -0.22690602894491882,
+          "direction": "fake"
+        },
+        {
+          "token": "doctor",
+          "contribution": -0.16986102046976248,
+          "direction": "fake"
+        },
+        {
+          "token": "trick",
+          "contribution": -0.12635604425715494,
+          "direction": "fake"
+        },
+        {
+          "token": "miracl",
+          "contribution": 0.12082700820804085,
+          "direction": "real"
+        },
+        {
+          "token": "taught",
+          "contribution": 0.0932180932778308,
+          "direction": "real"
+        },
+        {
+          "token": "narr",
+          "contribution": -0.08717652581411534,
+          "direction": "fake"
+        },
+        {
+          "token": "want",
+          "contribution": -0.07374986753619849,
+          "direction": "fake"
+        },
+        {
+          "token": "scientist",
+          "contribution": 0.04490920848786551,
+          "direction": "real"
+        },
+        {
+          "token": "not",
+          "contribution": 0.041796670742195154,
+          "direction": "real"
+        },
+        {
+          "token": "forev",
+          "contribution": 0.03337711564891678,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "destroy",
+          "contribution": -0.6229736975422969,
+          "cum_share_neg": 0.15949462774337617
+        },
+        {
+          "term": "shock",
+          "contribution": -0.5208690038613066,
+          "cum_share_neg": 0.2928482640231515
+        },
+        {
+          "term": "fake",
+          "contribution": -0.42679677667933374,
+          "cum_share_neg": 0.40211739253867995
+        },
+        {
+          "term": "mainstream",
+          "contribution": -0.40677814649670996,
+          "cum_share_neg": 0.5062613223796799
+        },
+        {
+          "term": "news",
+          "contribution": -0.36342210506112876,
+          "cum_share_neg": 0.5993051757383578
+        },
+        {
+          "term": "know",
+          "contribution": -0.30461959885399814,
+          "cum_share_neg": 0.6772943263465283
+        },
+        {
+          "term": "discoveri",
+          "contribution": -0.2692516496599232,
+          "cum_share_neg": 0.7462285234100948
+        },
+        {
+          "term": "simpl",
+          "contribution": -0.26359876968875856,
+          "cum_share_neg": 0.8137154619614066
+        },
+        {
+          "term": "one",
+          "contribution": -0.22690602894491882,
+          "cum_share_neg": 0.8718082719180267
+        },
+        {
+          "term": "doctor",
+          "contribution": -0.16986102046976248,
+          "cum_share_neg": 0.9152963362372998
+        },
+        {
+          "term": "trick",
+          "contribution": -0.12635604425715494,
+          "cum_share_neg": 0.9476461935770667
+        },
+        {
+          "term": "narr",
+          "contribution": -0.08717652581411534,
+          "cum_share_neg": 0.969965253896205
+        },
+        {
+          "term": "want",
+          "contribution": -0.07374986753619849,
+          "cum_share_neg": 0.9888468017291464
+        }
+      ],
+      "sum_positive_contrib": 0.842694072453537,
+      "sum_negative_contrib": -3.9059227659043776,
+      "n_contributing": 23,
+      "kind": "fabricated"
+    },
+    "neutral_economics": {
+      "text": "The Ministry of Finance said inflation slowed to four percent in the third quarter, according to the latest official statistics. The central bank expects interest rates to remain stable while the government reviews its monetary policy framework.",
+      "cleaned": "ministri financ said inflat slow four percent third quarter accord latest offici statist central bank expect interest rate remain stabl govern review monetari polici framework",
+      "n_tokens": 25,
+      "n_in_vocab": 25,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 12,
+      "logit": 5.773387530364353,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.99690043008402,
+      "p_fake": 0.0030995699159800383,
+      "verdict": "real",
+      "top20_by_tfidf": [
+        {
+          "token": "monetari",
+          "tfidf": 0.2946657364792727,
+          "coef": 0.4420008831678837,
+          "contribution": 0.13024251576315343
+        },
+        {
+          "token": "framework",
+          "tfidf": 0.28792779571563515,
+          "coef": 1.0362555250149694,
+          "contribution": 0.29836676911570836
+        },
+        {
+          "token": "inflat",
+          "tfidf": 0.28516341712934856,
+          "coef": 0.9123739401034479,
+          "contribution": 0.2601756704596668
+        },
+        {
+          "token": "stabl",
+          "tfidf": 0.2838374236217733,
+          "coef": 0.7797316663625299,
+          "contribution": 0.2213170272966526
+        },
+        {
+          "token": "statist",
+          "tfidf": 0.2795449383840797,
+          "coef": -0.04399592508370187,
+          "contribution": -0.012298838166674025
+        },
+        {
+          "token": "quarter",
+          "tfidf": 0.2510928122219008,
+          "coef": 0.6572112216050373,
+          "contribution": 0.16502101385659965
+        },
+        {
+          "token": "slow",
+          "tfidf": 0.2412902774112898,
+          "coef": 1.620631965182312,
+          "contribution": 0.39104273646044385
+        },
+        {
+          "token": "financ",
+          "tfidf": 0.2028936304843136,
+          "coef": 1.5475969292758451,
+          "contribution": 0.31399755950715175
+        },
+        {
+          "token": "bank",
+          "tfidf": 0.19548664087537962,
+          "coef": 1.4797407359567847,
+          "contribution": 0.2892695458386539
+        },
+        {
+          "token": "ministri",
+          "tfidf": 0.1946878790411236,
+          "coef": 4.434975836233532,
+          "contribution": 0.8634360391549399
+        },
+        {
+          "token": "central",
+          "tfidf": 0.18894246821600583,
+          "coef": 2.447746008776919,
+          "contribution": 0.4624831724641882
+        },
+        {
+          "token": "review",
+          "tfidf": 0.1879228723113566,
+          "coef": 1.6639176150584163,
+          "contribution": 0.3126881775112398
+        },
+        {
+          "token": "rate",
+          "tfidf": 0.1858940274747353,
+          "coef": 1.0187515138325622,
+          "contribution": 0.1893798219023185
+        },
+        {
+          "token": "third",
+          "tfidf": 0.1837256891569066,
+          "coef": 0.9333738895127298,
+          "contribution": 0.17148476109178867
+        },
+        {
+          "token": "latest",
+          "tfidf": 0.18195376886813544,
+          "coef": 0.4034928748370129,
+          "contribution": 0.07341704928803335
+        },
+        {
+          "token": "four",
+          "tfidf": 0.15777558267399705,
+          "coef": 1.2168264909629716,
+          "contribution": 0.19198550862483804
+        },
+        {
+          "token": "interest",
+          "tfidf": 0.1576750201811737,
+          "coef": -0.5199646238750012,
+          "contribution": -0.0819854325629872
+        },
+        {
+          "token": "remain",
+          "tfidf": 0.15635814037491694,
+          "coef": 2.326893796225088,
+          "contribution": 0.3638287868276857
+        },
+        {
+          "token": "percent",
+          "tfidf": 0.14937549147556886,
+          "coef": 4.138340102901414,
+          "contribution": 0.618166586763955
+        },
+        {
+          "token": "expect",
+          "tfidf": 0.14383313848321827,
+          "coef": 3.511101379558177,
+          "contribution": 0.50501273095461
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "said",
+          "contribution": 1.748365515263308,
+          "direction": "real"
+        },
+        {
+          "token": "ministri",
+          "contribution": 0.8634360391549399,
+          "direction": "real"
+        },
+        {
+          "token": "percent",
+          "contribution": 0.618166586763955,
+          "direction": "real"
+        },
+        {
+          "token": "accord",
+          "contribution": -0.6024661267670377,
+          "direction": "fake"
+        },
+        {
+          "token": "expect",
+          "contribution": 0.50501273095461,
+          "direction": "real"
+        },
+        {
+          "token": "central",
+          "contribution": 0.4624831724641882,
+          "direction": "real"
+        },
+        {
+          "token": "slow",
+          "contribution": 0.39104273646044385,
+          "direction": "real"
+        },
+        {
+          "token": "remain",
+          "contribution": 0.3638287868276857,
+          "direction": "real"
+        },
+        {
+          "token": "govern",
+          "contribution": 0.36156499957370464,
+          "direction": "real"
+        },
+        {
+          "token": "financ",
+          "contribution": 0.31399755950715175,
+          "direction": "real"
+        },
+        {
+          "token": "review",
+          "contribution": 0.3126881775112398,
+          "direction": "real"
+        },
+        {
+          "token": "framework",
+          "contribution": 0.29836676911570836,
+          "direction": "real"
+        },
+        {
+          "token": "bank",
+          "contribution": 0.2892695458386539,
+          "direction": "real"
+        },
+        {
+          "token": "inflat",
+          "contribution": 0.2601756704596668,
+          "direction": "real"
+        },
+        {
+          "token": "stabl",
+          "contribution": 0.2213170272966526,
+          "direction": "real"
+        },
+        {
+          "token": "four",
+          "contribution": 0.19198550862483804,
+          "direction": "real"
+        },
+        {
+          "token": "rate",
+          "contribution": 0.1893798219023185,
+          "direction": "real"
+        },
+        {
+          "token": "third",
+          "contribution": 0.17148476109178867,
+          "direction": "real"
+        },
+        {
+          "token": "quarter",
+          "contribution": 0.16502101385659965,
+          "direction": "real"
+        },
+        {
+          "token": "polici",
+          "contribution": -0.14477621166792617,
+          "direction": "fake"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "accord",
+          "contribution": -0.6024661267670377,
+          "cum_share_neg": 0.71592047144546
+        },
+        {
+          "term": "polici",
+          "contribution": -0.14477621166792617,
+          "cum_share_neg": 0.8879604403439408
+        }
+      ],
+      "sum_positive_contrib": 7.977366774787923,
+      "sum_negative_contrib": -0.8415266091646251,
+      "n_contributing": 25,
+      "kind": "neutral"
+    },
+    "fabricated_economics": {
+      "text": "THE ECONOMY IS COLLAPSING! The government is hiding the truth about your money! Banks are stealing deposits and printing fake cash around the clock. This is the end of the world as we know it, official sources confirm.",
+      "cleaned": "economi collaps govern hide truth money bank steal deposit print fake cash around clock end world know offici sourc confirm",
+      "n_tokens": 20,
+      "n_in_vocab": 20,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 18,
+      "logit": -2.435480140723871,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.08050686329644821,
+      "p_fake": 0.9194931367035518,
+      "verdict": "fake",
+      "top20_by_tfidf": [
+        {
+          "token": "deposit",
+          "tfidf": 0.3356231973291304,
+          "coef": 1.64704350181024,
+          "contribution": 0.5527860062177201
+        },
+        {
+          "token": "clock",
+          "tfidf": 0.3221766559366143,
+          "coef": 0.14116207140445305,
+          "contribution": 0.045479124110172256
+        },
+        {
+          "token": "print",
+          "tfidf": 0.3120979332245623,
+          "coef": 0.4668062313016578,
+          "contribution": 0.1456892600055944
+        },
+        {
+          "token": "steal",
+          "tfidf": 0.2945532212249513,
+          "coef": -0.9558871992988797,
+          "contribution": -0.281559653681182
+        },
+        {
+          "token": "hide",
+          "tfidf": 0.2649882095334705,
+          "coef": -0.16105041733481854,
+          "contribution": -0.042676461734171764
+        },
+        {
+          "token": "cash",
+          "tfidf": 0.26277400566066256,
+          "coef": -0.17272947142848732,
+          "contribution": -0.04538881510291258
+        },
+        {
+          "token": "collaps",
+          "tfidf": 0.2540681731245975,
+          "coef": 0.7329742600603325,
+          "contribution": 0.1862254312008823
+        },
+        {
+          "token": "fake",
+          "tfidf": 0.23150933249128758,
+          "coef": -2.206582002427516,
+          "contribution": -0.5108443264692829
+        },
+        {
+          "token": "truth",
+          "tfidf": 0.22066671454032502,
+          "coef": -2.7088774259017208,
+          "contribution": -0.5977590816661854
+        },
+        {
+          "token": "bank",
+          "tfidf": 0.2121949412790817,
+          "coef": 1.4797407359567847,
+          "contribution": 0.31399349857461506
+        },
+        {
+          "token": "economi",
+          "tfidf": 0.19916477576938224,
+          "coef": -0.4697589985463154,
+          "contribution": -0.09355944561112647
+        },
+        {
+          "token": "confirm",
+          "tfidf": 0.18336977100812832,
+          "coef": -1.0687010796986713,
+          "contribution": -0.19596747226048486
+        },
+        {
+          "token": "money",
+          "tfidf": 0.17728609568494638,
+          "coef": -2.236096323201295,
+          "contribution": -0.39642878671582155
+        },
+        {
+          "token": "sourc",
+          "tfidf": 0.17206281216009947,
+          "coef": -1.5731382934513902,
+          "contribution": -0.270678598687986
+        },
+        {
+          "token": "around",
+          "tfidf": 0.1561148454999685,
+          "coef": 0.1594264397511214,
+          "contribution": 0.024888834010356353
+        },
+        {
+          "token": "world",
+          "tfidf": 0.14615261518995828,
+          "coef": -0.8021094453693584,
+          "contribution": -0.1172303931092987
+        },
+        {
+          "token": "end",
+          "tfidf": 0.1431848061751242,
+          "coef": 0.9224428663334278,
+          "contribution": 0.13207980302357786
+        },
+        {
+          "token": "know",
+          "tfidf": 0.13554970986803666,
+          "coef": -2.689841520566182,
+          "contribution": -0.36460723770374454
+        },
+        {
+          "token": "offici",
+          "tfidf": 0.12705511023200816,
+          "coef": 0.3940238542603308,
+          "contribution": 0.05006274423708705
+        },
+        {
+          "token": "govern",
+          "tfidf": 0.11479471005590743,
+          "coef": 3.418868915702865,
+          "contribution": 0.39246806589726496
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "truth",
+          "contribution": -0.5977590816661854,
+          "direction": "fake"
+        },
+        {
+          "token": "deposit",
+          "contribution": 0.5527860062177201,
+          "direction": "real"
+        },
+        {
+          "token": "fake",
+          "contribution": -0.5108443264692829,
+          "direction": "fake"
+        },
+        {
+          "token": "money",
+          "contribution": -0.39642878671582155,
+          "direction": "fake"
+        },
+        {
+          "token": "govern",
+          "contribution": 0.39246806589726496,
+          "direction": "real"
+        },
+        {
+          "token": "know",
+          "contribution": -0.36460723770374454,
+          "direction": "fake"
+        },
+        {
+          "token": "bank",
+          "contribution": 0.31399349857461506,
+          "direction": "real"
+        },
+        {
+          "token": "steal",
+          "contribution": -0.281559653681182,
+          "direction": "fake"
+        },
+        {
+          "token": "sourc",
+          "contribution": -0.270678598687986,
+          "direction": "fake"
+        },
+        {
+          "token": "confirm",
+          "contribution": -0.19596747226048486,
+          "direction": "fake"
+        },
+        {
+          "token": "collaps",
+          "contribution": 0.1862254312008823,
+          "direction": "real"
+        },
+        {
+          "token": "print",
+          "contribution": 0.1456892600055944,
+          "direction": "real"
+        },
+        {
+          "token": "end",
+          "contribution": 0.13207980302357786,
+          "direction": "real"
+        },
+        {
+          "token": "world",
+          "contribution": -0.1172303931092987,
+          "direction": "fake"
+        },
+        {
+          "token": "economi",
+          "contribution": -0.09355944561112647,
+          "direction": "fake"
+        },
+        {
+          "token": "offici",
+          "contribution": 0.05006274423708705,
+          "direction": "real"
+        },
+        {
+          "token": "clock",
+          "contribution": 0.045479124110172256,
+          "direction": "real"
+        },
+        {
+          "token": "cash",
+          "contribution": -0.04538881510291258,
+          "direction": "fake"
+        },
+        {
+          "token": "hide",
+          "contribution": -0.042676461734171764,
+          "direction": "fake"
+        },
+        {
+          "token": "around",
+          "contribution": 0.024888834010356353,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "truth",
+          "contribution": -0.5977590816661854,
+          "cum_share_neg": 0.20494360947969112
+        },
+        {
+          "term": "fake",
+          "contribution": -0.5108443264692829,
+          "cum_share_neg": 0.3800882176670116
+        },
+        {
+          "term": "money",
+          "contribution": -0.39642878671582155,
+          "cum_share_neg": 0.5160050927812004
+        },
+        {
+          "term": "know",
+          "contribution": -0.36460723770374454,
+          "cum_share_neg": 0.6410118482271248
+        },
+        {
+          "term": "steal",
+          "contribution": -0.281559653681182,
+          "cum_share_neg": 0.737545474363645
+        },
+        {
+          "term": "sourc",
+          "contribution": -0.270678598687986,
+          "cum_share_neg": 0.8303484960582609
+        },
+        {
+          "term": "confirm",
+          "contribution": -0.19596747226048486,
+          "cum_share_neg": 0.8975365695438652
+        },
+        {
+          "term": "world",
+          "contribution": -0.1172303931092987,
+          "cum_share_neg": 0.9377293840763924
+        },
+        {
+          "term": "economi",
+          "contribution": -0.09355944561112647,
+          "cum_share_neg": 0.9698065386902824
+        },
+        {
+          "term": "cash",
+          "contribution": -0.04538881510291258,
+          "cum_share_neg": 0.9853682388509367
+        },
+        {
+          "term": "hide",
+          "contribution": -0.042676461734171764,
+          "cum_share_neg": 1.0000000000000002
+        }
+      ],
+      "sum_positive_contrib": 1.8436727672772704,
+      "sum_negative_contrib": -2.916700272742197,
+      "n_contributing": 20,
+      "kind": "fabricated"
+    },
+    "neutral_nigeria": {
+      "text": "The Central Bank of Nigeria said commercial banks will continue to operate under the existing cash withdrawal guidelines while customers are encouraged to use electronic payment channels. The bank said the policy is intended to improve the efficiency of the country's payment system and reduce reliance on physical cash.",
+      "cleaned": "central bank nigeria said commerci bank continu oper exist cash withdraw guidelin custom encourag use electron payment channel bank said polici intend improv effici countri payment system reduc relianc physic cash",
+      "n_tokens": 31,
+      "n_in_vocab": 31,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 19,
+      "logit": 3.77460901396236,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.9775686506218831,
+      "p_fake": 0.02243134937811686,
+      "verdict": "real",
+      "top20_by_tfidf": [
+        {
+          "token": "bank",
+          "tfidf": 0.3211014204020659,
+          "coef": 1.4797407359567847,
+          "contribution": 0.47514685214252195
+        },
+        {
+          "token": "cash",
+          "tfidf": 0.32081310610911346,
+          "coef": -0.17272947142848732,
+          "contribution": -0.055413878245558386
+        },
+        {
+          "token": "payment",
+          "tfidf": 0.31173216283125377,
+          "coef": 1.2918379471915968,
+          "contribution": 0.4027074373055235
+        },
+        {
+          "token": "relianc",
+          "tfidf": 0.2638436586612766,
+          "coef": 0.3791753914004385,
+          "contribution": 0.10004302254141326
+        },
+        {
+          "token": "nigeria",
+          "tfidf": 0.25500033657108484,
+          "coef": 0.7982945971586296,
+          "contribution": 0.20356539095832912
+        },
+        {
+          "token": "guidelin",
+          "tfidf": 0.23674688199153426,
+          "coef": 0.12067194421679922,
+          "contribution": 0.02856870653718357
+        },
+        {
+          "token": "effici",
+          "tfidf": 0.23212063036685202,
+          "coef": 0.0408543126718164,
+          "contribution": 0.009483128810586492
+        },
+        {
+          "token": "electron",
+          "tfidf": 0.2192028780459378,
+          "coef": 1.6337544575244514,
+          "contribution": 0.3581236791097396
+        },
+        {
+          "token": "commerci",
+          "tfidf": 0.19917283321494242,
+          "coef": -0.03232850875636881,
+          "contribution": -0.0064389606826200495
+        },
+        {
+          "token": "physic",
+          "tfidf": 0.19798410139107123,
+          "coef": 0.2221374270792387,
+          "contribution": 0.043979678885607686
+        },
+        {
+          "token": "channel",
+          "tfidf": 0.18572538388713383,
+          "coef": 2.1022494009528376,
+          "contribution": 0.3904410770184629
+        },
+        {
+          "token": "withdraw",
+          "tfidf": 0.18215155467031446,
+          "coef": 1.886622283896616,
+          "contribution": 0.343651182087428
+        },
+        {
+          "token": "custom",
+          "tfidf": 0.17845656479057054,
+          "coef": -2.1972364270348406,
+          "contribution": -0.3921112648013447
+        },
+        {
+          "token": "encourag",
+          "tfidf": 0.16476738207272024,
+          "coef": -0.00886377804219822,
+          "contribution": -0.0014604615032866623
+        },
+        {
+          "token": "intend",
+          "tfidf": 0.16328253134371956,
+          "coef": 0.7802047095891126,
+          "contribution": 0.1273937999480019
+        },
+        {
+          "token": "improv",
+          "tfidf": 0.16053334593753685,
+          "coef": 1.9998899987847683,
+          "contribution": 0.3210490330119353
+        },
+        {
+          "token": "reduc",
+          "tfidf": 0.15794001153457604,
+          "coef": 2.0380443108788593,
+          "contribution": 0.3218887419681841
+        },
+        {
+          "token": "exist",
+          "tfidf": 0.15188371403459638,
+          "coef": -2.027964768584424,
+          "contribution": -0.3080148209839131
+        },
+        {
+          "token": "central",
+          "tfidf": 0.14788445169378536,
+          "coef": 2.447746008776919,
+          "contribution": 0.3619835763936262
+        },
+        {
+          "token": "system",
+          "tfidf": 0.12888241665674124,
+          "coef": 1.1407724748602932,
+          "contribution": 0.1470255134154862
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "said",
+          "contribution": 2.316967140986911,
+          "direction": "real"
+        },
+        {
+          "token": "bank",
+          "contribution": 0.47514685214252195,
+          "direction": "real"
+        },
+        {
+          "token": "payment",
+          "contribution": 0.4027074373055235,
+          "direction": "real"
+        },
+        {
+          "token": "custom",
+          "contribution": -0.3921112648013447,
+          "direction": "fake"
+        },
+        {
+          "token": "channel",
+          "contribution": 0.3904410770184629,
+          "direction": "real"
+        },
+        {
+          "token": "central",
+          "contribution": 0.3619835763936262,
+          "direction": "real"
+        },
+        {
+          "token": "electron",
+          "contribution": 0.3581236791097396,
+          "direction": "real"
+        },
+        {
+          "token": "withdraw",
+          "contribution": 0.343651182087428,
+          "direction": "real"
+        },
+        {
+          "token": "reduc",
+          "contribution": 0.3218887419681841,
+          "direction": "real"
+        },
+        {
+          "token": "improv",
+          "contribution": 0.3210490330119353,
+          "direction": "real"
+        },
+        {
+          "token": "exist",
+          "contribution": -0.3080148209839131,
+          "direction": "fake"
+        },
+        {
+          "token": "countri",
+          "contribution": 0.21391789306482586,
+          "direction": "real"
+        },
+        {
+          "token": "nigeria",
+          "contribution": 0.20356539095832912,
+          "direction": "real"
+        },
+        {
+          "token": "continu",
+          "contribution": -0.16152706788689636,
+          "direction": "fake"
+        },
+        {
+          "token": "system",
+          "contribution": 0.1470255134154862,
+          "direction": "real"
+        },
+        {
+          "token": "intend",
+          "contribution": 0.1273937999480019,
+          "direction": "real"
+        },
+        {
+          "token": "polici",
+          "contribution": -0.11331571394705091,
+          "direction": "fake"
+        },
+        {
+          "token": "relianc",
+          "contribution": 0.10004302254141326,
+          "direction": "real"
+        },
+        {
+          "token": "cash",
+          "contribution": -0.055413878245558386,
+          "direction": "fake"
+        },
+        {
+          "token": "physic",
+          "contribution": 0.043979678885607686,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "custom",
+          "contribution": -0.3921112648013447,
+          "cum_share_neg": 0.3665399110488982
+        },
+        {
+          "term": "exist",
+          "contribution": -0.3080148209839131,
+          "cum_share_neg": 0.6544676887483841
+        },
+        {
+          "term": "continu",
+          "contribution": -0.16152706788689636,
+          "cum_share_neg": 0.8054608440336521
+        },
+        {
+          "term": "polici",
+          "contribution": -0.11331571394705091,
+          "cum_share_neg": 0.9113867264018548
+        },
+        {
+          "term": "cash",
+          "contribution": -0.055413878245558386,
+          "cum_share_neg": 0.9631868143521254
+        }
+      ],
+      "sum_positive_contrib": 6.206825822184819,
+      "sum_negative_contrib": -1.0697641729635143,
+      "n_contributing": 26,
+      "kind": "neutral"
+    },
+    "fabricated_nigeria": {
+      "text": "BREAKING: President announces the Central Bank will seize all private savings and replace the currency with digital coins! Banks closing tomorrow forever. Stand up and refuse, this is total theft approved by corrupt bankers.",
+      "cleaned": "break presid announc central bank seiz privat save replac currenc digit coin bank close tomorrow forev stand refus total theft approv corrupt banker",
+      "n_tokens": 23,
+      "n_in_vocab": 23,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 11,
+      "logit": -1.067874546072996,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.2558074968316146,
+      "p_fake": 0.7441925031683854,
+      "verdict": "fake",
+      "top20_by_tfidf": [
+        {
+          "token": "coin",
+          "tfidf": 0.32332275027883944,
+          "coef": -0.5658438948774843,
+          "contribution": -0.18295020432027875
+        },
+        {
+          "token": "bank",
+          "tfidf": 0.3091438485613298,
+          "coef": 1.4797407359567847,
+          "contribution": 0.457452745986655
+        },
+        {
+          "token": "theft",
+          "tfidf": 0.28100874800562475,
+          "coef": 0.28843981555531845,
+          "contribution": 0.08105411144417336
+        },
+        {
+          "token": "forev",
+          "tfidf": 0.27979091620025676,
+          "coef": 0.12286084784659092,
+          "contribution": 0.03437534918413802
+        },
+        {
+          "token": "banker",
+          "tfidf": 0.2665235050563218,
+          "coef": 0.831876612227766,
+          "contribution": 0.2217146704653228
+        },
+        {
+          "token": "tomorrow",
+          "tfidf": 0.2553876053229312,
+          "coef": -0.2864225022387899,
+          "contribution": -0.07314875695736646
+        },
+        {
+          "token": "currenc",
+          "tfidf": 0.24361503668288226,
+          "coef": 1.330647821172434,
+          "contribution": 0.32416581776691983
+        },
+        {
+          "token": "digit",
+          "tfidf": 0.23953847378218335,
+          "coef": 0.5591660634119455,
+          "contribution": 0.13394178542048898
+        },
+        {
+          "token": "seiz",
+          "tfidf": 0.21779856383737983,
+          "coef": 0.7106599769255003,
+          "contribution": 0.15478072235107945
+        },
+        {
+          "token": "save",
+          "tfidf": 0.19402399706301393,
+          "coef": -2.0108379002251273,
+          "contribution": -0.3901508068474772
+        },
+        {
+          "token": "corrupt",
+          "tfidf": 0.19073055094643296,
+          "coef": 0.6399927130928189,
+          "contribution": 0.12206616276989575
+        },
+        {
+          "token": "replac",
+          "tfidf": 0.177809071480882,
+          "coef": -1.059444668512264,
+          "contribution": -0.18837887279353652
+        },
+        {
+          "token": "central",
+          "tfidf": 0.17647305247695957,
+          "coef": 2.447746008776919,
+          "contribution": 0.4319612098571576
+        },
+        {
+          "token": "break",
+          "tfidf": 0.17461210193717414,
+          "coef": -1.2368294887113134,
+          "contribution": -0.21596539676176282
+        },
+        {
+          "token": "total",
+          "tfidf": 0.16581018903279293,
+          "coef": -0.35191729733737076,
+          "contribution": -0.05835147359541904
+        },
+        {
+          "token": "approv",
+          "tfidf": 0.1649550153434611,
+          "coef": 0.5894675999772373,
+          "contribution": 0.09723563699871837
+        },
+        {
+          "token": "privat",
+          "tfidf": 0.16371098821748845,
+          "coef": 0.661655774804567,
+          "contribution": 0.10832032075306366
+        },
+        {
+          "token": "refus",
+          "tfidf": 0.16183226589280697,
+          "coef": -2.744223035597718,
+          "contribution": -0.44410383196601577
+        },
+        {
+          "token": "stand",
+          "tfidf": 0.1478355847005996,
+          "coef": -2.04323470081067,
+          "contribution": -0.30206279667490005
+        },
+        {
+          "token": "announc",
+          "tfidf": 0.14539125261747643,
+          "coef": -2.0378979471698218,
+          "contribution": -0.29629253524560417
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "bank",
+          "contribution": 0.457452745986655,
+          "direction": "real"
+        },
+        {
+          "token": "refus",
+          "contribution": -0.44410383196601577,
+          "direction": "fake"
+        },
+        {
+          "token": "central",
+          "contribution": 0.4319612098571576,
+          "direction": "real"
+        },
+        {
+          "token": "save",
+          "contribution": -0.3901508068474772,
+          "direction": "fake"
+        },
+        {
+          "token": "currenc",
+          "contribution": 0.32416581776691983,
+          "direction": "real"
+        },
+        {
+          "token": "stand",
+          "contribution": -0.30206279667490005,
+          "direction": "fake"
+        },
+        {
+          "token": "announc",
+          "contribution": -0.29629253524560417,
+          "direction": "fake"
+        },
+        {
+          "token": "banker",
+          "contribution": 0.2217146704653228,
+          "direction": "real"
+        },
+        {
+          "token": "break",
+          "contribution": -0.21596539676176282,
+          "direction": "fake"
+        },
+        {
+          "token": "presid",
+          "contribution": 0.20498742088613,
+          "direction": "real"
+        },
+        {
+          "token": "replac",
+          "contribution": -0.18837887279353652,
+          "direction": "fake"
+        },
+        {
+          "token": "coin",
+          "contribution": -0.18295020432027875,
+          "direction": "fake"
+        },
+        {
+          "token": "seiz",
+          "contribution": 0.15478072235107945,
+          "direction": "real"
+        },
+        {
+          "token": "digit",
+          "contribution": 0.13394178542048898,
+          "direction": "real"
+        },
+        {
+          "token": "corrupt",
+          "contribution": 0.12206616276989575,
+          "direction": "real"
+        },
+        {
+          "token": "privat",
+          "contribution": 0.10832032075306366,
+          "direction": "real"
+        },
+        {
+          "token": "approv",
+          "contribution": 0.09723563699871837,
+          "direction": "real"
+        },
+        {
+          "token": "theft",
+          "contribution": 0.08105411144417336,
+          "direction": "real"
+        },
+        {
+          "token": "close",
+          "contribution": 0.07392681046456631,
+          "direction": "real"
+        },
+        {
+          "token": "tomorrow",
+          "contribution": -0.07314875695736646,
+          "direction": "fake"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "refus",
+          "contribution": -0.44410383196601577,
+          "cum_share_neg": 0.20642505665862254
+        },
+        {
+          "term": "save",
+          "contribution": -0.3901508068474772,
+          "cum_share_neg": 0.3877720674519469
+        },
+        {
+          "term": "stand",
+          "contribution": -0.30206279667490005,
+          "cum_share_neg": 0.5281746612373789
+        },
+        {
+          "term": "announc",
+          "contribution": -0.29629253524560417,
+          "cum_share_neg": 0.6658951648070961
+        },
+        {
+          "term": "break",
+          "contribution": -0.21596539676176282,
+          "cum_share_neg": 0.7662786023142515
+        },
+        {
+          "term": "replac",
+          "contribution": -0.18837887279353652,
+          "cum_share_neg": 0.8538394758999334
+        },
+        {
+          "term": "coin",
+          "contribution": -0.18295020432027875,
+          "cum_share_neg": 0.9388770359798247
+        },
+        {
+          "term": "tomorrow",
+          "contribution": -0.07314875695736646,
+          "cum_share_neg": 0.9728774998636573
+        }
+      ],
+      "sum_positive_contrib": 2.445982764348309,
+      "sum_negative_contrib": -2.151404675162361,
+      "n_contributing": 22,
+      "kind": "fabricated"
+    },
+    "neutral_technology": {
+      "text": "Engineers at a research laboratory developed a prototype battery that stores more energy and charges faster than current designs. The system uses silicon anodes and the team expects to begin commercial production within two years. Industry analysts said the approach remains promising but unproven at scale.",
+      "cleaned": "engin research laboratori develop prototyp batteri store energi charg faster current design system use silicon anod team expect begin commerci product within two year industri analyst said approach remain promis unproven scale",
+      "n_tokens": 32,
+      "n_in_vocab": 31,
+      "n_out_of_vocab": 1,
+      "n_surviving_from_stopwords": 14,
+      "logit": 1.9222446113654088,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.872388527986766,
+      "p_fake": 0.12761147201323397,
+      "verdict": "real",
+      "top20_by_tfidf": [
+        {
+          "token": "prototyp",
+          "tfidf": 0.3124098773695868,
+          "coef": -0.5105795626896279,
+          "contribution": -0.1595100985672839
+        },
+        {
+          "token": "unproven",
+          "tfidf": 0.2994933208966181,
+          "coef": -0.09758079104123282,
+          "contribution": -0.029224795164657782
+        },
+        {
+          "token": "laboratori",
+          "tfidf": 0.2956872981217534,
+          "coef": 0.5700138485677181,
+          "contribution": 0.16854585477497083
+        },
+        {
+          "token": "batteri",
+          "tfidf": 0.2556816597315003,
+          "coef": -0.09264016988589023,
+          "contribution": -0.023686392394232567
+        },
+        {
+          "token": "silicon",
+          "tfidf": 0.25471912266686164,
+          "coef": 0.19504558331209465,
+          "contribution": 0.04968183986130302
+        },
+        {
+          "token": "faster",
+          "tfidf": 0.2444675908858697,
+          "coef": 0.5697747107429583,
+          "contribution": 0.13929145088302428
+        },
+        {
+          "token": "commerci",
+          "tfidf": 0.2018055965783032,
+          "coef": -0.03232850875636881,
+          "contribution": -0.006524073996065905
+        },
+        {
+          "token": "engin",
+          "tfidf": 0.20028615367969949,
+          "coef": 2.5162679754317727,
+          "contribution": 0.5039736344266343
+        },
+        {
+          "token": "store",
+          "tfidf": 0.19353367106637084,
+          "coef": -1.7696108770980672,
+          "contribution": -0.3424792894037693
+        },
+        {
+          "token": "scale",
+          "tfidf": 0.18905248173055872,
+          "coef": -0.22397677003683597,
+          "contribution": -0.04234336422545849
+        },
+        {
+          "token": "analyst",
+          "tfidf": 0.1734239232449433,
+          "coef": -0.8208011805812667,
+          "contribution": -0.14234656094048445
+        },
+        {
+          "token": "energi",
+          "tfidf": 0.16579539882347893,
+          "coef": 1.83905589138805,
+          "contribution": 0.3049070049713503
+        },
+        {
+          "token": "research",
+          "tfidf": 0.16486762228772084,
+          "coef": 0.07946207238100828,
+          "contribution": 0.013100722935511606
+        },
+        {
+          "token": "design",
+          "tfidf": 0.16226896096182525,
+          "coef": 1.4824914123385604,
+          "contribution": 0.24056234111500704
+        },
+        {
+          "token": "approach",
+          "tfidf": 0.16050534761833873,
+          "coef": 0.8991756661833166,
+          "contribution": 0.14432250287070453
+        },
+        {
+          "token": "product",
+          "tfidf": 0.1571748713392948,
+          "coef": 1.3952875106874763,
+          "contribution": 0.21930413497362902
+        },
+        {
+          "token": "industri",
+          "tfidf": 0.15230202255472725,
+          "coef": 0.5207658390251922,
+          "contribution": 0.07931369056094628
+        },
+        {
+          "token": "begin",
+          "tfidf": 0.14313927326316703,
+          "coef": -1.8893059180105227,
+          "contribution": -0.27043387607582686
+        },
+        {
+          "token": "within",
+          "tfidf": 0.13977618006000456,
+          "coef": -1.3967933540980235,
+          "contribution": -0.19523843936902305
+        },
+        {
+          "token": "team",
+          "tfidf": 0.13936315680092126,
+          "coef": -0.5384228972294577,
+          "contribution": -0.07503631465179522
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "said",
+          "contribution": 1.3865267983240197,
+          "direction": "real"
+        },
+        {
+          "token": "engin",
+          "contribution": 0.5039736344266343,
+          "direction": "real"
+        },
+        {
+          "token": "expect",
+          "contribution": 0.4004961656189559,
+          "direction": "real"
+        },
+        {
+          "token": "store",
+          "contribution": -0.3424792894037693,
+          "direction": "fake"
+        },
+        {
+          "token": "energi",
+          "contribution": 0.3049070049713503,
+          "direction": "real"
+        },
+        {
+          "token": "remain",
+          "contribution": 0.2885314074970935,
+          "direction": "real"
+        },
+        {
+          "token": "begin",
+          "contribution": -0.27043387607582686,
+          "direction": "fake"
+        },
+        {
+          "token": "design",
+          "contribution": 0.24056234111500704,
+          "direction": "real"
+        },
+        {
+          "token": "product",
+          "contribution": 0.21930413497362902,
+          "direction": "real"
+        },
+        {
+          "token": "within",
+          "contribution": -0.19523843936902305,
+          "direction": "fake"
+        },
+        {
+          "token": "year",
+          "contribution": 0.17454914212151532,
+          "direction": "real"
+        },
+        {
+          "token": "laboratori",
+          "contribution": 0.16854585477497083,
+          "direction": "real"
+        },
+        {
+          "token": "prototyp",
+          "contribution": -0.1595100985672839,
+          "direction": "fake"
+        },
+        {
+          "token": "charg",
+          "contribution": 0.1532481169696815,
+          "direction": "real"
+        },
+        {
+          "token": "system",
+          "contribution": 0.14896896814749708,
+          "direction": "real"
+        },
+        {
+          "token": "approach",
+          "contribution": 0.14432250287070453,
+          "direction": "real"
+        },
+        {
+          "token": "analyst",
+          "contribution": -0.14234656094048445,
+          "direction": "fake"
+        },
+        {
+          "token": "faster",
+          "contribution": 0.13929145088302428,
+          "direction": "real"
+        },
+        {
+          "token": "two",
+          "contribution": 0.0948454164889451,
+          "direction": "real"
+        },
+        {
+          "token": "industri",
+          "contribution": 0.07931369056094628,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "store",
+          "contribution": -0.3424792894037693,
+          "cum_share_neg": 0.2558994669203862
+        },
+        {
+          "term": "begin",
+          "contribution": -0.27043387607582686,
+          "cum_share_neg": 0.45796682359324253
+        },
+        {
+          "term": "within",
+          "contribution": -0.19523843936902305,
+          "cum_share_neg": 0.6038483822821787
+        },
+        {
+          "term": "prototyp",
+          "contribution": -0.1595100985672839,
+          "cum_share_neg": 0.7230338351101387
+        },
+        {
+          "term": "analyst",
+          "contribution": -0.14234656094048445,
+          "cum_share_neg": 0.8293947456517247
+        }
+      ],
+      "sum_positive_contrib": 4.623032544955863,
+      "sum_negative_contrib": -1.3383352983315098,
+      "n_contributing": 31,
+      "kind": "neutral"
+    },
+    "fabricated_technology": {
+      "text": "TECH GIANTS ARE SECRETLY IMPLANTING CHIPS IN YOUR PHONE! Engineers confirmed the government can control your bank account through billboard screens. Scientists are losing their minds over this leaked footage.",
+      "cleaned": "tech giant secretli implant chip phone engin confirm govern control bank account billboard screen scientist lose mind leak footag",
+      "n_tokens": 19,
+      "n_in_vocab": 19,
+      "n_out_of_vocab": 0,
+      "n_surviving_from_stopwords": 11,
+      "logit": -1.5574049078790337,
+      "intercept": -1.3624526352589441,
+      "p_real": 0.1740193412736603,
+      "p_fake": 0.8259806587263396,
+      "verdict": "fake",
+      "top20_by_tfidf": [
+        {
+          "token": "implant",
+          "tfidf": 0.3784637014528182,
+          "coef": -0.3780801442642758,
+          "contribution": -0.14308961084407332
+        },
+        {
+          "token": "billboard",
+          "tfidf": 0.34175973887224487,
+          "coef": 1.0256308656425104,
+          "contribution": 0.3505193368212988
+        },
+        {
+          "token": "secretli",
+          "tfidf": 0.29203598239669076,
+          "coef": -0.478038659021977,
+          "contribution": -0.13960448941107972
+        },
+        {
+          "token": "tech",
+          "tfidf": 0.2558348281391537,
+          "coef": 0.005175657103767601,
+          "contribution": 0.001324113345649574
+        },
+        {
+          "token": "scientist",
+          "tfidf": 0.25245913879887766,
+          "coef": 0.18393252221897485,
+          "contribution": 0.04643544615650782
+        },
+        {
+          "token": "giant",
+          "tfidf": 0.24414258120782736,
+          "coef": -1.4620425840363227,
+          "contribution": -0.35694685030238965
+        },
+        {
+          "token": "footag",
+          "tfidf": 0.2440340032647813,
+          "coef": 0.4472752392428863,
+          "contribution": 0.10915036719365435
+        },
+        {
+          "token": "engin",
+          "tfidf": 0.23682067287955808,
+          "coef": 2.5162679754317727,
+          "contribution": 0.5959042750870357
+        },
+        {
+          "token": "chip",
+          "tfidf": 0.2337707185735106,
+          "coef": -2.0461479759201464,
+          "contribution": -0.4783294826385869
+        },
+        {
+          "token": "leak",
+          "tfidf": 0.21516918115522382,
+          "coef": 0.7133192012446343,
+          "contribution": 0.1534843084341063
+        },
+        {
+          "token": "phone",
+          "tfidf": 0.18862815475985217,
+          "coef": -2.245020276322822,
+          "contribution": -0.4234740321212274
+        },
+        {
+          "token": "mind",
+          "tfidf": 0.1863700395918834,
+          "coef": -0.5502389880027887,
+          "contribution": -0.10254806197907758
+        },
+        {
+          "token": "screen",
+          "tfidf": 0.1849639620461796,
+          "coef": -2.8154560072355377,
+          "contribution": -0.5207578980650024
+        },
+        {
+          "token": "bank",
+          "tfidf": 0.1833081626542372,
+          "coef": 1.4797407359567847,
+          "contribution": 0.2712485555128669
+        },
+        {
+          "token": "lose",
+          "tfidf": 0.17599203992377455,
+          "coef": 0.6041644322612041,
+          "contribution": 0.10632813088303841
+        },
+        {
+          "token": "account",
+          "tfidf": 0.1592264781042904,
+          "coef": 0.4183365280544385,
+          "contribution": 0.06661025202448491
+        },
+        {
+          "token": "confirm",
+          "tfidf": 0.15840705535774155,
+          "coef": -1.0687010796986713,
+          "contribution": -0.1692897910927056
+        },
+        {
+          "token": "control",
+          "tfidf": 0.14115069127994195,
+          "coef": 0.7016829279415725,
+          "contribution": 0.09904303033828665
+        },
+        {
+          "token": "govern",
+          "tfidf": 0.09916733761856503,
+          "coef": 3.418868915702865,
+          "contribution": 0.33904012803712336
+        }
+      ],
+      "top20_by_abs_contribution": [
+        {
+          "token": "engin",
+          "contribution": 0.5959042750870357,
+          "direction": "real"
+        },
+        {
+          "token": "screen",
+          "contribution": -0.5207578980650024,
+          "direction": "fake"
+        },
+        {
+          "token": "chip",
+          "contribution": -0.4783294826385869,
+          "direction": "fake"
+        },
+        {
+          "token": "phone",
+          "contribution": -0.4234740321212274,
+          "direction": "fake"
+        },
+        {
+          "token": "giant",
+          "contribution": -0.35694685030238965,
+          "direction": "fake"
+        },
+        {
+          "token": "billboard",
+          "contribution": 0.3505193368212988,
+          "direction": "real"
+        },
+        {
+          "token": "govern",
+          "contribution": 0.33904012803712336,
+          "direction": "real"
+        },
+        {
+          "token": "bank",
+          "contribution": 0.2712485555128669,
+          "direction": "real"
+        },
+        {
+          "token": "confirm",
+          "contribution": -0.1692897910927056,
+          "direction": "fake"
+        },
+        {
+          "token": "leak",
+          "contribution": 0.1534843084341063,
+          "direction": "real"
+        },
+        {
+          "token": "implant",
+          "contribution": -0.14308961084407332,
+          "direction": "fake"
+        },
+        {
+          "token": "secretli",
+          "contribution": -0.13960448941107972,
+          "direction": "fake"
+        },
+        {
+          "token": "footag",
+          "contribution": 0.10915036719365435,
+          "direction": "real"
+        },
+        {
+          "token": "lose",
+          "contribution": 0.10632813088303841,
+          "direction": "real"
+        },
+        {
+          "token": "mind",
+          "contribution": -0.10254806197907758,
+          "direction": "fake"
+        },
+        {
+          "token": "control",
+          "contribution": 0.09904303033828665,
+          "direction": "real"
+        },
+        {
+          "token": "account",
+          "contribution": 0.06661025202448491,
+          "direction": "real"
+        },
+        {
+          "token": "scientist",
+          "contribution": 0.04643544615650782,
+          "direction": "real"
+        },
+        {
+          "token": "tech",
+          "contribution": 0.001324113345649574,
+          "direction": "real"
+        }
+      ],
+      "negative_leaders_cumulative": [
+        {
+          "term": "screen",
+          "contribution": -0.5207578980650024,
+          "cum_share_neg": 0.22311436383736957
+        },
+        {
+          "term": "chip",
+          "contribution": -0.4783294826385869,
+          "cum_share_neg": 0.42805062811702355
+        },
+        {
+          "term": "phone",
+          "contribution": -0.4234740321212274,
+          "cum_share_neg": 0.6094845336409679
+        },
+        {
+          "term": "giant",
+          "contribution": -0.35694685030238965,
+          "cum_share_neg": 0.7624154247995876
+        },
+        {
+          "term": "confirm",
+          "contribution": -0.1692897910927056,
+          "cum_share_neg": 0.8349462192131857
+        },
+        {
+          "term": "implant",
+          "contribution": -0.14308961084407332,
+          "cum_share_neg": 0.8962517656366548
+        },
+        {
+          "term": "secretli",
+          "contribution": -0.13960448941107972,
+          "cum_share_neg": 0.9560641409448943
+        },
+        {
+          "term": "mind",
+          "contribution": -0.10254806197907758,
+          "cum_share_neg": 1.0
+        }
+      ],
+      "sum_positive_contrib": 2.1390879438340527,
+      "sum_negative_contrib": -2.3340402164541425,
+      "n_contributing": 19,
+      "kind": "fabricated"
+    }
+  },
+  "reuters_stress": {
+    "reuters_family_n": 10,
+    "probe_source": "full texts from data/True.csv + isot_test REAL rows (identical construction to phase8_final_eval)",
+    "original": {
+      "n": 10,
+      "mean_p_real": 0.9909881027517397,
+      "min_p_real": 0.9493823178804086,
+      "max_p_real": 0.9998748362647665,
+      "labels": {
+        "real": 10
+      }
+    },
+    "stripped": {
+      "n": 10,
+      "mean_p_real": 0.9728858808053324,
+      "min_p_real": 0.831488754566556,
+      "max_p_real": 0.9997554547827531,
+      "labels": {
+        "real": 10
+      }
+    },
+    "strip_delta_mean_p_real": -0.01810222194640736,
+    "strip_verdict_flips": 0,
+    "strip_binary_flips": 0,
+    "nonreuters_family_n": 20,
+    "plain": {
+      "means_p_real": 0.682179981268374,
+      "labels": {
+        "real": 12,
+        "fake": 5,
+        "uncertain": 3
+      }
+    },
+    "styled": {
+      "mean_p_real": 0.7508771444201063,
+      "labels": {
+        "real": 14,
+        "fake": 4,
+        "uncertain": 2
+      }
+    },
+    "add_delta_mean_p_real": 0.0686971631517325,
+    "add_verdict_flips": 3,
+    "add_binary_flips": 0,
+    "phase8_reference": {
+      "strip_delta": -0.0181,
+      "strip_verdict_flips": 0,
+      "strip_binary_flips": 0,
+      "add_delta": 0.0687,
+      "add_verdict_flips": 3,
+      "add_binary_flips": 0
+    }
+  }
+}

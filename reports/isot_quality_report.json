@@ -1,0 +1,30 @@
+{
+  "raw_rows": {
+    "real": 21417,
+    "fake": 23481
+  },
+  "min_text_chars": 50,
+  "blank_text_dropped": 631,
+  "short_text_dropped": 206,
+  "exact_duplicate_rows_dropped": 5550,
+  "conflicting_real_fake_texts": [
+    {
+      "text_length": 0,
+      "text_prefix": "",
+      "real_title": "Graphic: Supreme Court roundup",
+      "fake_title": "TAKE OUR POLL: Who Do You Think President Trump Should Pick To Replace James Comey?",
+      "real_subject": "politicsNews",
+      "fake_subject": "politics"
+    }
+  ],
+  "post_clean_rows": {
+    "real": 21195,
+    "fake": 17316,
+    "total": 38511
+  },
+  "reuters_stripped_count": 17949,
+  "reuters_token_leftover_real": 1,
+  "reuters_token_pct_leftover_real": 0.0,
+  "content_key_groups": 37939,
+  "reuters_dateline_pattern": "^\\s*CITY (Reuters) -"
+}

@@ -1,0 +1,93 @@
+{
+  "candidate": "D (ISOT + BuzzFeed-v02, TF-IDF + LogisticRegression)",
+  "frozen_from": "artifacts/candidates/expD_lr.pkl (Phase 5, seed 42)",
+  "model_kind": "sklearn LogisticRegression (no Keras/TensorFlow)",
+  "preprocessing": {
+    "module": "app.preprocessing.clean_single_text",
+    "note": "identical to production preprocessing (lowercase, NLTK tokenize, stopword removal, PorterStemmer)"
+  },
+  "vectorizer": {
+    "class": "TfidfVectorizer",
+    "params": {
+      "analyzer": "word",
+      "binary": "False",
+      "decode_error": "strict",
+      "dtype": "<class 'numpy.float64'>",
+      "encoding": "utf-8",
+      "input": "content",
+      "lowercase": "True",
+      "max_df": "1.0",
+      "max_features": "80000",
+      "min_df": "2",
+      "ngram_range": "(1, 1)",
+      "norm": "l2",
+      "preprocessor": "None",
+      "smooth_idf": "True",
+      "stop_words": "None",
+      "strip_accents": "None",
+      "sublinear_tf": "True",
+      "token_pattern": "(?u)\\b\\w\\w+\\b",
+      "tokenizer": "None",
+      "use_idf": "True",
+      "vocabulary": "None"
+    },
+    "vocabulary_size": 36862,
+    "fitted_on": "cleaned ISOT train + cleaned BuzzFeed-v02 train only (never val/test/OOD sets)"
+  },
+  "estimator": {
+    "class": "LogisticRegression",
+    "params": {
+      "C": "10.0",
+      "class_weight": "None",
+      "dual": "False",
+      "fit_intercept": "True",
+      "intercept_scaling": "1",
+      "l1_ratio": "0.0",
+      "max_iter": "3000",
+      "n_jobs": "None",
+      "penalty": "deprecated",
+      "random_state": "None",
+      "solver": "liblinear",
+      "tol": "0.0001",
+      "verbose": "0",
+      "warm_start": "False"
+    },
+    "classes": [
+      0,
+      1
+    ],
+    "n_features": 36862,
+    "intercept": -1.3624526352589441,
+    "C": 10.0,
+    "selected_by": "validation accuracy on combined (ISOT val + BuzzFeed-v02 val)"
+  },
+  "decision_rule": {
+    "probability_real": "sigmoid-equivalent P(real) = predict_proba[:,1]",
+    "binary_threshold": 0.5,
+    "verdict_uncertainty_band": 0.1,
+    "confidence": "winner * 100"
+  },
+  "dataset_composition": {
+    "isot_train_rows": 30775,
+    "isot_val_rows": 3828,
+    "isot_test_rows": 3906,
+    "buzzfeed_train_rows": {
+      "REAL": 358,
+      "FAKE": 19
+    },
+    "buzzfeed_val_rows": {
+      "REAL": 342,
+      "FAKE": 20
+    },
+    "buzzfeed_test_rows": {
+      "REAL": 346,
+      "FAKE": 21
+    },
+    "combined_train_rows": 31152,
+    "combine_note": "BuzzFeed-v02 rows carried stripped datelines/formatting from ISOT cleaning; 46 overlapping articles removed in Phase 4"
+  },
+  "random_seed": 42,
+  "hashes": {
+    "candidateD_artifact": "8e3067a337374e0cc3ec34b45e4f78d11cbfeebfcba8deaa17f7ed0cc0ca9c82"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "built_at": "2026-09-05T15:58:41.643278+00:00",
+  "candidates_discovered": 262,
+  "char_min_max": {
+    "max": 12261,
+    "min": 352
+  },
+  "chosen_to_fetch": 20,
+  "feed_errors": [
+    "bbc: https://feeds.bbci.co.uk/news/world/rss.xml -> ConnectTimeout: HTTPSConnectionPool(host='feeds.bbci.co.uk', port=443): Max retries exceeded with url: /news/world/rss.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='feeds.bbci.co.uk', port=443) at 0x104dff410>, 'Connection to feeds.bbci.co.uk timed out. (connect timeout=10)'))",
+    "cbs: https://www.cbsnews.com/latest/rss/main -> ConnectTimeout: HTTPSConnectionPool(host='www.cbsnews.com', port=443): Max retries exceeded with url: /latest/rss/main (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.cbsnews.com', port=443) at 0x104dffda0>, 'Connection to www.cbsnews.com timed out. (connect timeout=10)'))",
+    "cbc: https://www.cbc.ca/rss/cbc-topstories.xml -> ConnectTimeout: HTTPSConnectionPool(host='www.cbc.ca', port=443): Max retries exceeded with url: /rss/cbc-topstories.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.cbc.ca', port=443) at 0x104dffb60>, 'Connection to www.cbc.ca timed out. (connect timeout=10)'))"
+  ],
+  "feeds": {
+    "aljazeera": "https://www.aljazeera.com/xml/rss/all.xml",
+    "ap": "https://apnews.com/rss/topnews",
+    "bbc": "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "cbc": "https://www.cbc.ca/rss/cbc-topstories.xml",
+    "cbs": "https://www.cbsnews.com/latest/rss/main",
+    "dw": "https://rss.dw.com/rdf/rss-en-all",
+    "guardian": "https://www.theguardian.com/world/rss",
+    "npr": "https://feeds.npr.org/1001/rss.xml",
+    "timesofindia": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms"
+  },
+  "fetch_errors": [],
+  "label_note": "label=1(REAL) by source credibility; audit corpus only",
+  "outlet_counts": {
+    "aljazeera": 4,
+    "dw": 4,
+    "guardian": 4,
+    "npr": 4,
+    "timesofindia": 4
+  },
+  "purpose": "eval-only OOD generalization corpus; not for training or tuning",
+  "records": 20
+}

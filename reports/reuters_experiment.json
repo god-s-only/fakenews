@@ -1,0 +1,592 @@
+{
+  "aggregate": {
+    "reuters_original": {
+      "n": 10,
+      "mean_p_real": 0.999996,
+      "min_p_real": 0.999965,
+      "max_p_real": 1.0,
+      "label_counts": {
+        "real": 10
+      }
+    },
+    "reuters_stripped": {
+      "n": 10,
+      "mean_p_real": 0.823206,
+      "min_p_real": 0.05799,
+      "max_p_real": 1.0,
+      "label_counts": {
+        "real": 8,
+        "fake": 2
+      }
+    },
+    "reuters_normalized": {
+      "n": 10,
+      "mean_p_real": 0.823206,
+      "min_p_real": 0.05799,
+      "max_p_real": 1.0,
+      "label_counts": {
+        "real": 8,
+        "fake": 2
+      }
+    },
+    "nonreuters_plain": {
+      "n": 20,
+      "mean_p_real": 0.404918,
+      "min_p_real": 0.0,
+      "max_p_real": 1.0,
+      "label_counts": {
+        "real": 8,
+        "fake": 12
+      }
+    },
+    "nonreuters_reutersstyled": {
+      "n": 20,
+      "mean_p_real": 0.758349,
+      "min_p_real": 0.0,
+      "max_p_real": 1.0,
+      "label_counts": {
+        "real": 15,
+        "fake": 5
+      }
+    },
+    "mean_delta_strip_dateline": -0.17679,
+    "mean_delta_normalize": -0.17679,
+    "mean_delta_add_dateline": 0.353431,
+    "add_dateline_label_flips": 7,
+    "uncertainty_threshold": 0.1,
+    "note": "label from production verdict() with UNCERTAINTY_THRESHOLD=0.10",
+    "model": "/Users/best/Desktop/fakenews/artifacts/baseline/my_model.h5"
+  },
+  "items": [
+    {
+      "family": "reuters",
+      "title": "U.S. spy agencies fight Congress over plan for probe of covert Russian influence campaign",
+      "preview_original": "WASHINGTON (Reuters) - The top U.S. intelligence officer has asked Congress to drop a provision in a pending bill that would create a special committee to comba",
+      "preview_stripped": "The top U.S. intelligence officer has asked Congress to drop a provision in a pe",
+      "preview_normalized": "the top u s intelligence officer has asked congress to drop a provision in a pen",
+      "preds": {
+        "original": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "Factbox: Germans have two ballots in complex election system",
+      "preview_original": "BERLIN (Reuters) - Germans will vote on Sunday in a parliamentary election in which center-right Chancellor Angela Merkel is running for a fourth term. Here is ",
+      "preview_stripped": "Germans will vote on Sunday in a parliamentary election in which center-right Ch",
+      "preview_normalized": "germans will vote on sunday in a parliamentary election in which center right ch",
+      "preds": {
+        "original": {
+          "p_real": 0.999997,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 0.183136,
+          "label": "fake"
+        },
+        "normalized": {
+          "p_real": 0.183136,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "Brazil studying extradition of Italian ex-leftist guerilla Battisti",
+      "preview_original": "BRASILIA (Reuters) - The Brazilian government is studying whether to extradite Cesare Battisti, an Italian former left-wing guerrilla convicted of murder in his",
+      "preview_stripped": "The Brazilian government is studying whether to extradite Cesare Battisti, an It",
+      "preview_normalized": "the brazilian government is studying whether to extradite cesare battisti an ita",
+      "preds": {
+        "original": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "South Korea's Moon says North Korea missile capability seems improved",
+      "preview_original": "SEOUL (Reuters) - South Korea s President Moon Jae-in said on Wednesday North Korea s missile technology seems to have improved, following the launch of what ap",
+      "preview_stripped": "South Korea s President Moon Jae-in said on Wednesday North Korea s missile tech",
+      "preview_normalized": "south korea s president moon jae in said on wednesday north korea s missile tech",
+      "preds": {
+        "original": {
+          "p_real": 0.999965,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 0.991306,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 0.991306,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "Trump would tax Carrier air conditioning units for moving to Mexico",
+      "preview_original": "WASHINGTON (Reuters) - Republican presidential candidate Donald Trump said he would impose taxes on Carrier air conditioning units manufactured in Mexico in lig",
+      "preview_stripped": "Republican presidential candidate Donald Trump said he would impose taxes on Car",
+      "preview_normalized": "republican presidential candidate donald trump said he would impose taxes on car",
+      "preds": {
+        "original": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "German political rivals agree: No lottery for me",
+      "preview_original": "BERLIN (Reuters) - German Chancellor Angela Merkel and her Social Democrat challenger, Martin Schulz are still fighting hard for every vote as Sunday s national",
+      "preview_stripped": "German Chancellor Angela Merkel and her Social Democrat challenger, Martin Schul",
+      "preview_normalized": "german chancellor angela merkel and her social democrat challenger martin schulz",
+      "preds": {
+        "original": {
+          "p_real": 0.999997,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 0.999657,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 0.999657,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "Britons who join Islamic State should be hunted and killed: defence minister",
+      "preview_original": "LONDON (Reuters) - Britons who have joined the Islamic State militant group in Syria and Iraq should be hunted down and killed, Britain s new defence minister s",
+      "preview_stripped": "Britons who have joined the Islamic State militant group in Syria and Iraq shoul",
+      "preview_normalized": "britons who have joined the islamic state militant group in syria and iraq shoul",
+      "preds": {
+        "original": {
+          "p_real": 0.999999,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 0.05799,
+          "label": "fake"
+        },
+        "normalized": {
+          "p_real": 0.05799,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "Two injured in shooting at South Africa's Cape Town airport",
+      "preview_original": "CAPE TOWN (Reuters) - Two men were injured in a drive-by shooting at South Africa s Cape Town International Airport, police said on Wednesday. Operations at the",
+      "preview_stripped": "Two men were injured in a drive-by shooting at South Africa s Cape Town Internat",
+      "preview_normalized": "two men were injured in a drive by shooting at south africa s cape town internat",
+      "preds": {
+        "original": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 0.99997,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 0.99997,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "Australian PM to force lawmakers to declare citizenship to end political crisis",
+      "preview_original": "SYDNEY (Reuters) - Australian Prime Minister Malcolm Turnbull announced plans on Monday to force all lawmakers to declare they are not dual nationals as he seek",
+      "preview_stripped": "Australian Prime Minister Malcolm Turnbull announced plans on Monday to force al",
+      "preview_normalized": "australian prime minister malcolm turnbull announced plans on monday to force al",
+      "preds": {
+        "original": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "reuters",
+      "title": "U.N. chief, Security Council call on Myanmar to end violence",
+      "preview_original": "UNITED NATIONS (Reuters) - U.N. Secretary-General Antonio Guterres and the U.N. Security Council on Wednesday urged Myanmar authorities to end violence against ",
+      "preview_stripped": "U.N. Secretary-General Antonio Guterres and the U.N. Security Council on Wednesd",
+      "preview_normalized": "u n secretary general antonio guterres and the u n security council on wednesday",
+      "preds": {
+        "original": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "stripped": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "normalized": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "UN votes to adopt new world map that shows Africa\u2019s true scale",
+      "url": "https://www.theguardian.com/world/2026/sep/04/un-vote-world-map-mercator-equal-earth-africa",
+      "preview_plain": "Togo-sponsored resolution called to phase out traditional map that depicts continent as similar size to Greenland The Un",
+      "preds": {
+        "plain": {
+          "p_real": 0.999999,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Spain\u2019s PM says no evidence \u2018whatsoever\u2019 Morocco behind Ceuta border breach",
+      "url": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
+      "preview_plain": "Pedro S\u00e1nchez continues to defend Rabat after police report claiming border forces helped 70,000 cross border Europe liv",
+      "preds": {
+        "plain": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "\u2018We continue to suffer\u2019: victims of apartheid-era Sharpeville massacre demand compensation",
+      "url": "https://www.theguardian.com/world/2026/sep/03/victims-sue-south-african-government-sharpeville-massacre-apartheid",
+      "preview_plain": "Claim relating to 1960 attack on hundreds of protesters part of wave of litigation over apartheid crimes in South Africa",
+      "preds": {
+        "plain": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "New constitution in Guinea-Bissau will undermine democracy, opponents say",
+      "url": "https://www.theguardian.com/world/2026/sep/02/guinea-bissau-voters-approve-constitution-elections",
+      "preview_plain": "Referendum result means fewer seats in parliament and new rules on candidates, ahead of December elections Guinea-Bissau",
+      "preds": {
+        "plain": {
+          "p_real": 0.914368,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "US military hits 3 Iranian oil tankers after saying Navy warships were targeted",
+      "url": "https://www.npr.org/2026/09/05/nx-s1-5959159/us-iran-warships-targeted",
+      "preview_plain": "By The Associated Press A swimmer remains near the shore as a motorboat passes commercial vessels anchored in the Strait",
+      "preds": {
+        "plain": {
+          "p_real": 0.705681,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Opinion: A sculpture in perpetual motion, removed",
+      "url": "https://www.npr.org/2026/09/05/nx-s1-5948663/opinion-a-sculpture-in-perpetual-motion-removed",
+      "preview_plain": "Scott Simon Workers remove the sculpture \"Blue\" by artist Joel Shapiro on the grounds of the John F. Kennedy Center for ",
+      "preds": {
+        "plain": {
+          "p_real": 0.000297,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.865682,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Trump administration to dig at triumphal arch site despite no final federal approvals",
+      "url": "https://www.npr.org/2026/09/05/nx-s1-5957875/trump-administration-to-dig-at-triumphal-arch-site-despite-no-final-federal-approvals",
+      "preview_plain": "By Rachel Treisman , Scott Simon The Trump administration says it will break ground on a 250-foot triumphal arch in Wash",
+      "preds": {
+        "plain": {
+          "p_real": 0.000284,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.997439,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Whatever happened to the floating schools of Bangladesh?",
+      "url": "https://www.npr.org/2026/09/05/g-s1-141464/climate-change-floating-schools-bangladesh",
+      "preview_plain": "By Ali Asif Shawon Hosne Ara teaches a group of fourth graders, seated on benches inside the floating school's classroom",
+      "preds": {
+        "plain": {
+          "p_real": 0.999998,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Masked anti-migrant protesters block UK's Dover terminal",
+      "url": "https://www.dw.com/en/masked-anti-migrant-protesters-block-uk-s-dover-terminal/a-79046929?maca=en-rss-en-all-1573-rdf",
+      "preview_plain": "Hundreds of masked people blocked traffic at England's port of Dover on Saturday as part of an anti-migrant protest, hal",
+      "preds": {
+        "plain": {
+          "p_real": 0.213113,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.999999,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Fact check: Germany's postal voting system isn't rigged",
+      "url": "https://www.dw.com/en/fact-check-germany-s-postal-voting-system-isn-t-rigged/a-78958438?maca=en-rss-en-all-1573-rdf",
+      "preview_plain": "Stakes are high in Germany's three September state elections. In Saxony-Anhalt, where voters go to the ballot boxes on S",
+      "preds": {
+        "plain": {
+          "p_real": 0.0,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.0,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Russia to pause strikes against Kyiv amid Ukraine talks",
+      "url": "https://www.dw.com/en/russia-to-pause-strikes-against-kyiv-amid-ukraine-talks/a-79040773?maca=en-rss-en-all-1573-rdf",
+      "preview_plain": "Russia will pause strikes against Kyiv for three days, the Kremlin said on Saturday, coinciding with peace negotiations ",
+      "preds": {
+        "plain": {
+          "p_real": 0.999721,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Iran war: Explosions reported near Kharg Island",
+      "url": "https://www.dw.com/en/iran-war-explosions-reported-near-kharg-island/live-79044467?maca=en-rss-en-all-1573-rdf",
+      "preview_plain": "Below is a roundup of the top headlines on the Iran war and other developments in the wider Middle East region on Saturd",
+      "preds": {
+        "plain": {
+          "p_real": 0.233167,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.999966,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Israeli campaign of West Bank destruction moves on to region\u2019s food basket | Israel-Palestine conflict | Al Jazeera",
+      "url": "https://www.aljazeera.com/features/2026/9/5/israeli-campaign-of-west-bank-destruction-moves-on-to-regions-food-basket?traffic_source=rss",
+      "preview_plain": "Save Share Arraba, occupied West Bank \u2013 As Kamal al-Uraidi drove a beat-up Volkswagen down the Arraba-Ya\u2019bad road, an ot",
+      "preds": {
+        "plain": {
+          "p_real": 0.027377,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.99977,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Rescuers pull Chinese worker, Nepali woman from flood wreckage alive | Floods News | Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/5/rescuers-pull-chinese-worker-nepali-woman-from-flood-wreckage-alive?traffic_source=rss",
+      "preview_plain": "Save Share Rescuers in Nepal have pulled a Chinese hydropower worker and a Nepali woman alive from the wreckage left by ",
+      "preds": {
+        "plain": {
+          "p_real": 1.0,
+          "label": "real"
+        },
+        "reutersstyled": {
+          "p_real": 1.0,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Multipolarity gives middle powers more choices, but fewer guarantees | Opinions | Al Jazeera",
+      "url": "https://www.aljazeera.com/opinions/2026/9/5/multipolarity-gives-middle-powers-more-choices-but-fewer-guarantees?traffic_source=rss",
+      "preview_plain": "Luciano Zaccara is professor of Gulf Politics at the Qatar University Gulf Studies Center. Save Share At the Shanghai Co",
+      "preds": {
+        "plain": {
+          "p_real": 0.0,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.000114,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "US says it hit Iran oil tankers helping finance \u2018regional proxies\u2019 | US-Israel war on Iran News | Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/5/us-says-it-hit-iran-oil-tankers-helping-finance-regional-proxies?traffic_source=rss",
+      "preview_plain": "Save Share The United States military says it has struck three Iranian oil tankers after Iran\u2019s Islamic Revolutionary Gu",
+      "preds": {
+        "plain": {
+          "p_real": 0.000545,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.303358,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "'Jhooth ki goonj': PM Modi takes swipe at Rahul, attacks 'mai-baap' culture",
+      "url": "https://timesofindia.indiatimes.com/india/jhooth-ki-goonj-pm-modi-takes-swipe-at-rahul-attacks-mai-baap-culture/articleshow/133805599.cms",
+      "preview_plain": "NEW DELHI: Prime Minister Narendra Modi on Saturday took a jibe at leader of opposition Rahul Gandhi, describing the Con",
+      "preds": {
+        "plain": {
+          "p_real": 0.0,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 1e-06,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Congress replaces  Bhupesh Baghel with Sachin Pilot as Punjab general secretary",
+      "url": "https://timesofindia.indiatimes.com/india/congress-replaces-bhupesh-baghel-with-sachin-pilot-as-punjab-general-secretary/articleshow/133806065.cms",
+      "preview_plain": "NEW DELHI: The Congress on Saturday appointed Sachin Pilot as the party\u00e2\u0080\u0099s general secretary in-charge of Punjab, repla",
+      "preds": {
+        "plain": {
+          "p_real": 0.003607,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.99984,
+          "label": "real"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Watch: US strikes 3 Iranian oil tankers after Iran targets 2 navy warships",
+      "url": "https://timesofindia.indiatimes.com/defence/international/watch-us-strikes-3-iranian-oil-tankers-after-iran-targets-2-navy-warships/articleshow/133805095.cms",
+      "preview_plain": "US forces struck three Iranian oil tankers after Iran launched ballistic missiles at two US Navy warships, according to ",
+      "preds": {
+        "plain": {
+          "p_real": 7e-06,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.001335,
+          "label": "fake"
+        }
+      }
+    },
+    {
+      "family": "nonreuters",
+      "title": "Harmanpreet Kaur creates history, becomes first cricketer ever to captain in 150 T20Is",
+      "url": "https://timesofindia.indiatimes.com/sports/cricket/womens-asia-cup/news/harmanpreet-kaur-creates-history-becomes-first-cricketer-ever-to-captain-in-150-t20is/articleshow/133804547.cms",
+      "preview_plain": "Harmanpreet Kaur created history on Saturday as she became the first cricketer, male or female, to captain in 150 T20I m",
+      "preds": {
+        "plain": {
+          "p_real": 0.000204,
+          "label": "fake"
+        },
+        "reutersstyled": {
+          "p_real": 0.999479,
+          "label": "real"
+        }
+      }
+    }
+  ]
+}
