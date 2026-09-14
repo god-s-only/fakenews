@@ -1,0 +1,8 @@
+{
+  "target": "url",
+  "runs": 20,
+  "mean_ms": 2.515,
+  "median_ms": 1.854,
+  "min_ms": 1.589,
+  "max_ms": 13.315
+}

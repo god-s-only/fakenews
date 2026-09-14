@@ -46,6 +46,12 @@ All configurable via env or `.env` file (see `.env.example`):
 - `VECTORIZER_PATH` (default `my_tfidf_vectorizer.pkl`)
 - `UNCERTAINTY_THRESHOLD` (default 0.10)
 - `MAX_INPUT_LENGTH` (default 20000)
+- `MAX_URL_LENGTH` (default 2048 — centralized URL cap)
+- `MAX_REQUEST_BODY_BYTES` (default 300000 — 413 beyond this)
+- `CACHE_URL_ENABLED` / `CACHE_URL_TTL_SECONDS` / `CACHE_URL_MAX_ITEMS` — bounded
+  in-memory cache of URL extraction results (defaults true/600/512)
+- `RATE_LIMIT_ENABLED` / `RATE_LIMIT_REQUESTS` / `RATE_LIMIT_WINDOW_SECONDS` /
+  `RATE_LIMIT_MAX_IPS` — per-IP sliding-window rate limit (default true/120/60/10000)
 - `LOG_LEVEL` (default INFO)
 
 Legacy Keras artifacts `my_model.h5`/`countvectorizer.pkl` are preserved as

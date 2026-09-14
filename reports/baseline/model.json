@@ -1,0 +1,38 @@
+{
+  "target": "model",
+  "model_file": "/Users/best/Desktop/fakenews/my_model_lr.pkl",
+  "vectorizer_file": "/Users/best/Desktop/fakenews/my_tfidf_vectorizer.pkl",
+  "backend": "sklearn",
+  "vocab_size": 36862,
+  "load_ms": 25.724,
+  "prediction": {
+    "real": {
+      "runs": 20,
+      "mean_ms": 47.305,
+      "median_ms": 43.191,
+      "min_ms": 37.748,
+      "max_ms": 69.412
+    },
+    "fake": {
+      "runs": 20,
+      "mean_ms": 50.349,
+      "median_ms": 44.514,
+      "min_ms": 32.204,
+      "max_ms": 106.947
+    },
+    "uncertain": {
+      "runs": 20,
+      "mean_ms": 39.534,
+      "median_ms": 41.203,
+      "min_ms": 30.849,
+      "max_ms": 45.43
+    },
+    "reuters_stress": {
+      "runs": 20,
+      "mean_ms": 46.713,
+      "median_ms": 41.431,
+      "min_ms": 35.268,
+      "max_ms": 92.684
+    }
+  }
+}

@@ -16,3 +16,12 @@ htmlcov/
 .DS_Store
 *.log
 fake_news.ipynb
+# Development/test paths not needed in the runtime image.
+artifacts/
+reports/
+docs/
+tests/
+scripts/
+*.md
+Makefile
+docker-compose.yml

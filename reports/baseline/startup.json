@@ -1,0 +1,5 @@
+{
+  "target": "startup",
+  "import_and_create_app_ms": 3958.56,
+  "note": "module import + create_app() only; model load is measured in 'model'."
+}

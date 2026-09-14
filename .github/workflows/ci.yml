@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/*"
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test (Python 3.12)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install runtime + test dependencies
+        run: python -m pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Compile-check all Python sources
+        run: python -m py_compile main.py app/*.py tests/*.py
+
+      - name: Run test suite
+        env:
+          LOG_LEVEL: WARNING
+        run: python -m pytest -q
+
+  docker:
+    name: Docker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build hardened image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: fakenews:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

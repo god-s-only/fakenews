@@ -1,0 +1,5 @@
+{
+  "target": "tests",
+  "pytest": "/Users/best/Desktop/fakenews/.venv/bin/python",
+  "collected": "========================= 192 tests collected in 5.02s ========================="
+}
