@@ -17,79 +17,16 @@ import ipaddress
 import json
 import logging
 import socket
-import threading
 from dataclasses import dataclass
 from typing import Any
 from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 
 from app.config import settings
 
 logger = logging.getLogger("fakenews.scraper")
-
-# --------------------------------------------------------------------------- #
-# Bounded, thread-local HTTP session pool
-#
-# A ``requests.Session`` is not safe to share across threads, so each thread
-# owns exactly one session; within a thread the session is reused across
-# fetches (TCP + TLS connection reuse via the adapter pool). The adapter also
-# applies a *bounded* connect/read retry with slight backoff so transient
-# network failures resolve without an immediate operator-visible error. Retries
-# only apply to GET and never on HTTP status codes, so error semantics are
-# unchanged (raise_for_status still surfaces 4xx/5xx to the caller).
-# --------------------------------------------------------------------------- #
-
-_MAX_CONNECT_RETRIES = 2
-_MAX_READ_RETRIES = 1
-_RETRY_BACKOFF = 0.25
-_POOL_CONNECTIONS = 10
-_POOL_MAXSIZE = 20
-
-
-class _ThreadSessionStore(threading.local):
-    """One lazily-built ``requests.Session`` per worker thread."""
-
-    def __init__(self) -> None:
-        self.session: requests.Session | None = None
-
-
-_thread_sessions = _ThreadSessionStore()
-
-
-def _build_session() -> requests.Session:
-    retry = Retry(
-        total=max(_MAX_CONNECT_RETRIES, _MAX_READ_RETRIES) + 1,
-        connect=_MAX_CONNECT_RETRIES,
-        read=_MAX_READ_RETRIES,
-        status=0,
-        backoff_factor=_RETRY_BACKOFF,
-        allowed_methods=["GET"],
-        raise_on_status=False,
-    )
-    adapter = HTTPAdapter(
-        pool_connections=_POOL_CONNECTIONS,
-        pool_maxsize=_POOL_MAXSIZE,
-        max_retries=retry,
-    )
-    session = requests.Session()
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    return session
-
-
-def _get_session(max_redirects: int | None = None) -> requests.Session:
-    """Return this thread's reusable session, creating it on first use."""
-    session = _thread_sessions.session
-    if session is None:
-        session = _build_session()
-        _thread_sessions.session = session
-    if max_redirects is not None:
-        session.max_redirects = max_redirects
-    return session
 
 # --------------------------------------------------------------------------- #
 # Error categories / messages
@@ -241,8 +178,8 @@ class UrlFetcher:
     )
 
     def __init__(self) -> None:
-        # Reuse the calling thread's pooled session (created lazily).
-        self.session = _get_session(max_redirects=settings.MAX_REDIRECTS)
+        self.session = requests.Session()
+        self.session.max_redirects = settings.MAX_REDIRECTS
 
     @staticmethod
     def _headers() -> dict[str, str]:
@@ -453,25 +390,19 @@ class UrlFetcher:
 
     @staticmethod
     def _container_candidates(soup: BeautifulSoup) -> list[Any]:
-        """Return the strongest article containers, most relevant first.
-
-        Preferred semantic selectors are returned as-is. Otherwise the largest
-        ``div``/``section`` that meets the minimum-article length is found in a
-        single pass (O(n)) instead of a full sort of every container.
-        """
+        """Return the strongest article containers, most relevant first."""
         preferred: list[Any] = []
         for selector in ("article", "main", '[role="main"]'):
             for element in soup.select(selector):
                 preferred.append(element)
         if preferred:
             return preferred
-        best: Any = None
-        best_score = 0
-        for element in soup.find_all(["div", "section"]):
-            score = UrlFetcher._text_score(element)
-            if score >= _MIN_ARTICLE_CHARS and score > best_score:
-                best, best_score = element, score
-        return [best] if best is not None else []
+        scored = sorted(
+            soup.find_all(["div", "section"]),
+            key=UrlFetcher._text_score,
+            reverse=True,
+        )
+        return [el for el in scored if UrlFetcher._text_score(el) >= _MIN_ARTICLE_CHARS]
 
     @staticmethod
     def _extract_text_from_container(container: Any) -> str:
@@ -511,17 +442,14 @@ class UrlFetcher:
             )
 
         container = None
-        container_text = ""
         for candidate in self._container_candidates(soup):
-            text = self._extract_text_from_container(candidate)
-            if len(text) >= _MIN_ARTICLE_CHARS:
+            if len(self._extract_text_from_container(candidate)) >= _MIN_ARTICLE_CHARS:
                 container = candidate
-                container_text = text
                 break
 
         if container is not None:
             return (
-                container_text,
+                self._extract_text_from_container(container),
                 self._extract_title(soup, container),
                 "semantic",
             )
@@ -531,13 +459,13 @@ class UrlFetcher:
         return " ".join(body.split()), self._extract_title(soup), "fallback"
 
     @staticmethod
-    def _reject_listing_url(url: str, *, include_root_rule: bool = True) -> None:
+    def _reject_listing_url(url: str) -> None:
         parsed = urlparse(url)
         path = parsed.path.lower()
         for marker in _LISTING_PATH_MARKERS:
             if marker in path:
                 raise _error("not_article", detail=f"listing path marker {marker!r} in {url}")
-        if include_root_rule and path.lower() in ("", "/") and not parsed.query:
+        if path.lower() in ("", "/") and not parsed.query:
             raise _error("not_article", detail=f"site root without query: {url}")
 
     # ------------------------------------------------------------------ #
@@ -546,10 +474,6 @@ class UrlFetcher:
     def fetch_article(self, url: str) -> ExtractResult:
         """Validate, fetch, extract and classify the article at ``url``."""
         self._validate_url(url)
-        # Cheap early rejection: an obvious listing/index URL never needs a
-        # network fetch. Only path markers are checked pre-fetch so that a bare
-        # origin is still fetched (and root-rejected on the final URL).
-        self._reject_listing_url(url, include_root_rule=False)
         response, redirects = self._fetch_with_redirect_guard(url)
         final_url = redirects[-1]
 

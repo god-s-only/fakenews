@@ -19,8 +19,6 @@ __all__ = [
     "PredictResponse",
     "HealthResponse",
     "ErrorResponse",
-    "LiveResponse",
-    "ReadyResponse",
 ]
 
 
@@ -51,7 +49,7 @@ class UrlRequest(BaseModel):
     """Request payload for analysing an article located at a URL."""
 
     url: str = Field(..., description="The article URL to fetch and analyse",
-                     max_length=settings.MAX_URL_LENGTH)
+                     max_length=2048)
 
     @field_validator("url")
     @classmethod
@@ -117,32 +115,3 @@ class ErrorResponse(BaseModel):
     """Generic structured error returned when analysis fails."""
 
     detail: str
-
-
-class LiveResponse(BaseModel):
-    """Kubernetes-style liveness check.
-
-    The process is up and serving HTTP even when the model is still loading;
-    it must never depend on downstream services.
-    """
-
-    status: Literal["ok"] = "ok"
-
-
-class ReadyResponse(BaseModel):
-    """Readiness check: the detector can actually serve predictions.
-
-    ``ready`` mirrors ``model_ready`` — the model is loaded *and* described
-    (fingerprints/vocabulary captured by ModelService.load()). A 503 (detail
-    plus these facts) is returned while the artifacts are loading or missing.
-    """
-
-    status: Literal["ready", "not_ready"]
-    model_loaded: bool
-    model_ready: bool
-    model_backend: str | None = None
-    model_file: str | None = None
-    vectorizer_file: str | None = None
-    model_sha256: str | None = None
-    vectorizer_sha256: str | None = None
-    vocab_size: int | None = None

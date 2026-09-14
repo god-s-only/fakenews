@@ -56,28 +56,6 @@ def test_default_settings_point_at_promoted_artifacts():
     assert settings.vectorizer_file.exists()
 
 
-def test_dockerfile_ships_promoted_artifacts_not_legacy():
-    """The container must package the LR model, never the legacy Keras files.
-
-    Phase 10 discovered the old Dockerfile copied ``my_model.h5`` and
-    ``countvectorizer.pkl`` — meaning the containerized detector silently served
-    the legacy network. This guard pins the fix (audit B10).
-    """
-    dockerfile = (ROOT / "Dockerfile").read_text()
-    assert "my_model_lr.pkl" in dockerfile
-    assert "my_tfidf_vectorizer.pkl" in dockerfile
-    assert "my_model.h5" not in dockerfile
-    assert "countvectorizer.pkl" not in dockerfile
-    assert "USER appuser" in dockerfile
-    assert "/health/ready" in dockerfile
-
-
-def test_dockerfile_readiness_healthcheck_uses_ready_endpoint():
-    dockerfile = (ROOT / "Dockerfile").read_text()
-    assert "health/ready" in dockerfile
-    assert "health/live" not in dockerfile or "health/ready" in dockerfile
-
-
 def test_promoted_backend_is_sklearn_lr_and_not_baseline():
     service = ModelService(settings.model_file, settings.vectorizer_file).load()
     try:

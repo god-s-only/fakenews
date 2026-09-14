@@ -31,31 +31,6 @@ HTML/CSS/JS** frontend.
 - **Docker support** – run the whole application with a single command.
 - **API documentation** – automatic OpenAPI docs at `/docs` and `/redoc`.
 
-### Production hardening (Phase 10)
-
-- **Model lifecycle & readiness** – artifact fingerprints (SHA-256) are captured
-  at load; `/health/ready` returns 503 until the promoted detector is loaded and
-  described.
-- **Request correlation** – every response carries `X-Request-ID` and every
-  request is logged as one structured access record (`docs/concurrency.md`,
-  `docs/scalability-audit.md`).
-- **Rate limiting** – per-IP sliding window (429 + `Retry-After`), fail-open,
-  bounded, per-process (see `RATE_LIMIT_*`).
-- **Request-body limits** – oversized payloads are rejected with 413 before any
-  body is materialised (`MAX_REQUEST_BODY_BYTES`).
-- **Bounded response caching** – repeated analyses of the same URL skip DNS,
-  fetch, decode and parse (`CACHE_URL_*`).
-- **Concurrency** – thread-local pooled HTTP sessions, feature-name memoization,
-  single-pass article extraction.
-- **Hardened container** – runs as an unprivileged user with read-only artifacts
-  and a readiness-gated `HEALTHCHECK`; ships the promoted model only.
-- **CI** – `.github/workflows/ci.yml` runs compile checks + the full suite and
-  builds the Docker image on every push.
-
-Operational runbooks live in `docs/` (see `docs/README.md` if present; otherwise
-`docs/deployment.md`, `docs/scalability-audit.md`, `docs/concurrency.md`,
-`docs/architecture.md`, `docs/model-lifecycle.md`, `docs/adr/`).
-
 ---
 
 ## Architecture overview
@@ -69,13 +44,13 @@ preprocessing               fetch + article extraction
      └──────────►    vectorizer    ◄──────────┘
                             │
                             ▼
-model (LogisticRegression)
-                             │
-                             ▼
-                       prediction
-                             │
-                             ▼
-                       explainability
+                       model (Keras)
+                            │
+                            ▼
+                      prediction
+                            │
+                            ▼
+                      explainability
 ```
 
 Both the pasted-text and URL endpoints share a single prediction pipeline
@@ -88,14 +63,9 @@ app/
 ├── config.py        # environment-based configuration
 ├── model.py         # model/vectorizer loading + shared prediction pipeline
 ├── preprocessing.py # text cleaning: regex, lowercase, stopwords, stemming
-├── artifacts.py     # artifact fingerprinting (SHA-256 of frozen model files)
-├── cache.py         # bounded TTL cache for URL extraction results
-├── ratelimit.py     # per-IP sliding-window rate limiting middleware
-├── security.py      # request-body size limiting middleware
-├── observability.py # request-id correlation + structured access logging
+├── explainability   # gradient-based word attribution (in model.py)
 ├── scraper.py       # safe URL fetching + article extraction
-├── schemas.py       # Pydantic request/response models
-└── logging_config.py# logging setup (request-id aware)
+└── schemas.py       # Pydantic request/response models
 frontend/
 ├── index.html
 ├── style.css
@@ -236,27 +206,16 @@ Then open <http://localhost:8000/>.
 
 ## API endpoints
 
-| Method | Path            | Description                                  |
-| ------ | --------------- | -------------------------------------------- |
-| GET    | `/`             | Serves the frontend.                         |
-| GET    | `/health`       | Blended health/readiness check (compat).     |
-| GET    | `/health/live`  | Liveness — process is up, no model required. |
-| GET    | `/health/ready` | Readiness — detector loaded & serving (503 otherwise). |
-| POST   | `/predict`      | Analyse pasted article text.                 |
-| POST   | `/predict-url`  | Analyse an article at a URL.                 |
-| GET    | `/docs`         | Interactive API documentation (Swagger UI).  |
-| GET    | `/redoc`        | Alternative API documentation.               |
+| Method | Path          | Description                                  |
+| ------ | ------------- | -------------------------------------------- |
+| GET    | `/`           | Serves the frontend.                         |
+| GET    | `/health`     | Health/readiness check.                      |
+| POST   | `/predict`    | Analyse pasted article text.                 |
+| POST   | `/predict-url`| Analyse an article at a URL.                 |
+| GET    | `/docs`       | Interactive API documentation (Swagger UI).  |
+| GET    | `/redoc`      | Alternative API documentation.               |
 
-### `GET /health/live` and `GET /health/ready`
-
-`/health/live` always returns `200 {"status": "ok"}` as long as the process
-serves HTTP. `/health/ready` returns `200` only when the promoted
-LogisticRegression detector is loaded **and** described (fingerprinted) —
-otherwise `503` with a `detail` explaining the detector is not ready. Use
-`/health/live` for "is the container up" and `/health/ready` for
-container-orchestrator readiness/health checks.
-
-### `GET /health` (compatibility)
+### `GET /health`
 
 ```json
 {

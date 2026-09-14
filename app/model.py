@@ -30,7 +30,6 @@ from typing import Any
 import numpy as np
 
 from app import preprocessing
-from app.artifacts import fingerprint_file
 from app.config import settings
 
 
@@ -115,15 +114,6 @@ class ModelService:
         self._vectorizer: Any | None = None
         self._backend: str | None = None  # "keras" | "sklearn"
         self._bundle: bool = False
-        # Feature names are materialised once at load and reused across every
-        # request instead of recomputed per prediction (sklearn's
-        # get_feature_names_out() rebuilds the full vocabulary each call).
-        self._feature_names_cache: list[str] | None = None
-        # Lifecycle metadata filled by load(); used by /health and readiness.
-        self.model_sha256: str | None = None
-        self.vectorizer_sha256: str | None = None
-        self.vocab_size: int | None = None
-        self.loaded_at: float | None = None
 
     # ------------------------------------------------------------------ #
     # Loading
@@ -142,27 +132,7 @@ class ModelService:
 
         if self._model is None or self._vectorizer is None:
             raise ModelLoadError("Model or vectorizer failed to initialise.")
-        self._fingerprint_and_describe()
         return self
-
-    def _fingerprint_and_describe(self) -> None:
-        """Hash the on-disk artifacts and capture model metadata.
-
-        Runs once during :meth:`load` so the service itself (not the caller)
-        owns its fingerprints, vocabulary size and readiness facts.
-        """
-        import time as _time
-
-        self.model_sha256 = fingerprint_file(self.model_file).sha256
-        if not self._bundle or self.vectorizer_file.exists():
-            self.vectorizer_sha256 = fingerprint_file(self.vectorizer_file).sha256
-        self.vocab_size = self._measure_vocab_size()
-        self._feature_names_cache = self._feature_names_from_vectorizer()
-        self.loaded_at = _time.monotonic()
-
-    def _measure_vocab_size(self) -> int | None:
-        vocab = getattr(self._vectorizer, "vocabulary_", None)
-        return len(vocab) if vocab is not None else None
 
     def _try_load_sklearn(self) -> Any | None:
         """Attempt to load the model file as a pickled scikit-learn estimator.
@@ -287,19 +257,6 @@ class ModelService:
     @property
     def is_loaded(self) -> bool:
         return self._model is not None and self._vectorizer is not None
-
-    @property
-    def model_ready(self) -> bool:
-        """True when loaded AND fully described (fingerprints + vocab).
-
-        A service whose artifacts loaded but whose fingerprinting failed is
-        *loaded* but not *ready* to serve verified predictions.
-        """
-        return bool(
-            self.is_loaded
-            and self.model_sha256 is not None
-            and self.vocab_size is not None
-        )
 
     @property
     def model_is_loaded(self) -> bool:
@@ -485,16 +442,7 @@ class ModelService:
         return contributions[:limit]
 
     def _feature_names(self) -> list[str]:
-        """Return the vectorizer's feature names (works across sklearn versions).
-
-        The list is captured once during load() (O(vocab)) and reused for every
-        prediction; rebuilding it per request is a measurable bottleneck.
-        """
-        if self._feature_names_cache is None:
-            self._feature_names_cache = self._feature_names_from_vectorizer()
-        return self._feature_names_cache
-
-    def _feature_names_from_vectorizer(self) -> list[str]:
+        """Return the vectorizer's feature names (works across sklearn versions)."""
         if hasattr(self._vectorizer, "get_feature_names_out"):
             return list(self._vectorizer.get_feature_names_out())
         return list(self._vectorizer.get_feature_names())

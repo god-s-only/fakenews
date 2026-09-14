@@ -5,9 +5,7 @@ from __future__ import annotations
 import logging
 import os
 
-from app.observability import attach_request_id_filter
-
-LOGGING_FORMAT = "%(asctime)s %(levelname)s %(name)s [%(request_id)s]: %(message)s"
+LOGGING_FORMAT = "%(asctime)s %(levelname)s %(name)s: %(message)s"
 
 
 def configure_logging() -> None:
@@ -15,7 +13,6 @@ def configure_logging() -> None:
     level_name = os.environ.get("LOG_LEVEL", "INFO").upper()
     level = getattr(logging, level_name, logging.INFO)
     logging.basicConfig(level=level, format=LOGGING_FORMAT)
-    attach_request_id_filter()
     logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
     logging.getLogger("uvicorn.error").setLevel(logging.WARNING)
     logging.getLogger("multipart.multipart").setLevel(logging.WARNING)

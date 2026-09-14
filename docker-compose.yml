@@ -1,8 +1,6 @@
 services:
   detector:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: fake-news-detector
     ports:
       - "8000:8000"
@@ -12,20 +10,4 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8000
-      # Promoted artifacts are baked into the image; these names document it.
-      - MODEL_PATH=my_model_lr.pkl
-      - VECTORIZER_PATH=my_tfidf_vectorizer.pkl
-    user: appuser
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "python", "-c",
-             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready')"]
-      interval: 30s
-      timeout: 3s
-      start_period: 20s
-      retries: 3
-    # Bounded memory so a pathological page can't starve the host.
-    deploy:
-      resources:
-        limits:
-          memory: 768M

@@ -8,6 +8,7 @@ and URL endpoints.
 
 from __future__ import annotations
 
+import hashlib
 import logging
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -17,21 +18,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.cache import TTLCache, cache_key
 from app.config import settings
 from app.model import ModelLoadError, ModelService
-from app.observability import RequestIDMiddleware, attach_request_id_filter
 from app.prediction_log import PredictionEntry, prediction_log
 from app.preprocessing import ensure_stopwords_available
-from app.ratelimit import RateLimitMiddleware, SlidingWindowRateLimiter
-from app.scraper import ExtractResult, ScrapeError, fetch_article
-from app.security import RequestBodyLimitMiddleware
+from app.scraper import ScrapeError, fetch_article
 from app.schemas import (
     HealthResponse,
-    LiveResponse,
     PredictRequest,
     PredictResponse,
-    ReadyResponse,
     UrlRequest,
 )
 
@@ -41,54 +36,33 @@ FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 
 
 class AppState:
-    """Shared mutable state stored on the FastAPI application.
-
-    Owned by ``create_app`` (``app.state.app_state``).  The module-level
-    ``state`` below is bound to the default application so existing tests keep
-    working, but every new ``create_app()`` call receives isolated state.
-    """
+    """Shared mutable state stored on the FastAPI application."""
 
     def __init__(self) -> None:
         self.model: ModelService | None = None
-        # Bounded in-memory memoisation of fetched/extracted URL results. It
-        # never stores request bodies; only deterministic extraction outputs.
-        self.url_cache: TTLCache = TTLCache(
-            ttl_seconds=settings.CACHE_URL_TTL_SECONDS,
-            max_items=settings.CACHE_URL_MAX_ITEMS,
-        )
-        # Per-process sliding-window rate limiter (audit B5). Each application
-        # instance owns its counters; see docs/concurrency.md for limits.
-        self.rate_limiter: SlidingWindowRateLimiter = SlidingWindowRateLimiter(
-            limit=settings.RATE_LIMIT_REQUESTS,
-            window_seconds=settings.RATE_LIMIT_WINDOW_SECONDS,
-            max_keys=settings.RATE_LIMIT_MAX_IPS,
-        )
 
 
-def create_app(app_state: AppState | None = None) -> FastAPI:
-    """Build the FastAPI application.
+state = AppState()
 
-    ``app_state`` lets callers inject state (the module-level singleton is the
-    default); each application instance owns its own state so repeated
-    ``create_app()`` calls never share a live model.
-    """
-    shared_state = app_state if app_state is not None else AppState()
 
+def _sha256_file(path: Path) -> str:
+    """SHA-256 of a pickle/artifact file (small; computed once at startup)."""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def create_app() -> FastAPI:
     @asynccontextmanager
     async def lifespan(app: FastAPI):
-        # Re-attach the request-id filter: uvicorn (or any embedding runtime)
-        # may (re)configure logging through dictConfig after import, replacing
-        # or adding root handlers; without the filter a request_id-aware formatter
-        # raises ValueError on the first log record (observability B7).
-        attach_request_id_filter()
         # Ensure NLTK data is available before any predictions.
         ensure_stopwords_available()
         # Log configuration warnings before model load.
         for warning in settings.validate():
             logger.warning("Config: %s", warning)
-        # Load the model/vectorizer once during startup; ModelService.load()
-        # also fingerprints the artifact files and describes the model, so
-        # readiness facts live with the service itself.
+        # Load the model/vectorizer once during startup and store in state.
         logger.info(
             "Loading model from %s and vectorizer from %s",
             settings.model_file,
@@ -100,22 +74,23 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
         except ModelLoadError as exc:
             # Do not silently continue; the app is unusable for predictions.
             logger.error("Model load failed: %s", exc)
-            shared_state.model = None
+            state.model = None
             raise RuntimeError(str(exc)) from exc
-        shared_state.model = service
+        # Record artifact fingerprints so /health can prove which detector is
+        # actually live (e.g. sklearn Candidate D vs legacy Keras baseline).
+        service.model_sha256 = _sha256_file(settings.model_file)
+        service.vectorizer_sha256 = _sha256_file(settings.vectorizer_file)
+        service.vocab_size = len(service._vectorizer.vocabulary_)
+        state.model = service
         logger.info(
-            "Model loaded successfully (backend=%s model=%s vocab=%d "
-            "model_sha256=%s vectorizer_sha256=%s)",
-            service._backend,
-            settings.model_file.name,
-            service.vocab_size,
-            service.model_sha256,
-            service.vectorizer_sha256,
+            "Model and vectorizer loaded successfully "
+            "(backend=%s model=%s vocab=%d)",
+            service._backend, settings.model_file.name, service.vocab_size,
         )
         logger.info("Uncertainty threshold: %s", settings.UNCERTAINTY_THRESHOLD)
         logger.info("Top features: %s", settings.TOP_FEATURES)
         yield
-        shared_state.model = None
+        state.model = None
 
     application = FastAPI(
         title="Fake News Detector",
@@ -127,7 +102,6 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
         version="2.0.0",
         lifespan=lifespan,
     )
-    application.state.app_state = shared_state
 
     application.add_middleware(
         CORSMiddleware,
@@ -136,20 +110,6 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-
-    # Bounds request bodies BEFORE any route reads them (audit B4): rejects
-    # oversized payloads with 413 without ever materialising the body.
-    application.add_middleware(
-        RequestBodyLimitMiddleware,
-        max_body_bytes=settings.MAX_REQUEST_BODY_BYTES,
-    )
-
-    # Outermost: enforces the per-IP sliding-window rate limit (audit B5).
-    application.add_middleware(RateLimitMiddleware)
-
-    # Outermost-of-all: correlates every request (even rejected ones) with a
-    # request id and emits a structured access log (audit B7).
-    application.add_middleware(RequestIDMiddleware)
 
     @application.exception_handler(Exception)
     def unhandled_exception(request: Request, exc: Exception):
@@ -192,8 +152,8 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
         return FileResponse(FRONTEND_DIR / "index.html")
 
     @application.get("/health", response_model=HealthResponse)
-    def health(request: Request) -> HealthResponse:
-        service = request.app.state.app_state.model
+    def health() -> HealthResponse:
+        service = state.model
         model_loaded = bool(service and service.model_is_loaded)
         vectorizer_loaded = bool(service and service.vectorizer_is_loaded)
         if (service is not None and service.is_loaded
@@ -217,42 +177,6 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
             model_sha256=model_sha256,
             vectorizer_sha256=vectorizer_sha256,
             vocab_size=vocab_size,
-        )
-
-    @application.get("/health/live", response_model=LiveResponse)
-    def health_live() -> LiveResponse:
-        """Liveness: the process serves HTTP regardless of model state.
-
-        Deliberately model-independent so orchestrators can tell "up" apart
-        from "ready" (audit B6 — the old blended /health conflated the two).
-        """
-        return LiveResponse(status="ok")
-
-    @application.get("/health/ready", response_model=ReadyResponse)
-    def health_ready(request: Request) -> ReadyResponse:
-        """Readiness: can this instance actually produce a prediction?
-
-        503 + detail while the model is still loading or failed to load;
-        on success returns the same readiness facts the blended /health reports.
-        """
-        service = request.app.state.app_state.model
-        model_loaded = bool(service and service.model_is_loaded)
-        model_ready = bool(service and service.model_ready)
-        if not model_ready:
-            raise HTTPException(
-                status_code=503,
-                detail="Detector is not ready to serve predictions.",
-            )
-        return ReadyResponse(
-            status="ready",
-            model_loaded=model_loaded,
-            model_ready=model_ready,
-            model_backend=getattr(service, "_backend", None),
-            model_file=service.model_file.name if service else None,
-            vectorizer_file=service.vectorizer_file.name if service else None,
-            model_sha256=getattr(service, "model_sha256", None),
-            vectorizer_sha256=getattr(service, "vectorizer_sha256", None),
-            vocab_size=getattr(service, "vocab_size", None),
         )
 
     @application.get("/info")
@@ -279,14 +203,13 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
             for e in entries
         ]
 
-    def _require_model(request: Request) -> ModelService:
-        model = request.app.state.app_state.model
-        if model is None or not model.is_loaded:
+    def _require_model() -> ModelService:
+        if state.model is None or not state.model.is_loaded:
             raise HTTPException(
                 status_code=503,
                 detail="The detector model is not loaded. Please try again later.",
             )
-        return model
+        return state.model
 
     def _to_response(
         service: ModelService,
@@ -330,8 +253,8 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
         return response
 
     @application.post("/predict", response_model=PredictResponse)
-    def predict(request: Request, req: PredictRequest) -> PredictResponse:
-        service = _require_model(request)
+    def predict(req: PredictRequest) -> PredictResponse:
+        service = _require_model()
         text = req.news.strip()
         if len(text) > settings.MAX_INPUT_LENGTH:
             raise HTTPException(
@@ -342,20 +265,9 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
         return _to_response(service, text, "text")
 
     @application.post("/predict-url", response_model=PredictResponse)
-    def predict_url(request: Request, req: UrlRequest) -> PredictResponse:
-        service = _require_model(request)
-        key = cache_key(req.url)
-        cached = (
-            shared_state.url_cache.get(key)
-            if settings.CACHE_URL_ENABLED
-            else None
-        )
-        if cached is not None:
-            extract: ExtractResult = cached
-        else:
-            extract = fetch_article(req.url)
-            if extract.text.strip() and settings.CACHE_URL_ENABLED:
-                shared_state.url_cache.put(key, extract)
+    def predict_url(req: UrlRequest) -> PredictResponse:
+        service = _require_model()
+        extract = fetch_article(req.url)
         if not extract.text.strip():
             raise HTTPException(
                 status_code=422,
@@ -372,5 +284,4 @@ def create_app(app_state: AppState | None = None) -> FastAPI:
     return application
 
 
-state = AppState()
-app = create_app(app_state=state)
+app = create_app()
